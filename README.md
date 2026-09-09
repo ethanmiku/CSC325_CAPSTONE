@@ -2,11 +2,11 @@
 
 GROUP MEMBERS:
 
-Ethan Mikucki
-Jeffery Jean
-Fred Zhang
-Sean Wallace
-Angel Mendez Reyes
+Ethan Mikucki,
+Jeffery Jean,
+Fred Zhang,
+Sean Wallace,
+Angel Mendez Reyes,
 John Rosario Castro
 
 
