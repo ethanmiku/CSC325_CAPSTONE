@@ -1,6 +1,6 @@
 # CSC325_CAPSTONE
 
-GROUP MEMBERS:
+## Group Members:
 
 Ethan Mikucki,
 Jeffery Jean,
@@ -9,6 +9,6 @@ Sean Wallace,
 Angel Mendez Reyes,
 John Rosario Castro
 
+## Description:
 
-Description:
 We have decided to make a mobile app, still working on an idea. Will update when we settle on one.
