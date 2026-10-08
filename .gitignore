@@ -1,0 +1,20 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Local SQLite database
+db.sqlite3
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+htmlcov/
