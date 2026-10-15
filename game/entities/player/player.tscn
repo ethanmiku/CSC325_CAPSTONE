@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://45n7m5abab33"]
+[gd_scene format=3 uid="uid://vf2ntnpcwlh7"]
 
-[ext_resource type="Script" uid="uid://baysy8mi6gr73" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://clr2yklgmxtd8" path="res://entities/player/player.gd" id="1_symyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh5qq"]
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=1166351562]
 motion_mode = 1
-script = ExtResource("1_3vyb7")
+script = ExtResource("1_symyc")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1243241422]
 offset_left = -16.0
