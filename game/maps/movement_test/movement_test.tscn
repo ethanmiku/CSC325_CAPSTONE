@@ -13,4 +13,3 @@ script = ExtResource("1_bskp7")
 scale = Vector2(4, 4)
 
 [node name="TouchControls" parent="." unique_id=2022829609 instance=ExtResource("3_q53g8")]
-force_show_joystick = true

@@ -2,8 +2,9 @@
 extends CanvasLayer
 class_name TouchControls
 
-# set to true for the joystick to appear on desktop
-@export var force_show_joystick := false # should be set to false unless we are testing
+# This should be left set to true, as the joystick only appears
+# when the left side of the screen is touched or clicked
+@export var force_show_joystick := true
 
 func _ready() -> void:
 	visible = force_show_joystick or DisplayServer.is_touchscreen_available()
