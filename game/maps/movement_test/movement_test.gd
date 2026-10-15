@@ -1,5 +1,4 @@
-# This script is purely for testing purposes, used to make a checkerboard to easily
-# test the functionality of basic movement
+# Makes a checkerboard map on movement_test.tscn to visibly see that the player is moving
 extends Node2D
 
 @export var tile_size: int = 128
