@@ -51,6 +51,10 @@ def generate_reply(npc_id, message, history):
     except anthropic.APIError:
         raise AIUnavailable() from None
 
+    # A token-limited response can contain text but still end mid-sentence.
+    if getattr(result, 'stop_reason', None) == 'max_tokens':
+        raise AIInvalidResponse()
+
     content = getattr(result, 'content', None)
     if not isinstance(content, list):
         raise AIInvalidResponse()

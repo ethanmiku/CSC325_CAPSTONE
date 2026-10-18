@@ -119,7 +119,9 @@ consistency or authorize changes to game state.
 `reply` is nonempty text intended for display. Its wording varies between requests.
 The backend uses a short output-token budget and limits successful replies to
 4,000 characters so they can be reused in history. If generated output cannot be
-returned within that limit, return `502` with `ai_invalid_response`.
+returned within that limit, or Claude reports `stop_reason: max_tokens` (a cut-off
+reply), return `502` with `ai_invalid_response`. The backend does not automatically
+request a continuation or retry generation.
 
 No conversation ID, session ID, or game-state changes are returned.
 
@@ -184,7 +186,7 @@ Godot should branch on HTTP status and `code`, not on the wording of messages.
 | 405 | `method_not_allowed` | The route does not support the HTTP method. |
 | 406 | `not_acceptable` | The requested response format does not allow JSON. |
 | 415 | `unsupported_media_type` | A request body uses an unsupported content type. |
-| 502 | `ai_invalid_response` | Claude returned no usable text or a reply exceeding the response limit. |
+| 502 | `ai_invalid_response` | Claude returned no usable text, a reply exceeding the response limit, or a reply cut off at the token limit. |
 | 503 | `ai_unavailable` | Claude configuration is missing, the provider is rate limited/unavailable, or the backend cannot connect to it. |
 | 504 | `ai_timeout` | The backend's Claude request timed out. |
 | 500 | `internal_error` | An unexpected backend failure occurred. |
@@ -257,3 +259,21 @@ Invoke-RestMethod `
 
 Automated backend tests should mock Claude. A separate real API smoke test checks
 credentials and connectivity; generated wording is not an exact-match test target.
+
+### Step 5 verification
+
+Run the automated suite from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe backend/manage.py test dialogue --verbosity 2
+```
+
+Verified on October 18, 2026:
+
+- All 33 automated tests passed. Conversation integration tests use the real SDK
+  with simulated HTTP transport; they make no external requests or database queries.
+- A live two-turn check returned `200` for both requests. After introducing the
+  player as Detective Morgan, a follow-up containing the previous exchange correctly
+  recalled that name. This is a smoke test, not a guarantee of future model behavior.
+- Simulated provider failures, timeouts, unusable replies, and token-limited replies
+  return the documented errors without automatic generation retries.
