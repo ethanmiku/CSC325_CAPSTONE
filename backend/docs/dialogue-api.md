@@ -1,6 +1,7 @@
 # NPC Dialogue API Contract
 
-Status: proposed MVP contract for review. These endpoints are not implemented yet.
+Status: health and dialogue endpoints implemented locally. Real Claude generation
+requires the configuration below; automated tests use mocked Claude responses.
 
 ## Scope
 
@@ -25,6 +26,25 @@ the database environment variables described in the backend setup guides.
 
 This contract targets a local desktop demo. Hosting and browser-export integration
 will be addressed in a later milestone.
+
+### Claude configuration
+
+Install the updated `backend/requirements.txt` in the project virtual environment.
+Add these values to your existing `backend/.env`, without overwriting your Django
+or MongoDB settings:
+
+```dotenv
+ANTHROPIC_API_KEY=your-actual-api-key
+ANTHROPIC_MODEL=your-selected-available-model-id
+```
+
+Use a model ID available to your Claude API account. Restart Django after changing
+the environment file. Missing or placeholder values produce `503 ai_unavailable`;
+the health endpoint remains usable. Never commit the actual API key.
+
+The backend requests at most 300 output tokens, uses a 30-second SDK network
+timeout, and disables SDK retries. The Godot client's timeout should allow extra
+time beyond the backend timeout to receive a JSON error response.
 
 ## GET /api/health/
 
@@ -162,6 +182,7 @@ Godot should branch on HTTP status and `code`, not on the wording of messages.
 | 400 | `invalid_request` | Malformed JSON, missing fields, incorrect types, or violated input/history limits. |
 | 404 | `npc_not_found` | A structurally valid request names an unsupported NPC. |
 | 405 | `method_not_allowed` | The route does not support the HTTP method. |
+| 406 | `not_acceptable` | The requested response format does not allow JSON. |
 | 415 | `unsupported_media_type` | A request body uses an unsupported content type. |
 | 502 | `ai_invalid_response` | Claude returned no usable text or a reply exceeding the response limit. |
 | 503 | `ai_unavailable` | Claude configuration is missing, the provider is rate limited/unavailable, or the backend cannot connect to it. |
@@ -179,8 +200,8 @@ request will succeed.
 
 ## Manual request examples (PowerShell)
 
-These examples assume the planned endpoints have been implemented and Django is
-running locally. They do not require Godot.
+These examples assume Django is running locally. Dialogue generation also requires
+valid Claude configuration and API access. They do not require Godot.
 
 ### Health
 

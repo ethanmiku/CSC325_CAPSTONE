@@ -19,6 +19,10 @@ import os
 from dotenv import load_dotenv
 load_dotenv(BASE_DIR / '.env')
 
+# Optional until dialogue generation is used. Missing values return a controlled 503.
+ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY', '')
+ANTHROPIC_MODEL = os.getenv('ANTHROPIC_MODEL', '')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
