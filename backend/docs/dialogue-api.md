@@ -199,6 +199,47 @@ Clients must also handle network failures and non-JSON responses, which can occu
 outside the Django API. A health response alone does not guarantee that a dialogue
 request will succeed.
 
+## Godot integration handoff
+
+Start with a desktop Godot client and Django running on the same computer. Each
+teammate can run their own local backend using the Windows or macOS setup guide.
+`127.0.0.1` refers to the computer running the client; it does not reach a teammate's
+computer. A shared remote backend is a separate deployment task.
+
+| Backend owner | Godot owner |
+| --- | --- |
+| Maintain the API contract and communicate changes. | Use one configurable API base URL, initially `http://127.0.0.1:8000`. |
+| Validate input and return documented JSON responses. | Send `Content-Type: application/json` and `Accept: application/json`. |
+| Maintain NPC profiles, case facts, and prompts. | Use the supported NPC ID `butler`; display Arthur as the character name. |
+| Configure Claude credentials, model, output budget, and timeout. | Keep credentials out of client requests and game files. |
+| Generate replies and translate provider failures. | Display loading, replies, and errors; allow only one pending send. |
+| Test backend behavior and document setup. | Keep history per NPC, trim complete exchanges to the stated limits, and clear it on reset. |
+
+Client request sequence:
+
+1. Check `GET /api/health/` to confirm connectivity.
+2. For the first message, submit `history: []`.
+3. On `200`, append the submitted player message and returned reply to history.
+4. Before each follow-up, remove oldest complete exchanges until the count and
+   character limits are satisfied. Send that history plus the new `message`.
+5. On an API or network error, preserve the input, leave history unchanged, and
+   offer a manual retry. Never store an error message as an NPC reply.
+
+A 60-second client timeout is a reasonable starting point for this local demo.
+The SDK's 30-second timeout is a network-operation timeout, not a guaranteed total
+request deadline; the client must still handle its own timeout or disconnection.
+
+Joint integration checks (to be completed with the Godot teammate):
+
+- [ ] Godot reaches the local health endpoint.
+- [ ] Sending a message displays a generated NPC reply.
+- [ ] A contextual follow-up sends and uses the previous exchange.
+- [ ] Repeated clicks while waiting do not send duplicate requests.
+- [ ] A backend error or stopped server preserves input and allows manual retry.
+- [ ] Reset sends empty history on the next message.
+
+The backend's automated and live verification is recorded below. These joint
+checks remain pending until the actual Godot client has been exercised.
 
 ## Manual request examples (PowerShell)
 
@@ -247,6 +288,44 @@ Invoke-RestMethod `
     -ContentType 'application/json' `
     -Body ($followUpRequest | ConvertTo-Json -Depth 5)
 ```
+
+### Invalid request (no Claude call)
+
+An empty message must return HTTP `400` with code `invalid_request`. PowerShell
+throws for unsuccessful HTTP statuses, so this example catches the response:
+
+```powershell
+$invalidRequest = @{ npc_id = 'butler'; message = ''; history = @() }
+
+try {
+    Invoke-RestMethod `
+        -Method Post `
+        -Uri 'http://127.0.0.1:8000/api/dialogue/message/' `
+        -ContentType 'application/json' `
+        -Body ($invalidRequest | ConvertTo-Json -Depth 5)
+} catch {
+    if ($null -eq $_.Exception.Response) { throw }
+    Write-Output "HTTP $([int]$_.Exception.Response.StatusCode)"
+    Write-Output $_.ErrorDetails.Message
+}
+```
+
+Expected JSON (whitespace may differ):
+
+```json
+{
+  "error": {
+    "code": "invalid_request",
+    "message": "The request contains invalid fields.",
+    "details": {
+      "message": ["This field may not be blank."]
+    }
+  }
+}
+```
+
+For a macOS first-message and follow-up client, see
+[the macOS setup guide](../SETUP_MAC.md#8-verify-npc-dialogue).
 
 ## MVP acceptance checks
 
