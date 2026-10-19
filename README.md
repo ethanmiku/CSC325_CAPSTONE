@@ -30,3 +30,14 @@ The goal is to create an engaging detective experience where players use logical
 The local dialogue MVP supports one predefined NPC with Claude-generated replies.
 The backend owns NPC data, validation, prompts, and Claude access. The Godot client
 owns the conversation UI and supplies recent history with each message.
+
+## Evidence discovery (Issue #25)
+
+The Godot evidence feature provides a mobile Interact button, local range checks,
+an evidence information panel, and discovery tracking for the current game run.
+It does not require Django or MongoDB. Player movement is developed separately.
+
+Open `game/maps/evidence_demo.tscn` in Godot and run the current scene with **F6**
+to try the stationary demonstration. See the [evidence integration and testing
+guide](game/docs/evidence-discovery.md) for player integration, authoring objects,
+automated tests, and mobile manual checks.
