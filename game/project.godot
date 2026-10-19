@@ -14,6 +14,10 @@ config/name="murder-mystery-game"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EvidenceState="*res://evidence/evidence_state.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
