@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bt73gcrk1fgss"]
+
+[ext_resource type="Script" uid="uid://b38ogmkeh27cd" path="res://ui/dialogue_box/dialogue_box.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://xe2w53a1n1hs" path="res://shared_assets/fonts/PixelOperatorMono.ttf" id="2_font"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prompt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_box"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_dialogue"]
+default_font = ExtResource("2_font")
+default_font_size = 32
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_prompt")
+Button/styles/hover = SubResource("StyleBoxEmpty_prompt")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_prompt")
+Button/styles/normal = SubResource("StyleBoxEmpty_prompt")
+Button/styles/pressed = SubResource("StyleBoxEmpty_prompt")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_box")
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=1918861087]
+layer = 2
+script = ExtResource("1_script")
+
+[node name="Box" type="Panel" parent="." unique_id=862731067]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -232.0
+offset_right = -32.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_dialogue")
+
+[node name="Margin" type="MarginContainer" parent="Box" unique_id=1263722042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="Columns" type="HBoxContainer" parent="Box/Margin" unique_id=1522771946]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="MainText" type="Label" parent="Box/Margin/Columns" unique_id=1609933848]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+text = "* placeholder for now"
+autowrap_mode = 3
+
+[node name="Divider" type="ColorRect" parent="Box/Margin/Columns" unique_id=794011743]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Prompts" type="VBoxContainer" parent="Box/Margin/Columns" unique_id=1156966871]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Prompt1" type="Button" parent="Box/Margin/Columns/Prompts" unique_id=391983316]
+layout_mode = 2
+text = "* Prompt 1"
+alignment = 0
+autowrap_mode = 3
+
+[node name="Prompt2" type="Button" parent="Box/Margin/Columns/Prompts" unique_id=1173191510]
+layout_mode = 2
+text = "* Prompt 2"
+alignment = 0
+autowrap_mode = 3
+
+[node name="Prompt3" type="Button" parent="Box/Margin/Columns/Prompts" unique_id=1000937077]
+layout_mode = 2
+text = "* Prompt 3"
+alignment = 0
+autowrap_mode = 3
