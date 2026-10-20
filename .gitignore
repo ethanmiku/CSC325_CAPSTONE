@@ -11,12 +11,46 @@ venv/
 __pycache__/
 *.py[cod]
 
+# Python tooling caches
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
 # Local SQLite database
 db.sqlite3
+db.sqlite3-journal
 
 # Test and coverage output
 .pytest_cache/
 .coverage
 htmlcov/
 
-.vscode
+# Django collected static files and user uploads
+staticfiles/
+media/
+
+# Log files
+*.log
+
+# Local MongoDB data and dumps
+mongo-data/
+dump/
+
+# Godot import cache
+.godot/
+
+# Godot Android build template
+android/
+
+# Godot export output
+builds/
+
+# Editor settings (shares recommended extensions)
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
