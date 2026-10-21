@@ -12,6 +12,8 @@ You need:
 - Git. Check with `git --version`. If macOS prompts you to install Command Line Tools, follow the prompt.
 - A code editor, such as VS Code.
 - A MongoDB Atlas connection string and database credentials from the project administrator, shared privately.
+- For live NPC replies: a Claude API key with API access and an available model ID.
+  These are not needed to run the automated dialogue tests.
 
 MongoDB runs in Atlas, so no local MongoDB server is required.
 MongoDB Compass is optional for inspecting data.
@@ -81,6 +83,7 @@ python -m pip check
 
 Expected: `No broken requirements found.` Use the committed requirements file
 so everyone installs the same package versions.
+The requirements include the Anthropic Python SDK used for NPC dialogue.
 
 ## 4. Create your local configuration
 
@@ -100,7 +103,9 @@ Edit `backend/.env` with these values:
 DJANGO_SECRET_KEY='your-own-generated-development-key'
 DJANGO_DEBUG=True
 MONGODB_URI=your-complete-atlas-connection-string
-MONGODB_DATABASE=murder_mystery_test
+MONGODB_DATABASE=murder_mystery_dev
+ANTHROPIC_API_KEY=replace-with-your-api-key
+ANTHROPIC_MODEL=replace-with-selected-model-id
 ```
 
 Generate your own secret key:
@@ -116,6 +121,13 @@ For `MONGODB_URI`, use the connection string for your database user, with all
 username/password placeholders replaced. If constructing the URI yourself,
 special characters in the username or password must be URL-encoded.
 
+For live dialogue, replace the two `ANTHROPIC_` placeholders with your API key and
+a model ID available to your Claude API account. Leave them as placeholders if
+you only need health checks or automated tests. Dialogue returns a controlled
+`503 ai_unavailable` until configured. Restart Django after changing `.env`.
+
+If you already have `.env`, add the new variables to it; do not copy over it.
+
 The filename must be exactly `.env`, not `.env.txt`. Use a plain text editor.
 Never commit this file or share its credentials publicly. `.env.example` contains
 placeholders and is safe to commit; `.env` and `.venv` are ignored by Git.
@@ -129,7 +141,7 @@ and migrations. Your Atlas website account and your database user are separate.
 - Otherwise, ask the administrator to allow your current public IP address.
 
 You do not need to create a new cluster or receive an Atlas dashboard invitation
-just to run Django. Using `murder_mystery_test` connects you to the shared development
+just to run Django. Using `murder_mystery_dev` connects you to the shared development
 database, so changes to its data may affect teammates.
 
 ## 6. Verify Django and MongoDB
@@ -175,11 +187,70 @@ python manage.py runserver
 
 Leave Terminal running and open:
 
-- http://127.0.0.1:8000/ — Django's welcome page while the project has its initial URL setup.
+- http://127.0.0.1:8000/api/health/ — should return `{"status":"ok"}`.
 - http://127.0.0.1:8000/admin/login/ — the admin login page. You do not need an admin account to view it.
 
 Stop Django with `Control+C`. Atlas keeps running independently and retains its data.
 This server runs locally on your Mac; it is not the deployed backend for players.
+The root URL `/` has no application view and returns 404.
+
+## 8. Verify NPC dialogue
+
+With the virtual environment active, from `backend`, run:
+
+```bash
+python manage.py test dialogue --verbosity 2
+```
+
+The suite currently contains 33 tests. It does not call Claude or query MongoDB,
+but Django still needs the configuration variables from step 4 to load settings.
+
+Leave the server running. In a second Terminal window, activate the virtual
+environment from the repository root and run this Python client. It sends a first
+message, then a follow-up containing the actual reply. Both calls use your Claude
+API account and incur API charges.
+
+```bash
+source .venv/bin/activate
+python - <<'PY'
+import json
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
+
+def send(payload):
+    request = Request(
+        'http://127.0.0.1:8000/api/dialogue/message/',
+        data=json.dumps(payload).encode('utf-8'),
+        headers={'Content-Type': 'application/json', 'Accept': 'application/json'},
+        method='POST',
+    )
+    try:
+        with urlopen(request, timeout=60) as response:
+            return json.load(response)
+    except HTTPError as error:
+        print('HTTP', error.code, error.read().decode('utf-8'))
+        raise SystemExit(1)
+
+message = 'Where were you last night?'
+first = send({'npc_id': 'butler', 'message': message, 'history': []})
+print(json.dumps(first, indent=2))
+history = [
+    {'role': 'user', 'content': message},
+    {'role': 'assistant', 'content': first['reply']},
+]
+follow_up = send({
+    'npc_id': 'butler',
+    'message': 'Did you hear anything while you were there?',
+    'history': history,
+})
+print(json.dumps(follow_up, indent=2))
+PY
+```
+
+For a validation check without a paid call, use `message = ''` in this example.
+The first request should return `400 invalid_request` and the client will exit.
+For request rules and Godot responsibilities, see the
+[API contract](docs/dialogue-api.md).
 
 ## Returning to work later
 
@@ -217,6 +288,10 @@ python manage.py migrate
 | MongoDB operation is unauthorized | Ask the administrator to check your database user's permissions. |
 | TLS certificate verification fails after installing Python from python.org | Run the installer's `Install Certificates.command` in the Python 3.14 folder under Applications; keep certificate verification enabled. |
 | Port 8000 is in use | Stop the other server or run `python manage.py runserver 8001` and open http://127.0.0.1:8001/. |
+| `No module named anthropic` | Activate `.venv` and reinstall `backend/requirements.txt` from the repository root. |
+| Dialogue returns `503 ai_unavailable` | Check the key, model ID, API access/billing, provider availability, and network access. Restart Django after editing `.env`. Provider failures intentionally share a generic response. |
+| Dialogue returns `504 ai_timeout` | The Claude request timed out. Retry manually when ready; the backend does not retry automatically. |
+| Dialogue returns `502 ai_invalid_response` | The provider reply was empty, oversized, or cut off at the token limit. |
 
 Share error messages with credentials removed when asking for help.
 
@@ -229,6 +304,8 @@ Share error messages with credentials removed when asking for help.
 - [ ] Atlas permits your connection and database user.
 - [ ] Django `check` and `migrate` succeed.
 - [ ] The server responds in your browser.
+- [ ] The automated dialogue suite passes.
+- [ ] If testing live dialogue, a first message and contextual follow-up succeed.
 
-Once these pass, your initial backend setup is complete. Game APIs and AI dialogue
-will be added during development.
+The backend supports the local NPC dialogue MVP. The Godot client integrates with
+the endpoints described in the [API contract](docs/dialogue-api.md).
