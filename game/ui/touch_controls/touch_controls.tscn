@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bu1q7kkfv7ml2"]
+
+[ext_resource type="Script" uid="uid://drfdpdss40rxo" path="res://ui/touch_controls/touch_controls.gd" id="1_rhcqw"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1878801948]
+script = ExtResource("1_rhcqw")
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="." unique_id=998880937]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -648.0
+offset_right = 596.0
+offset_bottom = -4.0
+grow_vertical = 0
+joystick_mode = 1
+action_left = &"left"
+action_right = &"right"
+action_up = &"up"
+action_down = &"down"
