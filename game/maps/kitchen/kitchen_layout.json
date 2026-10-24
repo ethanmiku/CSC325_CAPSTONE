@@ -1,0 +1,726 @@
+{
+ "room": "Kitchen",
+ "key": "kitchen",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 16,
+  "h": 12
+ },
+ "size_px": {
+  "w": 256,
+  "h": 192
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "kitchen",
+  "floor": "stone"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 14,
+  "y1": 10,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "kitchen_tileset.png",
+ "tileset_index": "kitchen_tileset.json",
+ "preview": "kitchen_preview.png",
+ "player_spawn": {
+  "tile": [
+   2,
+   8
+  ],
+  "godot_position_if_sprite_centered_px": [
+   40,
+   129
+  ],
+  "frame_top_left_px": [
+   24,
+   113
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "W",
+   "target": "Main Hall",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     9
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 128,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    8
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D2",
+   "wall": "N",
+   "target": "Dining Room (service door)",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     12,
+     0
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     13,
+     0
+    ],
+    [
+     13,
+     1
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 192,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    12,
+    2
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D3",
+   "wall": "E",
+   "target": "Snowy Backyard",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     15,
+     4
+    ],
+    [
+     15,
+     5
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 240,
+    "y": 64,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    14,
+    4
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "K7",
+   "name": "Pantry cabinet",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/pantry_cabinet.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "K1",
+   "name": "Counter / cabinet",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/kitchen_counter.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    16
+   ]
+  },
+  {
+   "id": "K2",
+   "name": "Sink",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 4,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 64,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/kitchen_sink.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    16
+   ]
+  },
+  {
+   "id": "K4",
+   "name": "Stove",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/stove_victorian.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    16
+   ]
+  },
+  {
+   "id": "K3",
+   "name": "Prep counter",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/kitchen_counter.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    128,
+    16
+   ]
+  },
+  {
+   "id": "K5",
+   "name": "Provisions shelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/pots_shelf.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    16
+   ]
+  },
+  {
+   "id": "K6",
+   "name": "Icebox",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/icebox.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    224,
+    16
+   ]
+  },
+  {
+   "id": "IS",
+   "name": "Kitchen island",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 5,
+    "w": 4,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 80,
+    "w": 64,
+    "h": 32
+   },
+   "y_sort_px": 112,
+   "sprite": "furniture/prep_island.png",
+   "sprite_size_px": [
+    64,
+    48
+   ],
+   "sprite_top_left_px": [
+    80,
+    64
+   ]
+  },
+  {
+   "id": "ST",
+   "name": "Staff table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 8,
+    "w": 2,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "y_sort_px": 160,
+   "sprite": "furniture/staff_table.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    128
+   ]
+  },
+  {
+   "id": "K8",
+   "name": "Crate",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 10,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 160,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/crate.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    16,
+    160
+   ]
+  },
+  {
+   "id": "K9",
+   "name": "Crates",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 10,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 160,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/crate_stack.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    144
+   ]
+  },
+  {
+   "id": "K11",
+   "name": "Sack",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 10,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 160,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/sack.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    160
+   ]
+  },
+  {
+   "id": "K12",
+   "name": "Barrel",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 10,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 160,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/barrel.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    192,
+    160
+   ]
+  },
+  {
+   "id": "K10",
+   "name": "Wash tub",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 10,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 160,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/wash_tub.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    208,
+    160
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "W1",
+   "name": "W1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_snow.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    0
+   ]
+  },
+  {
+   "id": "WC1",
+   "name": "WC1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/wall_cabinet_pine.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    32,
+    0
+   ]
+  },
+  {
+   "id": "WC2",
+   "name": "WC2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/wall_cabinet_pine.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    128,
+    0
+   ]
+  },
+  {
+   "id": "PR",
+   "name": "Hanging pots",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/pots_rack.png",
+   "sprite_size_px": [
+    48,
+    16
+   ],
+   "sprite_top_left_px": [
+    88,
+    2
+   ]
+  },
+  {
+   "id": "X1",
+   "name": "Toppled chair",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/chair_toppled.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    144,
+    128
+   ]
+  },
+  {
+   "id": "X2",
+   "name": "Broken glass",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/glass_shards.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    112,
+    128
+   ]
+  },
+  {
+   "id": "CH",
+   "name": "Lantern",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../shared_furniture/lighting/chandelier_small.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    34
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 9,
+    "y": 3,
+    "w": 3,
+    "h": 2
+   },
+   "palette": "green",
+   "sprite": "../../shared_furniture/carpets/rug_green_3x2.png",
+   "walkable": true,
+   "medallion": false
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "Clara Whitmore",
+   "tile": [
+    3,
+    6
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "(open slot)",
+   "tile": [
+    8,
+    9
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Stove - e.g. residue / pot",
+   "type": "obj",
+   "object": "K4",
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Island - e.g. knife block",
+   "type": "obj",
+   "object": "IS",
+   "footprint_tiles": {
+    "x": 5,
+    "y": 5,
+    "w": 4,
+    "h": 2
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Pantry - e.g. missing bottle",
+   "type": "obj",
+   "object": "K7",
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   }
+  },
+  {
+   "id": "C4",
+   "description": "Back-door floor - e.g. tracks from outside",
+   "type": "floor",
+   "tile": [
+    14,
+    6
+   ]
+  },
+  {
+   "id": "C5",
+   "description": "Broken glass - e.g. a dropped glass / vial",
+   "type": "floor",
+   "tile": [
+    7,
+    8
+   ]
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Pantry cabinet (1x1); Counter / cabinet (2x1); Sink (2x1); Stove (2x1); Prep counter (2x1); Provisions shelf (2x1); Icebox (1x1); Kitchen island (4x2); Staff table (2x2); Crate (1x1); Crates (1x1); Sack (1x1); Barrel (1x1); Wash tub (2x1)."
+ ],
+ "stats": {
+  "interior_tiles": 126,
+  "blocking_tiles": 30,
+  "walkable_tiles": 96,
+  "walkable_percent": 76
+ }
+}
