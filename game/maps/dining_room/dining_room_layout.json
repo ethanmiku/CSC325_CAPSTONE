@@ -1,0 +1,793 @@
+{
+ "room": "Dining Room",
+ "key": "dining_room",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 18,
+  "h": 12
+ },
+ "size_px": {
+  "w": 288,
+  "h": 192
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "burgundy",
+  "floor": "wood_dark"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 16,
+  "y1": 10,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "dining_room_tileset.png",
+ "tileset_index": "dining_room_tileset.json",
+ "preview": "dining_room_preview.png",
+ "player_spawn": {
+  "tile": [
+   2,
+   3
+  ],
+  "godot_position_if_sprite_centered_px": [
+   40,
+   49
+  ],
+  "frame_top_left_px": [
+   24,
+   33
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "W",
+   "target": "Main Hall",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 48,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    3
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D2",
+   "wall": "S",
+   "target": "Kitchen (service door)",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     12,
+     11
+    ],
+    [
+     13,
+     11
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 192,
+    "y": 176,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    12,
+    10
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D3",
+   "wall": "E",
+   "target": "Snowy Backyard (OPTIONAL French doors)",
+   "status": "optional",
+   "variant": "french_interior",
+   "door_tiles": [
+    [
+     17,
+     3
+    ],
+    [
+     17,
+     4
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 272,
+    "y": 48,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    16,
+    3
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "F1",
+   "name": "Fireplace",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/fireplaces/fireplace_lit.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    16
+   ]
+  },
+  {
+   "id": "F2",
+   "name": "China cabinet",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/display_cabinet.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    16
+   ]
+  },
+  {
+   "id": "TB",
+   "name": "Dining table (burgundy runner)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 6,
+    "w": 6,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 96,
+    "w": 96,
+    "h": 32
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/dining_table_set.png",
+   "sprite_size_px": [
+    96,
+    48
+   ],
+   "sprite_top_left_px": [
+    96,
+    80
+   ]
+  },
+  {
+   "id": "H1",
+   "name": "Chair (head, west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 96,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "../../shared_furniture/furniture/chair_dining_e.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    80,
+    80
+   ]
+  },
+  {
+   "id": "H2",
+   "name": "Chair (head, east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../shared_furniture/furniture/chair_dining_w.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    96
+   ]
+  },
+  {
+   "id": "C1a",
+   "name": "C1a",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/chair_dining_s.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    64
+   ]
+  },
+  {
+   "id": "C1b",
+   "name": "C1b",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/chair_dining_s.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    128,
+    64
+   ]
+  },
+  {
+   "id": "C1c",
+   "name": "C1c",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/chair_dining_s.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    64
+   ]
+  },
+  {
+   "id": "C2a",
+   "name": "C2a",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../shared_furniture/furniture/chair_dining_n.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    112
+   ]
+  },
+  {
+   "id": "C2b",
+   "name": "C2b",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../shared_furniture/furniture/chair_dining_n.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    112
+   ]
+  },
+  {
+   "id": "C2c",
+   "name": "C2c",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../shared_furniture/furniture/chair_dining_n.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    112
+   ]
+  },
+  {
+   "id": "F3",
+   "name": "Sideboard",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 10,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 160,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/sideboard.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    144
+   ]
+  },
+  {
+   "id": "F4",
+   "name": "Serving cart",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 10,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 160,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "furniture/serving_cart.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    224,
+    144
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "W1",
+   "name": "W1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    0
+   ]
+  },
+  {
+   "id": "W2",
+   "name": "CRACKED window",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_cracked.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    0
+   ]
+  },
+  {
+   "id": "W3",
+   "name": "W3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    240,
+    0
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    120,
+    0
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "Slashed portrait",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_portrait_damaged.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    0
+   ]
+  },
+  {
+   "id": "P3",
+   "name": "P3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_small.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    224,
+    0
+   ]
+  },
+  {
+   "id": "S1",
+   "name": "S1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    2
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "S2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    176,
+    2
+   ]
+  },
+  {
+   "id": "CW",
+   "name": "CW",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/storytelling/cobweb_corner.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    16
+   ]
+  },
+  {
+   "id": "X1",
+   "name": "Wine stain",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/wine_stain.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    208,
+    128
+   ]
+  },
+  {
+   "id": "X2",
+   "name": "Glass under cracked window",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/glass_shards.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    64,
+    48
+   ]
+  },
+  {
+   "id": "X3",
+   "name": "Toppled chair",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/chair_toppled.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    224,
+    80
+   ]
+  },
+  {
+   "id": "CH",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../shared_furniture/lighting/chandelier_large.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    120,
+    78
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 4,
+    "y": 4,
+    "w": 10,
+    "h": 6
+   },
+   "palette": "burgundy",
+   "sprite": "../../shared_furniture/carpets/rug_burgundy_10x6.png",
+   "walkable": true,
+   "medallion": true
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "Marcus Blackwood",
+   "tile": [
+    3,
+    7
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "Thomas Hale",
+   "tile": [
+    15,
+    6
+   ]
+  },
+  {
+   "id": "N3",
+   "who": "Clara Whitmore",
+   "tile": [
+    15,
+    9
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Dining table - e.g. place settings / glass",
+   "type": "obj",
+   "object": "TB",
+   "footprint_tiles": {
+    "x": 6,
+    "y": 6,
+    "w": 6,
+    "h": 2
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Fireplace - e.g. burnt letter",
+   "type": "obj",
+   "object": "F1",
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Sideboard - e.g. decanter",
+   "type": "obj",
+   "object": "F3",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 10,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C4",
+   "description": "China cabinet - e.g. missing item",
+   "type": "obj",
+   "object": "F2",
+   "footprint_tiles": {
+    "x": 12,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C5",
+   "description": "Cracked window - e.g. how someone got in / out",
+   "type": "floor",
+   "tile": [
+    4,
+    3
+   ]
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Fireplace (3x1); China cabinet (2x1); Dining table (burgundy runner) (6x2); Chair (head, west) (1x1); Chair (head, east) (1x1); C1a (1x1); C1b (1x1); C1c (1x1); C2a (1x1); C2b (1x1); C2c (1x1); Sideboard (3x1); Serving cart (2x1).",
+  "D3 is OPTIONAL (Snowy Backyard (OPTIONAL French doors)): can stay a decorative closed door."
+ ],
+ "stats": {
+  "interior_tiles": 144,
+  "blocking_tiles": 30,
+  "walkable_tiles": 114,
+  "walkable_percent": 79
+ }
+}

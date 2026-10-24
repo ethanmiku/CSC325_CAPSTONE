@@ -1,0 +1,609 @@
+{
+ "room": "Guest Room",
+ "key": "guest_room",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 14,
+  "h": 10
+ },
+ "size_px": {
+  "w": 224,
+  "h": 160
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "guest",
+  "floor": "wood_light"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 12,
+  "y1": 8,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "guest_room_tileset.png",
+ "tileset_index": "guest_room_tileset.json",
+ "preview": "guest_room_preview.png",
+ "player_spawn": {
+  "tile": [
+   12,
+   6
+  ],
+  "godot_position_if_sprite_centered_px": [
+   200,
+   97
+  ],
+  "frame_top_left_px": [
+   184,
+   81
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "E",
+   "target": "Main Hall",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     13,
+     6
+    ],
+    [
+     13,
+     7
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 208,
+    "y": 96,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    12,
+    6
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "N1s",
+   "name": "Nightstand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/nightstand_guest.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "BD",
+   "name": "Single bed (2x3)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 2,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "furniture/bed_single_2x3.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    32,
+    32
+   ]
+  },
+  {
+   "id": "N2s",
+   "name": "Nightstand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 4,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 64,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/nightstand_guest.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    16
+   ]
+  },
+  {
+   "id": "WD",
+   "name": "Wardrobe",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/wardrobe_guest.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    128,
+    0
+   ]
+  },
+  {
+   "id": "DK",
+   "name": "Writing desk",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/desk_small.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    16
+   ]
+  },
+  {
+   "id": "CH",
+   "name": "Desk chair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 3,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 48,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 64,
+   "sprite": "../../shared_furniture/furniture/chair_dining_s.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    32
+   ]
+  },
+  {
+   "id": "DR",
+   "name": "Dresser",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 8,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 128,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../shared_furniture/furniture/table_console.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    112
+   ]
+  },
+  {
+   "id": "MR",
+   "name": "Standing mirror",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 4,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 64,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "furniture/standing_mirror.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    112
+   ]
+  },
+  {
+   "id": "TR",
+   "name": "Suitcase",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "furniture/suitcase_closed.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    80
+   ]
+  },
+  {
+   "id": "SO",
+   "name": "Open suitcase",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/suitcase_open.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    144,
+    112
+   ]
+  },
+  {
+   "id": "WS",
+   "name": "Washstand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../shared_furniture/furniture/table_side.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    112
+   ]
+  },
+  {
+   "id": "AC",
+   "name": "Armchair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 8,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 128,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../shared_furniture/furniture/armchair_w.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    112
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "W1",
+   "name": "W1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_snow_curtains_blue.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    80,
+    0
+   ]
+  },
+  {
+   "id": "S1",
+   "name": "S1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    112,
+    2
+   ]
+  },
+  {
+   "id": "WN1",
+   "name": "WN1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    80
+   ]
+  },
+  {
+   "id": "WN2",
+   "name": "WN2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    32
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_small.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    128,
+    0
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "P2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    184,
+    2
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "Wilted flowers",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../shared_furniture/decor/vase_wilted.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    24,
+    106
+   ]
+  },
+  {
+   "id": "CH2",
+   "name": "Lamp",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../shared_furniture/lighting/chandelier_small.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    56
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 5,
+    "y": 4,
+    "w": 5,
+    "h": 3
+   },
+   "palette": "blue",
+   "sprite": "../../shared_furniture/carpets/rug_blue_5x3.png",
+   "walkable": true,
+   "medallion": false
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "(open slot)",
+   "tile": [
+    7,
+    6
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Bed - e.g. under mattress",
+   "type": "obj",
+   "object": "BD",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 2,
+    "w": 2,
+    "h": 3
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Wardrobe - e.g. hidden clothing",
+   "type": "obj",
+   "object": "WD",
+   "footprint_tiles": {
+    "x": 8,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Suitcase - e.g. luggage / documents",
+   "type": "obj",
+   "object": "TR",
+   "footprint_tiles": {
+    "x": 3,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   }
+  },
+  {
+   "id": "C4",
+   "description": "Writing desk - e.g. unsent letter",
+   "type": "obj",
+   "object": "DK",
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Nightstand (1x1); Single bed (2x3) (2x3); Nightstand (1x1); Wardrobe (2x1); Writing desk (3x1); Desk chair (1x1); Dresser (3x1); Standing mirror (1x1); Suitcase (1x1); Open suitcase (1x1); Washstand (1x1); Armchair (2x1)."
+ ],
+ "stats": {
+  "interior_tiles": 84,
+  "blocking_tiles": 23,
+  "walkable_tiles": 61,
+  "walkable_percent": 73
+ }
+}
