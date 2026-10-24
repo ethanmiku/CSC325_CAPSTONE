@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="FontFile" path="res://ui/main_screen/fonts/jacquard24.ttf" id="jacquard"]
+[ext_resource type="FontFile" path="res://ui/main_screen/fonts/silkscreen.ttf" id="silk"]
+
+[node name="MainTitle" type="Control"]
+custom_minimum_size = Vector2(430, 72)
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="."]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 430.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_fonts/font = ExtResource("jacquard")
+theme_override_font_sizes/font_size = 60
+text = "Blackwood Manor"
+theme_override_colors/font_shadow_color = Color(0.369, 0.165, 0.212, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+
+[node name="Subtitle" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 56.0
+offset_right = 404.0
+offset_bottom = 72.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.941, 0.78, 0.369, 1)
+theme_override_fonts/font = ExtResource("silk")
+theme_override_font_sizes/font_size = 9
+text = "A  MURDER  MYSTERY"

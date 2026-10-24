@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=3]
+[ext_resource type="FontFile" path="res://ui/main_screen/fonts/pixelifysans.ttf" id="pixel"]
+[ext_resource type="FontFile" path="res://ui/main_screen/fonts/silkscreen.ttf" id="silk"]
+[ext_resource type="Script" path="res://ui/main_screen/login_panel.gd" id="script"]
+
+[sub_resource type="StyleBoxFlat" id="field"]
+bg_color = Color(0.118, 0.09, 0.102, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.478, 0.322, 0.22, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_left = 2
+corner_radius_bottom_right = 2
+content_margin_left = 10.0
+content_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="focus"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 0.0
+content_margin_right = 0.0
+
+[sub_resource type="StyleBoxFlat" id="login"]
+bg_color = Color(0.941, 0.78, 0.369, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.478, 0.322, 0.22, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 0.0
+content_margin_right = 0.0
+
+[sub_resource type="StyleBoxFlat" id="login_pressed"]
+bg_color = Color(0.761, 0.58, 0.239, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 0.0
+content_margin_right = 0.0
+
+[sub_resource type="StyleBoxFlat" id="hover"]
+bg_color = Color(0.941, 0.78, 0.369, 0.15)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 28.0
+content_margin_right = 28.0
+
+[node name="LoginPanel" type="Control"]
+custom_minimum_size = Vector2(200, 155)
+script = ExtResource("script")
+
+[node name="UsernameLabel" type="Label" parent="."]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 12.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.941, 0.78, 0.369, 1)
+theme_override_fonts/font = ExtResource("silk")
+theme_override_font_sizes/font_size = 9
+text = "USERNAME"
+
+[node name="PasswordLabel" type="Label" parent="."]
+offset_left = 0.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.941, 0.78, 0.369, 1)
+theme_override_fonts/font = ExtResource("silk")
+theme_override_font_sizes/font_size = 9
+text = "PASSWORD"
+
+[node name="Username" type="LineEdit" parent="."]
+offset_left = 0.0
+offset_top = 17.0
+offset_right = 200.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("pixel")
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_colors/font_placeholder_color = Color(0.878, 0.922, 0.969, 0.9)
+theme_override_styles/normal = SubResource("field")
+theme_override_styles/focus = SubResource("focus")
+placeholder_text = "Enter username"
+
+[node name="Password" type="LineEdit" parent="."]
+offset_left = 0.0
+offset_top = 67.0
+offset_right = 200.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("pixel")
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_colors/font_placeholder_color = Color(0.878, 0.922, 0.969, 0.9)
+theme_override_styles/normal = SubResource("field")
+theme_override_styles/focus = SubResource("focus")
+placeholder_text = "Enter password"
+secret = true
+
+[node name="LogIn" type="Button" parent="."]
+offset_left = 0.0
+offset_top = 104.0
+offset_right = 200.0
+offset_bottom = 134.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("silk")
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.118, 0.09, 0.102, 1)
+theme_override_colors/font_hover_color = Color(0.118, 0.09, 0.102, 1)
+theme_override_colors/font_pressed_color = Color(0.118, 0.09, 0.102, 1)
+theme_override_styles/normal = SubResource("login")
+theme_override_styles/hover = SubResource("login")
+theme_override_styles/pressed = SubResource("login_pressed")
+theme_override_styles/focus = SubResource("focus")
+text = "LOG IN"
+
+[node name="Status" type="Label" parent="."]
+offset_left = 0.0
+offset_top = 139.0
+offset_right = 300.0
+offset_bottom = 155.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.2, 0.678, 0.62, 1)
+theme_override_fonts/font = ExtResource("pixel")
+theme_override_font_sizes/font_size = 11
+text = "Not signed in"
