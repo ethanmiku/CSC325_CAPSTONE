@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_mongodb_backend',
     'rest_framework',
     'dialogue.apps.DialogueConfig',
+    'progression.apps.ProgressionConfig',
 ]
 
 MIDDLEWARE = [
