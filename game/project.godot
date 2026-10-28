@@ -15,6 +15,10 @@ run/main_scene="uid://ddm6hhcwvihhn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ClaudeDialogue="*res://services/claude_dialogue/claude_dialogue.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
