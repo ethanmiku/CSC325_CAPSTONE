@@ -1,0 +1,103 @@
+{
+ "character": "Victor Cain",
+ "frame_px": 32,
+ "body_px": [
+  16,
+  26
+ ],
+ "feet_row": 30,
+ "colors": {
+  "O": {
+   "hex": "#1b1622",
+   "use": "outline / eyes"
+  },
+  "H": {
+   "hex": "#282632",
+   "use": "hair (black)"
+  },
+  "h": {
+   "hex": "#5c5c6c",
+   "use": "hair highlight (charcoal)"
+  },
+  "d": {
+   "hex": "#1c1a24",
+   "use": "hair dark"
+  },
+  "S": {
+   "hex": "#ecc8aa",
+   "use": "skin"
+  },
+  "s": {
+   "hex": "#c8967c",
+   "use": "skin shade"
+  },
+  "Z": {
+   "hex": "#6e3e6a",
+   "use": "bruise (muted purple)"
+  },
+  "z": {
+   "hex": "#985872",
+   "use": "bruise (reddish-purple edge)"
+  },
+  "C": {
+   "hex": "#3a384a",
+   "use": "black winter jacket"
+  },
+  "c": {
+   "hex": "#242232",
+   "use": "jacket shade"
+  },
+  "L": {
+   "hex": "#606076",
+   "use": "jacket highlight"
+  },
+  "G": {
+   "hex": "#9696a4",
+   "use": "dull silver buttons"
+  },
+  "K": {
+   "hex": "#7a5232",
+   "use": "brown backpack and straps"
+  },
+  "k": {
+   "hex": "#543622",
+   "use": "backpack shade"
+  },
+  "l": {
+   "hex": "#9e7248",
+   "use": "backpack flap highlight"
+  },
+  "g": {
+   "hex": "#c4a050",
+   "use": "brass buckles"
+  },
+  "Q": {
+   "hex": "#16141e",
+   "use": "black scarf"
+  },
+  "N": {
+   "hex": "#343242",
+   "use": "scarf highlight"
+  },
+  "P": {
+   "hex": "#363644",
+   "use": "trousers (charcoal)"
+  },
+  "p": {
+   "hex": "#2c2c38",
+   "use": "far-leg trousers (side view)"
+  },
+  "B": {
+   "hex": "#2e2426",
+   "use": "boots"
+  },
+  "b": {
+   "hex": "#5a4842",
+   "use": "boot highlight"
+  },
+  "q": {
+   "hex": "#241c1e",
+   "use": "far-leg boot (side view)"
+  }
+ }
+}
