@@ -1,0 +1,1066 @@
+{
+ "room": "Snowy Backyard",
+ "key": "snowy_backyard",
+ "proposed_dimensions": false,
+ "indoor": false,
+ "size_tiles": {
+  "w": 28,
+  "h": 20
+ },
+ "size_px": {
+  "w": 448,
+  "h": 320
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": null,
+  "floor": "snow"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 26,
+  "y1": 18,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "snowy_backyard_tileset.png",
+ "tileset_index": "snowy_backyard_tileset.json",
+ "preview": "snowy_backyard_preview.png",
+ "player_spawn": {
+  "tile": [
+   2,
+   12
+  ],
+  "godot_position_if_sprite_centered_px": [
+   40,
+   193
+  ],
+  "frame_top_left_px": [
+   24,
+   177
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "W",
+   "target": "Dining Room (OPTIONAL French doors)",
+   "status": "optional",
+   "variant": "french_exterior",
+   "door_tiles": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 64,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    4
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D2",
+   "wall": "W",
+   "target": "Kitchen (back door)",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     0,
+     12
+    ],
+    [
+     0,
+     13
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 192,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    12
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "T1",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/tree_bare_small.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    104,
+    0
+   ]
+  },
+  {
+   "id": "T2",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/tree_bare_small.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    216,
+    0
+   ]
+  },
+  {
+   "id": "T3",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 21,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 336,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/tree_bare_small.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    328,
+    0
+   ]
+  },
+  {
+   "id": "T4",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 25,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 400,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    384,
+    32
+   ]
+  },
+  {
+   "id": "T5",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 25,
+    "y": 11,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 400,
+    "y": 176,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 192,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    384,
+    128
+   ]
+  },
+  {
+   "id": "T6",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 25,
+    "y": 16,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 400,
+    "y": 256,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    384,
+    208
+   ]
+  },
+  {
+   "id": "T7",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 18,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 288,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 304,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    96,
+    240
+   ]
+  },
+  {
+   "id": "T8",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 18,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 288,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 304,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    208,
+    240
+   ]
+  },
+  {
+   "id": "T9",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 21,
+    "y": 18,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 336,
+    "y": 288,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 304,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    320,
+    240
+   ]
+  },
+  {
+   "id": "T10",
+   "name": "Bare tree",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "furniture/tree_bare_large.png",
+   "sprite_size_px": [
+    48,
+    64
+   ],
+   "sprite_top_left_px": [
+    32,
+    80
+   ]
+  },
+  {
+   "id": "FT",
+   "name": "Frozen fountain",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 9,
+    "w": 4,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 144,
+    "w": 64,
+    "h": 48
+   },
+   "y_sort_px": 192,
+   "sprite": "furniture/fountain_frozen.png",
+   "sprite_size_px": [
+    64,
+    64
+   ],
+   "sprite_top_left_px": [
+    192,
+    128
+   ]
+  },
+  {
+   "id": "BN",
+   "name": "Bench",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 5,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 80,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "furniture/bench_garden.png",
+   "sprite_size_px": [
+    48,
+    16
+   ],
+   "sprite_top_left_px": [
+    192,
+    80
+   ]
+  },
+  {
+   "id": "BS",
+   "name": "Bench",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 14,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 224,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "furniture/bench_garden.png",
+   "sprite_size_px": [
+    48,
+    16
+   ],
+   "sprite_top_left_px": [
+    192,
+    224
+   ]
+  },
+  {
+   "id": "WP",
+   "name": "Woodpile",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 15,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 240,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 256,
+   "sprite": "furniture/woodpile.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    32,
+    240
+   ]
+  },
+  {
+   "id": "FB10",
+   "name": "Snowy bush",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/bush_snow.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    80,
+    112
+   ]
+  },
+  {
+   "id": "FB11",
+   "name": "Snowy bush",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/bush_snow.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    112
+   ]
+  },
+  {
+   "id": "FB12",
+   "name": "Snowy bush",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/bush_snow.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    112,
+    112
+   ]
+  },
+  {
+   "id": "FB13",
+   "name": "Snowy bush",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/bush_snow.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    128,
+    112
+   ]
+  },
+  {
+   "id": "FB20",
+   "name": "Snowy bush (berries)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 19,
+    "y": 12,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 304,
+    "y": 192,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "furniture/bush_snow_berries.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    304,
+    192
+   ]
+  },
+  {
+   "id": "FB21",
+   "name": "Snowy bush (berries)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 12,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 192,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "furniture/bush_snow_berries.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    320,
+    192
+   ]
+  },
+  {
+   "id": "FB22",
+   "name": "Snowy bush (berries)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 21,
+    "y": 12,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 336,
+    "y": 192,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "furniture/bush_snow_berries.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    336,
+    192
+   ]
+  },
+  {
+   "id": "FB23",
+   "name": "Snowy bush (berries)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 22,
+    "y": 12,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 352,
+    "y": 192,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "furniture/bush_snow_berries.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    352,
+    192
+   ]
+  },
+  {
+   "id": "DR1",
+   "name": "Snow drift",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 21,
+    "y": 8,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 336,
+    "y": 128,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "furniture/snowdrift_wide.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    336,
+    128
+   ]
+  },
+  {
+   "id": "DR1b",
+   "name": "Snow drift",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 22,
+    "y": 9,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 352,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 160,
+   "sprite": "furniture/snowdrift_wide.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    352,
+    144
+   ]
+  },
+  {
+   "id": "DR2",
+   "name": "Snow drift",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 16,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 256,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "furniture/snowdrift_wide.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    80,
+    256
+   ]
+  },
+  {
+   "id": "DR2b",
+   "name": "Snow drift",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 17,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 272,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 288,
+   "sprite": "furniture/snowdrift_wide.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    272
+   ]
+  },
+  {
+   "id": "SC",
+   "name": "Snow-filled cart",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 23,
+    "y": 16,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 368,
+    "y": 256,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "furniture/snow_cart.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    368,
+    240
+   ]
+  },
+  {
+   "id": "SH",
+   "name": "Shovel",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 16,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 256,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "furniture/shovel_stuck.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    160,
+    256
+   ]
+  },
+  {
+   "id": "L1",
+   "name": "Lamp post",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 96,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "furniture/lamp_post.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    144,
+    64
+   ]
+  },
+  {
+   "id": "L2",
+   "name": "Lamp post",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 19,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 304,
+    "y": 96,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "furniture/lamp_post.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    304,
+    64
+   ]
+  },
+  {
+   "id": "L3",
+   "name": "Lamp post",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 14,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 224,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "furniture/lamp_post.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    144,
+    192
+   ]
+  },
+  {
+   "id": "L4",
+   "name": "Lamp post",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 19,
+    "y": 14,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 304,
+    "y": 224,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "furniture/lamp_post.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    304,
+    192
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "FD1",
+   "name": "French doors (lit)",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/french_doors_exterior.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    64
+   ]
+  }
+ ],
+ "rugs": [],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "Arthur Graves",
+   "tile": [
+    6,
+    14
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "(open slot)",
+   "tile": [
+    20,
+    5
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Woodpile - e.g. hidden tool / axe",
+   "type": "obj",
+   "object": "WP",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 15,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Fountain - e.g. frozen object",
+   "type": "obj",
+   "object": "FT",
+   "footprint_tiles": {
+    "x": 12,
+    "y": 9,
+    "w": 4,
+    "h": 3
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Snow path - e.g. footprints",
+   "type": "floor",
+   "tile": [
+    18,
+    10
+   ]
+  },
+  {
+   "id": "C4",
+   "description": "Snow drift - e.g. buried item",
+   "type": "obj",
+   "object": "DR1",
+   "footprint_tiles": {
+    "x": 21,
+    "y": 8,
+    "w": 2,
+    "h": 1
+   }
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Bare tree (1x1); Frozen fountain (4x3); Bench (3x1); Bench (3x1); Woodpile (2x1); Snowy bush (1x1); Snowy bush (1x1); Snowy bush (1x1); Snowy bush (1x1); Snowy bush (berries) (1x1); Snowy bush (berries) (1x1); Snowy bush (berries) (1x1); Snowy bush (berries) (1x1); Snow drift (2x1); Snow drift (2x1); Snow drift (2x1); Snow drift (2x1); Snow-filled cart (2x1); Shovel (1x1); Lamp post (1x1); Lamp post (1x1); Lamp post (1x1); Lamp post (1x1).",
+  "Outdoor: the brick garden wall (north), the mansion wall (west), the picket fence (east and south) are solid. Snow, paths and footprints are walkable.",
+  "D1 is OPTIONAL (Dining Room (OPTIONAL French doors)): can stay a decorative closed door."
+ ],
+ "stats": {
+  "interior_tiles": 442,
+  "blocking_tiles": 53,
+  "walkable_tiles": 389,
+  "walkable_percent": 88
+ }
+}

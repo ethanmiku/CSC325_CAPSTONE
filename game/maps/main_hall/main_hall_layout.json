@@ -1,0 +1,808 @@
+{
+ "room": "Main Hall",
+ "key": "main_hall",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 20,
+  "h": 16
+ },
+ "size_px": {
+  "w": 320,
+  "h": 256
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "burgundy",
+  "floor": "wood_dark"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 18,
+  "y1": 14,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "main_hall_tileset.png",
+ "tileset_index": "main_hall_tileset.json",
+ "preview": "main_hall_preview.png",
+ "player_spawn": {
+  "tile": [
+   10,
+   12
+  ],
+  "godot_position_if_sprite_centered_px": [
+   168,
+   193
+  ],
+  "frame_top_left_px": [
+   152,
+   177
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "W",
+   "target": "Library / Study",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 64,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    4
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D2",
+   "wall": "W",
+   "target": "Guest Room",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     0,
+     11
+    ],
+    [
+     0,
+     12
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 176,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    11
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D3",
+   "wall": "E",
+   "target": "Dining Room",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     19,
+     4
+    ],
+    [
+     19,
+     5
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 304,
+    "y": 64,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    18,
+    4
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D4",
+   "wall": "E",
+   "target": "Kitchen",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     19,
+     11
+    ],
+    [
+     19,
+     12
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 304,
+    "y": 176,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    18,
+    11
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D5",
+   "wall": "S",
+   "target": "Front entrance (blocked by snow)",
+   "status": "blocked",
+   "variant": "front_door_snowed",
+   "door_tiles": [
+    [
+     8,
+     15
+    ],
+    [
+     9,
+     15
+    ],
+    [
+     10,
+     15
+    ],
+    [
+     11,
+     15
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 128,
+    "y": 240,
+    "w": 64,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    8,
+    14
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D6",
+   "wall": "N",
+   "target": "Upstairs / Master Bedroom (inaccessible in v1)",
+   "status": "blocked",
+   "variant": "staircase",
+   "door_tiles": [
+    [
+     7,
+     0
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     9,
+     1
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     11,
+     0
+    ],
+    [
+     11,
+     1
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     12,
+     1
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 112,
+    "y": 0,
+    "w": 96,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    7,
+    2
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "F1",
+   "name": "Fireplace",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/fireplaces/fireplace_lit.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    16
+   ]
+  },
+  {
+   "id": "F3",
+   "name": "Grandfather clock",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/grandfather_clock.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    16
+   ]
+  },
+  {
+   "id": "ST",
+   "name": "Grand staircase (blocked)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 6,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 32,
+    "w": 96,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "furniture/grand_staircase.png",
+   "sprite_size_px": [
+    96,
+    80
+   ],
+   "sprite_top_left_px": [
+    112,
+    0
+   ]
+  },
+  {
+   "id": "F4",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/decor/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    16
+   ]
+  },
+  {
+   "id": "F2",
+   "name": "Console table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 15,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 240,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/table_console.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    240,
+    16
+   ]
+  },
+  {
+   "id": "F5",
+   "name": "Bench",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 14,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 224,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../shared_furniture/furniture/bench_indoor.png",
+   "sprite_size_px": [
+    48,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    224
+   ]
+  },
+  {
+   "id": "F6",
+   "name": "Bench",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 14,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 224,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../shared_furniture/furniture/bench_indoor.png",
+   "sprite_size_px": [
+    48,
+    16
+   ],
+   "sprite_top_left_px": [
+    224,
+    224
+   ]
+  },
+  {
+   "id": "F7",
+   "name": "Coat stand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 14,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 224,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "furniture/coat_stand.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    208
+   ]
+  },
+  {
+   "id": "F8",
+   "name": "Umbrella stand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 14,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 224,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "furniture/umbrella_stand.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    192,
+    224
+   ]
+  },
+  {
+   "id": "SD",
+   "name": "Snow drift (blocks front door)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 14,
+    "w": 4,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 224,
+    "w": 64,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": null,
+   "note": "invisible collision block (the snow drawn by the door sprite)"
+  }
+ ],
+ "decor": [
+  {
+   "id": "FD",
+   "name": "Front doors, snowed in",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/front_door_snowed.png",
+   "sprite_size_px": [
+    64,
+    32
+   ],
+   "sprite_top_left_px": [
+    128,
+    224
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_portrait.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    0
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "P2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    40,
+    0
+   ]
+  },
+  {
+   "id": "S1",
+   "name": "S1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    80,
+    2
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "S2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    224,
+    2
+   ]
+  },
+  {
+   "id": "P3",
+   "name": "P3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_small.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    208,
+    0
+   ]
+  },
+  {
+   "id": "P4",
+   "name": "P4",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    248,
+    0
+   ]
+  },
+  {
+   "id": "P5",
+   "name": "Slashed portrait",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_portrait_damaged.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    288,
+    0
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "T1",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../shared_furniture/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    244,
+    10
+   ]
+  },
+  {
+   "id": "T2",
+   "name": "T2",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../shared_furniture/decor/vase_flowers.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    270,
+    12
+   ]
+  },
+  {
+   "id": "CH",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../shared_furniture/lighting/chandelier_large.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    136,
+    118
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 6,
+    "y": 6,
+    "w": 8,
+    "h": 6
+   },
+   "palette": "burgundy",
+   "sprite": "../../shared_furniture/carpets/rug_burgundy_8x6.png",
+   "walkable": true,
+   "medallion": true
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "Victoria Blackwood",
+   "tile": [
+    3,
+    8
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "Thomas Hale",
+   "tile": [
+    16,
+    8
+   ]
+  },
+  {
+   "id": "N3",
+   "who": "Dr. Elias Warren",
+   "tile": [
+    10,
+    9
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Fireplace - e.g. ashes / burnt paper",
+   "type": "obj",
+   "object": "F1",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Console table - e.g. letters / guest ledger",
+   "type": "obj",
+   "object": "F2",
+   "footprint_tiles": {
+    "x": 15,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Grandfather clock - e.g. stopped clock",
+   "type": "obj",
+   "object": "F3",
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   }
+  },
+  {
+   "id": "C4",
+   "description": "Entry floor - e.g. wet footprints",
+   "type": "floor",
+   "tile": [
+    9,
+    13
+   ]
+  },
+  {
+   "id": "C5",
+   "description": "Slashed portrait - e.g. something hidden behind it",
+   "type": "wall",
+   "wall_item": "P5",
+   "rect_px": {
+    "x": 288,
+    "y": 0,
+    "w": 16,
+    "h": 32
+   }
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Fireplace (3x1); Grandfather clock (1x1); Grand staircase (blocked) (6x3); Potted plant (1x1); Console table (3x1); Bench (3x1); Bench (3x1); Coat stand (1x1); Umbrella stand (1x1); Snow drift (blocks front door) (4x1).",
+  "D5 is BLOCKED in v1 (Front entrance (blocked by snow)): keep it solid.",
+  "D6 is BLOCKED in v1 (Upstairs / Master Bedroom (inaccessible in v1)): keep it solid."
+ ],
+ "stats": {
+  "interior_tiles": 234,
+  "blocking_tiles": 38,
+  "walkable_tiles": 196,
+  "walkable_percent": 84
+ }
+}

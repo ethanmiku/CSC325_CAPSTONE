@@ -1,0 +1,599 @@
+{
+ "room": "Master Bedroom",
+ "key": "master_bedroom",
+ "proposed_dimensions": true,
+ "indoor": true,
+ "size_tiles": {
+  "w": 18,
+  "h": 14
+ },
+ "size_px": {
+  "w": 288,
+  "h": 224
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "master",
+  "floor": "parquet"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 16,
+  "y1": 12,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "master_bedroom_tileset.png",
+ "tileset_index": "master_bedroom_tileset.json",
+ "preview": "master_bedroom_preview.png",
+ "player_spawn": {
+  "tile": [
+   7,
+   11
+  ],
+  "godot_position_if_sprite_centered_px": [
+   120,
+   177
+  ],
+  "frame_top_left_px": [
+   104,
+   161
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "S",
+   "target": "Upstairs landing / Main Hall staircase (PLACEHOLDER)",
+   "status": "placeholder",
+   "variant": null,
+   "door_tiles": [
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     13
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 112,
+    "y": 208,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    7,
+    12
+   ],
+   "clear_2x2_window_verified": true
+  },
+  {
+   "id": "D2",
+   "wall": "E",
+   "target": "Attached Bathroom",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     17,
+     4
+    ],
+    [
+     17,
+     5
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 272,
+    "y": 64,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    16,
+    4
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "FP",
+   "name": "Fireplace",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/fireplaces/fireplace_lit.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "NS1",
+   "name": "Nightstand (lamp)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/nightstand_master.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    16
+   ]
+  },
+  {
+   "id": "BD",
+   "name": "Four-poster bed",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 4,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 32,
+    "w": 64,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "furniture/bed_large_master.png",
+   "sprite_size_px": [
+    64,
+    64
+   ],
+   "sprite_top_left_px": [
+    112,
+    16
+   ]
+  },
+  {
+   "id": "NS2",
+   "name": "Nightstand (lamp)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/nightstand_master.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    16
+   ]
+  },
+  {
+   "id": "WD",
+   "name": "Grand wardrobe",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/wardrobe_master.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    224,
+    0
+   ]
+  },
+  {
+   "id": "TR",
+   "name": "Trunk at foot of bed",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "furniture/trunk_master.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    128,
+    80
+   ]
+  },
+  {
+   "id": "CL",
+   "name": "Chaise lounge",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 7,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 112,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "furniture/chaise_master.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    96
+   ]
+  },
+  {
+   "id": "AC",
+   "name": "Armchair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 7,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 112,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../shared_furniture/furniture/armchair_w.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    224,
+    96
+   ]
+  },
+  {
+   "id": "TS",
+   "name": "Side table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 16,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 256,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../shared_furniture/furniture/table_side.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    256,
+    96
+   ]
+  },
+  {
+   "id": "DR",
+   "name": "Dresser",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 12,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 192,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "furniture/dresser_master.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    176
+   ]
+  },
+  {
+   "id": "VN",
+   "name": "Vanity with mirror",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 12,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 192,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "furniture/vanity_master.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    208,
+    160
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "W1",
+   "name": "W1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    0
+   ]
+  },
+  {
+   "id": "W2",
+   "name": "W2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    0
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    24,
+    0
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "Jewelry box",
+   "collides": false,
+   "layer": "top",
+   "sprite": "furniture/jewelry_box.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    56,
+    170
+   ]
+  },
+  {
+   "id": "X1",
+   "name": "Broken perfume bottle",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/glass_shards.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    192,
+    160
+   ]
+  },
+  {
+   "id": "X2",
+   "name": "Wine stain",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/wine_stain.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    128
+   ]
+  },
+  {
+   "id": "CH",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../shared_furniture/lighting/chandelier_large.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    120,
+    118
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 4,
+    "y": 5,
+    "w": 10,
+    "h": 6
+   },
+   "palette": "plum",
+   "sprite": "../../shared_furniture/carpets/rug_plum_10x6.png",
+   "walkable": true,
+   "medallion": true
+  }
+ ],
+ "npc_slots": [],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Bed - e.g. under the pillows / mattress",
+   "type": "obj",
+   "object": "BD",
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 4,
+    "h": 3
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Dresser - e.g. jewelry / letters",
+   "type": "obj",
+   "object": "DR",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 12,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Vanity - e.g. perfume / hidden note",
+   "type": "obj",
+   "object": "VN",
+   "footprint_tiles": {
+    "x": 13,
+    "y": 12,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C4",
+   "description": "Wardrobe - e.g. hidden clothing",
+   "type": "obj",
+   "object": "WD",
+   "footprint_tiles": {
+    "x": 14,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C5",
+   "description": "Nightstand - e.g. medicine / diary",
+   "type": "obj",
+   "object": "NS1",
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   }
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Fireplace (3x1); Nightstand (lamp) (1x1); Four-poster bed (4x3); Nightstand (lamp) (1x1); Grand wardrobe (3x1); Trunk at foot of bed (2x1); Chaise lounge (3x1); Armchair (2x1); Side table (1x1); Dresser (3x1); Vanity with mirror (2x1).",
+  "D1 is a PLACEHOLDER link (Upstairs landing / Main Hall staircase (PLACEHOLDER)): wire it up only if the upstairs is built."
+ ],
+ "stats": {
+  "interior_tiles": 176,
+  "blocking_tiles": 33,
+  "walkable_tiles": 143,
+  "walkable_percent": 81
+ }
+}
