@@ -1,0 +1,115 @@
+{
+ "character": "Benedict Saintclair",
+ "frame_px": 32,
+ "body_px": [
+  16,
+  29
+ ],
+ "feet_row": 30,
+ "colors": {
+  "O": {
+   "hex": "#1b1622",
+   "use": "outline / eyes"
+  },
+  "H": {
+   "hex": "#423636",
+   "use": "hair (near-black brown)"
+  },
+  "h": {
+   "hex": "#928c92",
+   "use": "grey streaks"
+  },
+  "d": {
+   "hex": "#1c161a",
+   "use": "brows"
+  },
+  "S": {
+   "hex": "#d6a884",
+   "use": "skin"
+  },
+  "s": {
+   "hex": "#b07c60",
+   "use": "skin shade"
+  },
+  "M": {
+   "hex": "#423634",
+   "use": "trimmed beard"
+  },
+  "m": {
+   "hex": "#7e767a",
+   "use": "beard grey flecks"
+  },
+  "Y": {
+   "hex": "#2e2a34",
+   "use": "dark shirt"
+  },
+  "V": {
+   "hex": "#d6d0c4",
+   "use": "worn collar tab (faint hint of his past)"
+  },
+  "C": {
+   "hex": "#60543a",
+   "use": "wool coat"
+  },
+  "c": {
+   "hex": "#403626",
+   "use": "coat shade"
+  },
+  "L": {
+   "hex": "#847454",
+   "use": "coat highlights"
+  },
+  "F": {
+   "hex": "#a69270",
+   "use": "fur collar tufts"
+  },
+  "k": {
+   "hex": "#36241a",
+   "use": "bandolier"
+  },
+  "Z": {
+   "hex": "#c2983c",
+   "use": "brass cartridges"
+  },
+  "K": {
+   "hex": "#4a301e",
+   "use": "belt"
+  },
+  "G": {
+   "hex": "#d6ac46",
+   "use": "brass buckle"
+  },
+  "n": {
+   "hex": "#4a505e",
+   "use": "rifle barrel"
+  },
+  "w": {
+   "hex": "#7c4a28",
+   "use": "rifle stock"
+  },
+  "T": {
+   "hex": "#7c4a28",
+   "use": "rifle stock (side views)"
+  },
+  "t": {
+   "hex": "#58321c",
+   "use": "rifle stock shade"
+  },
+  "W": {
+   "hex": "#c2983c",
+   "use": "brass fitting"
+  },
+  "P": {
+   "hex": "#3e4032",
+   "use": "trousers"
+  },
+  "B": {
+   "hex": "#483020",
+   "use": "boots"
+  },
+  "b": {
+   "hex": "#7a5638",
+   "use": "boot highlight"
+  }
+ }
+}
