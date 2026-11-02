@@ -189,5 +189,9 @@ offset = Vector2(0, -15)
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_bh5qq")
 
+[node name="InteractRay" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(0, 14)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=823673957]
 zoom = Vector2(0.25, 0.25)
