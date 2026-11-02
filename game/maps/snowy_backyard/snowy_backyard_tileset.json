@@ -1,0 +1,179 @@
+{
+ "tile_size": 16,
+ "columns": 8,
+ "rows": 4,
+ "image_px": [
+  128,
+  64
+ ],
+ "tiles": {
+  "snow_a": {
+   "col": 0,
+   "row": 0,
+   "x": 0,
+   "y": 0
+  },
+  "snow_b": {
+   "col": 1,
+   "row": 0,
+   "x": 16,
+   "y": 0
+  },
+  "snow_c": {
+   "col": 2,
+   "row": 0,
+   "x": 32,
+   "y": 0
+  },
+  "snow_d": {
+   "col": 3,
+   "row": 0,
+   "x": 48,
+   "y": 0
+  },
+  "prints_a": {
+   "col": 4,
+   "row": 0,
+   "x": 64,
+   "y": 0
+  },
+  "prints_b": {
+   "col": 5,
+   "row": 0,
+   "x": 80,
+   "y": 0
+  },
+  "prints_c": {
+   "col": 6,
+   "row": 0,
+   "x": 96,
+   "y": 0
+  },
+  "prints_d": {
+   "col": 7,
+   "row": 0,
+   "x": 112,
+   "y": 0
+  },
+  "path_a": {
+   "col": 0,
+   "row": 1,
+   "x": 0,
+   "y": 16
+  },
+  "path_b": {
+   "col": 1,
+   "row": 1,
+   "x": 16,
+   "y": 16
+  },
+  "path_c": {
+   "col": 2,
+   "row": 1,
+   "x": 32,
+   "y": 16
+  },
+  "path_d": {
+   "col": 3,
+   "row": 1,
+   "x": 48,
+   "y": 16
+  },
+  "garden_wall_top": {
+   "col": 4,
+   "row": 1,
+   "x": 64,
+   "y": 16
+  },
+  "garden_wall_bot": {
+   "col": 5,
+   "row": 1,
+   "x": 80,
+   "y": 16
+  },
+  "garden_corner_ne_top": {
+   "col": 6,
+   "row": 1,
+   "x": 96,
+   "y": 16
+  },
+  "garden_corner_ne_bot": {
+   "col": 7,
+   "row": 1,
+   "x": 112,
+   "y": 16
+  },
+  "garden_corner_nw_top": {
+   "col": 0,
+   "row": 2,
+   "x": 0,
+   "y": 32
+  },
+  "garden_corner_nw_bot": {
+   "col": 1,
+   "row": 2,
+   "x": 16,
+   "y": 32
+  },
+  "ext_wall_w_a": {
+   "col": 2,
+   "row": 2,
+   "x": 32,
+   "y": 32
+  },
+  "ext_wall_w_b": {
+   "col": 3,
+   "row": 2,
+   "x": 48,
+   "y": 32
+  },
+  "fence_h": {
+   "col": 4,
+   "row": 2,
+   "x": 64,
+   "y": 32
+  },
+  "fence_v": {
+   "col": 5,
+   "row": 2,
+   "x": 80,
+   "y": 32
+  },
+  "fence_post": {
+   "col": 6,
+   "row": 2,
+   "x": 96,
+   "y": 32
+  },
+  "fence_end": {
+   "col": 7,
+   "row": 2,
+   "x": 112,
+   "y": 32
+  },
+  "ext_window_lit_top": {
+   "col": 0,
+   "row": 3,
+   "x": 0,
+   "y": 48
+  },
+  "ext_window_lit_bot": {
+   "col": 1,
+   "row": 3,
+   "x": 16,
+   "y": 48
+  },
+  "ext_door_w_top": {
+   "col": 2,
+   "row": 3,
+   "x": 32,
+   "y": 48
+  },
+  "ext_door_w_bot": {
+   "col": 3,
+   "row": 3,
+   "x": 48,
+   "y": 48
+  }
+ }
+}

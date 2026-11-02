@@ -1,0 +1,329 @@
+{
+ "room": "Attached Bathroom",
+ "key": "attached_bathroom",
+ "proposed_dimensions": true,
+ "indoor": true,
+ "size_tiles": {
+  "w": 8,
+  "h": 8
+ },
+ "size_px": {
+  "w": 128,
+  "h": 128
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "bath",
+  "floor": "bath"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 6,
+  "y1": 6,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "attached_bathroom_tileset.png",
+ "tileset_index": "attached_bathroom_tileset.json",
+ "preview": "attached_bathroom_preview.png",
+ "player_spawn": {
+  "tile": [
+   2,
+   4
+  ],
+  "godot_position_if_sprite_centered_px": [
+   40,
+   65
+  ],
+  "frame_top_left_px": [
+   24,
+   49
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "W",
+   "target": "Master Bedroom",
+   "status": "open",
+   "variant": null,
+   "door_tiles": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 0,
+    "y": 64,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    1,
+    4
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "WB",
+   "name": "Washbasin",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/washbasin.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "TL",
+   "name": "Toilet",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/toilet.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    16
+   ]
+  },
+  {
+   "id": "TB",
+   "name": "Clawfoot tub",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 4,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 64,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/clawfoot_tub.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    16
+   ]
+  },
+  {
+   "id": "CB",
+   "name": "Cabinet",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 96,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "furniture/bath_cabinet.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    80
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "M1",
+   "name": "M1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/mirror_oval.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    24,
+    0
+   ]
+  },
+  {
+   "id": "WN",
+   "name": "WN",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    0
+   ]
+  },
+  {
+   "id": "TR",
+   "name": "TR",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/towel_rail.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    0
+   ]
+  },
+  {
+   "id": "SH",
+   "name": "SH",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "furniture/bath_shelf.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    64,
+    1
+   ]
+  },
+  {
+   "id": "MT",
+   "name": "Bath mat",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "furniture/bath_mat.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    64,
+    48
+   ]
+  },
+  {
+   "id": "X1",
+   "name": "Broken glass",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/glass_shards.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    80
+   ]
+  }
+ ],
+ "rugs": [],
+ "npc_slots": [],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Tub - e.g. something in the drain / water",
+   "type": "obj",
+   "object": "TB",
+   "footprint_tiles": {
+    "x": 4,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Washbasin - e.g. hidden note / residue",
+   "type": "obj",
+   "object": "WB",
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Cabinet - e.g. medicine / missing bottle",
+   "type": "obj",
+   "object": "CB",
+   "footprint_tiles": {
+    "x": 6,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   }
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Washbasin (2x1); Toilet (1x1); Clawfoot tub (3x1); Cabinet (1x1)."
+ ],
+ "stats": {
+  "interior_tiles": 30,
+  "blocking_tiles": 7,
+  "walkable_tiles": 23,
+  "walkable_percent": 77
+ }
+}

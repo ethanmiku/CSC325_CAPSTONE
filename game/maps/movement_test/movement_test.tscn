@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ddm6hhcwvihhn"]
+
+[ext_resource type="Script" uid="uid://b4ud0jtgfajlf" path="res://maps/movement_test/movement_test.gd" id="1_bskp7"]
+[ext_resource type="PackedScene" uid="uid://vf2ntnpcwlh7" path="res://entities/player/player.tscn" id="2_4vdkj"]
+[ext_resource type="PackedScene" uid="uid://bu1q7kkfv7ml2" path="res://ui/touch_controls/touch_controls.tscn" id="3_q53g8"]
+
+[node name="Node2D" type="Node2D" unique_id=965734487]
+
+[node name="Floor" type="Node2D" parent="." unique_id=559204203]
+script = ExtResource("1_bskp7")
+
+[node name="Player" parent="." unique_id=1166351562 instance=ExtResource("2_4vdkj")]
+scale = Vector2(4, 4)
+
+[node name="TouchControls" parent="." unique_id=2022829609 instance=ExtResource("3_q53g8")]

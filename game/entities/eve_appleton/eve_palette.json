@@ -1,0 +1,131 @@
+{
+ "character": "Eve Appleton",
+ "frame_px": 32,
+ "body_px": [
+  16,
+  29
+ ],
+ "feet_row": 30,
+ "colors": {
+  "O": {
+   "hex": "#1b1622",
+   "use": "outline"
+  },
+  "H": {
+   "hex": "#aa562e",
+   "use": "hair (copper-red)"
+  },
+  "h": {
+   "hex": "#d28048",
+   "use": "hair highlight"
+  },
+  "d": {
+   "hex": "#723422",
+   "use": "hair shade"
+  },
+  "S": {
+   "hex": "#f0c8a8",
+   "use": "skin"
+  },
+  "s": {
+   "hex": "#ce967c",
+   "use": "skin shade"
+  },
+  "e": {
+   "hex": "#1b1622",
+   "use": "eyelashes"
+  },
+  "E": {
+   "hex": "#28a068",
+   "use": "eyes (emerald)"
+  },
+  "R": {
+   "hex": "#be545c",
+   "use": "lips"
+  },
+  "Q": {
+   "hex": "#0a241e",
+   "use": "belt"
+  },
+  "C": {
+   "hex": "#144a38",
+   "use": "winter coat (dark forest green)"
+  },
+  "c": {
+   "hex": "#0c2e26",
+   "use": "coat shade"
+  },
+  "L": {
+   "hex": "#e2d4ba",
+   "use": "cream fur cuffs"
+  },
+  "T": {
+   "hex": "#aa562e",
+   "use": "hair hanging down the back (side views)"
+  },
+  "t": {
+   "hex": "#723422",
+   "use": "hair shade (side views)"
+  },
+  "W": {
+   "hex": "#d28048",
+   "use": "hair highlight (side views)"
+  },
+  "G": {
+   "hex": "#f0c860",
+   "use": "gold (hat brooch, belt buckle, earrings)"
+  },
+  "B": {
+   "hex": "#2e2224",
+   "use": "winter boots"
+  },
+  "b": {
+   "hex": "#62483e",
+   "use": "boot highlight"
+  },
+  "U": {
+   "hex": "#2e262a",
+   "use": "hat (black-brown)"
+  },
+  "u": {
+   "hex": "#605256",
+   "use": "hat highlight"
+  },
+  "D": {
+   "hex": "#1e181e",
+   "use": "hat brim underside"
+  },
+  "X": {
+   "hex": "#84263c",
+   "use": "burgundy ribbon and scarf"
+  },
+  "x": {
+   "hex": "#5c182c",
+   "use": "ribbon / scarf shade"
+  },
+  "y": {
+   "hex": "#349668",
+   "use": "hat feather (emerald)"
+  },
+  "F": {
+   "hex": "#e8dcc4",
+   "use": "cream fur collar"
+  },
+  "f": {
+   "hex": "#beb096",
+   "use": "fur shade"
+  },
+  "M": {
+   "hex": "#247054",
+   "use": "emerald dress beneath the coat"
+  },
+  "m": {
+   "hex": "#164c3a",
+   "use": "dress shade"
+  },
+  "J": {
+   "hex": "#469a74",
+   "use": "dress hem trim"
+  }
+ }
+}

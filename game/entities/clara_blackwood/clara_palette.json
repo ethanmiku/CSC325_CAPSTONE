@@ -1,0 +1,91 @@
+{
+ "character": "Clara Blackwood",
+ "frame_px": 32,
+ "body_px": [
+  16,
+  26
+ ],
+ "feet_row": 30,
+ "colors": {
+  "O": {
+   "hex": "#1b1622",
+   "use": "outline / eyes"
+  },
+  "H": {
+   "hex": "#d6a03e",
+   "use": "hair base (honey blonde)"
+  },
+  "h": {
+   "hex": "#f0c462",
+   "use": "hair light"
+  },
+  "d": {
+   "hex": "#a06e28",
+   "use": "hair dark"
+  },
+  "S": {
+   "hex": "#fcd8bc",
+   "use": "skin"
+  },
+  "s": {
+   "hex": "#e2ac92",
+   "use": "skin shade"
+  },
+  "R": {
+   "hex": "#f08c96",
+   "use": "blush / lips"
+  },
+  "C": {
+   "hex": "#7042a2",
+   "use": "dress base (royal purple)"
+  },
+  "c": {
+   "hex": "#482670",
+   "use": "dress shade"
+  },
+  "L": {
+   "hex": "#a67ad6",
+   "use": "dress light accents / lilac trim"
+  },
+  "T": {
+   "hex": "#341c56",
+   "use": "sash and bow (deep violet)"
+  },
+  "t": {
+   "hex": "#24123e",
+   "use": "sash shade"
+  },
+  "W": {
+   "hex": "#c4a0e8",
+   "use": "bow trim (pale lilac)"
+  },
+  "K": {
+   "hex": "#f2e6ee",
+   "use": "stockings"
+  },
+  "V": {
+   "hex": "#f6eefa",
+   "use": "lace (collar)"
+  },
+  "N": {
+   "hex": "#fcfcff",
+   "use": "pearls"
+  },
+  "G": {
+   "hex": "#f8d464",
+   "use": "gold (chain, brooch)"
+  },
+  "A": {
+   "hex": "#be6ef0",
+   "use": "amethyst (pendant, hair clip)"
+  },
+  "B": {
+   "hex": "#54305c",
+   "use": "shoes"
+  },
+  "b": {
+   "hex": "#926898",
+   "use": "shoe highlight"
+  }
+ }
+}

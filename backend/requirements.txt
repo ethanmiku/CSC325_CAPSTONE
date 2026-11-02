@@ -1,4 +1,5 @@
 asgiref==3.12.1
+anthropic==1.15.0
 Django==5.2.18
 django-mongodb-backend==5.2.4
 djangorestframework==3.18.3

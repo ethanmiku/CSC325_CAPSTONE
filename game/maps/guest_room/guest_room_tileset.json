@@ -1,0 +1,137 @@
+{
+ "tile_size": 16,
+ "columns": 8,
+ "rows": 3,
+ "image_px": [
+  128,
+  48
+ ],
+ "tiles": {
+  "wood_light_a": {
+   "col": 0,
+   "row": 0,
+   "x": 0,
+   "y": 0
+  },
+  "wood_light_b": {
+   "col": 1,
+   "row": 0,
+   "x": 16,
+   "y": 0
+  },
+  "wood_light_c": {
+   "col": 2,
+   "row": 0,
+   "x": 32,
+   "y": 0
+  },
+  "wood_light_d": {
+   "col": 3,
+   "row": 0,
+   "x": 48,
+   "y": 0
+  },
+  "wall_n_top": {
+   "col": 4,
+   "row": 0,
+   "x": 64,
+   "y": 0
+  },
+  "wall_n_bot": {
+   "col": 5,
+   "row": 0,
+   "x": 80,
+   "y": 0
+  },
+  "corner_nw_top": {
+   "col": 6,
+   "row": 0,
+   "x": 96,
+   "y": 0
+  },
+  "corner_nw_bot": {
+   "col": 7,
+   "row": 0,
+   "x": 112,
+   "y": 0
+  },
+  "corner_ne_top": {
+   "col": 0,
+   "row": 1,
+   "x": 0,
+   "y": 16
+  },
+  "corner_ne_bot": {
+   "col": 1,
+   "row": 1,
+   "x": 16,
+   "y": 16
+  },
+  "wall_w": {
+   "col": 2,
+   "row": 1,
+   "x": 32,
+   "y": 16
+  },
+  "wall_e": {
+   "col": 3,
+   "row": 1,
+   "x": 48,
+   "y": 16
+  },
+  "wall_s": {
+   "col": 4,
+   "row": 1,
+   "x": 64,
+   "y": 16
+  },
+  "corner_sw": {
+   "col": 5,
+   "row": 1,
+   "x": 80,
+   "y": 16
+  },
+  "corner_se": {
+   "col": 6,
+   "row": 1,
+   "x": 96,
+   "y": 16
+  },
+  "door_e_top": {
+   "col": 7,
+   "row": 1,
+   "x": 112,
+   "y": 16
+  },
+  "door_e_bot": {
+   "col": 0,
+   "row": 2,
+   "x": 0,
+   "y": 32
+  },
+  "rug_blue_corner": {
+   "col": 1,
+   "row": 2,
+   "x": 16,
+   "y": 32
+  },
+  "rug_blue_edge_t": {
+   "col": 2,
+   "row": 2,
+   "x": 32,
+   "y": 32
+  },
+  "rug_blue_edge_l": {
+   "col": 3,
+   "row": 2,
+   "x": 48,
+   "y": 32
+  },
+  "rug_blue_center": {
+   "col": 4,
+   "row": 2,
+   "x": 64,
+   "y": 32
+  }
+ }
+}
