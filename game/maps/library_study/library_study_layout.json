@@ -1,0 +1,972 @@
+{
+ "room": "Library / Study",
+ "key": "library_study",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 22,
+  "h": 14
+ },
+ "size_px": {
+  "w": 352,
+  "h": 224
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "library",
+  "floor": "parquet"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 20,
+  "y1": 12,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "library_study_tileset.png",
+ "tileset_index": "library_study_tileset.json",
+ "preview": "library_study_preview.png",
+ "player_spawn": {
+  "tile": [
+   20,
+   9
+  ],
+  "godot_position_if_sprite_centered_px": [
+   328,
+   145
+  ],
+  "frame_top_left_px": [
+   312,
+   129
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "E",
+   "target": "Main Hall",
+   "status": "lockable",
+   "variant": "locked_variant",
+   "door_tiles": [
+    [
+     21,
+     9
+    ],
+    [
+     21,
+     10
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 336,
+    "y": 144,
+    "w": 16,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    20,
+    9
+   ],
+   "clear_2x2_window_verified": true
+  }
+ ],
+ "furniture": [
+  {
+   "id": "B1",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "B2",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    16
+   ]
+  },
+  {
+   "id": "B3",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    80,
+    16
+   ]
+  },
+  {
+   "id": "B4",
+   "name": "Bookshelf (gap: missing book)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall_gap.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    16
+   ]
+  },
+  {
+   "id": "B5",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    16
+   ]
+  },
+  {
+   "id": "B6",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    224,
+    16
+   ]
+  },
+  {
+   "id": "B7",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 16,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 256,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    256,
+    16
+   ]
+  },
+  {
+   "id": "B8",
+   "name": "Bookshelf",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 18,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 288,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    288,
+    16
+   ]
+  },
+  {
+   "id": "F1",
+   "name": "Fireplace",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../shared_furniture/fireplaces/fireplace_lit.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    16
+   ]
+  },
+  {
+   "id": "F2",
+   "name": "Globe stand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "furniture/globe_stand.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    320,
+    16
+   ]
+  },
+  {
+   "id": "LD",
+   "name": "Rolling ladder",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 3,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 48,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 64,
+   "sprite": "furniture/library_ladder.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    32
+   ]
+  },
+  {
+   "id": "SA1",
+   "name": "Free-standing stack A",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    64
+   ]
+  },
+  {
+   "id": "SA2",
+   "name": "Free-standing stack A",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    80,
+    64
+   ]
+  },
+  {
+   "id": "SA3",
+   "name": "Free-standing stack A",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    64
+   ]
+  },
+  {
+   "id": "SB1",
+   "name": "Free-standing stack B",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    64
+   ]
+  },
+  {
+   "id": "SB2",
+   "name": "Free-standing stack B",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 15,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 240,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    240,
+    64
+   ]
+  },
+  {
+   "id": "SB3",
+   "name": "Free-standing stack B",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 17,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 272,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../shared_furniture/furniture/bookshelf_tall.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    64
+   ]
+  },
+  {
+   "id": "DK",
+   "name": "Writing desk",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 8,
+    "w": 4,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 128,
+    "w": 64,
+    "h": 32
+   },
+   "y_sort_px": 160,
+   "sprite": "furniture/writing_desk.png",
+   "sprite_size_px": [
+    64,
+    48
+   ],
+   "sprite_top_left_px": [
+    144,
+    112
+   ]
+  },
+  {
+   "id": "CH1",
+   "name": "Desk chair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../shared_furniture/furniture/chair_dining_s.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    96
+   ]
+  },
+  {
+   "id": "A1",
+   "name": "Armchair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 11,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 176,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 192,
+   "sprite": "../../shared_furniture/furniture/armchair_s.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    160
+   ]
+  },
+  {
+   "id": "A3",
+   "name": "Side table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 11,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 176,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 192,
+   "sprite": "../../shared_furniture/furniture/table_side.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    160
+   ]
+  },
+  {
+   "id": "A2",
+   "name": "Armchair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 4,
+    "y": 11,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 64,
+    "y": 176,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 192,
+   "sprite": "../../shared_furniture/furniture/armchair_s.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    160
+   ]
+  },
+  {
+   "id": "DC",
+   "name": "Display case",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 17,
+    "y": 12,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 272,
+    "y": 192,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "../../shared_furniture/furniture/display_cabinet.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    176
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "WN1",
+   "name": "WN1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    80
+   ]
+  },
+  {
+   "id": "WN2",
+   "name": "WN2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/architecture/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    336,
+    64
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../shared_furniture/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    152,
+    0
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "T1",
+   "collides": false,
+   "layer": "top",
+   "sprite": "furniture/papers_pile.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    152,
+    117
+   ]
+  },
+  {
+   "id": "T2",
+   "name": "T2",
+   "collides": false,
+   "layer": "top",
+   "sprite": "furniture/open_book.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    176,
+    122
+   ]
+  },
+  {
+   "id": "T3",
+   "name": "T3",
+   "collides": false,
+   "layer": "top",
+   "sprite": "furniture/inkwell_quill.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    194,
+    117
+   ]
+  },
+  {
+   "id": "T4",
+   "name": "T4",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../shared_furniture/lighting/candelabra_table.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    150
+   ]
+  },
+  {
+   "id": "X1",
+   "name": "Broken glass by display case",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/glass_shards.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    256,
+    176
+   ]
+  },
+  {
+   "id": "X2",
+   "name": "Toppled chair",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/storytelling/chair_toppled.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    224,
+    144
+   ]
+  },
+  {
+   "id": "X3",
+   "name": "Dropped books",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../shared_furniture/decor/books_stack.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    144
+   ]
+  },
+  {
+   "id": "CH",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../shared_furniture/lighting/chandelier_large.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    152,
+    84
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 8,
+    "y": 7,
+    "w": 6,
+    "h": 4
+   },
+   "palette": "green",
+   "sprite": "../../shared_furniture/carpets/rug_green_6x4.png",
+   "walkable": true,
+   "medallion": true
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "Dr. Elias Warren",
+   "tile": [
+    7,
+    8
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "(open slot)",
+   "tile": [
+    16,
+    8
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Desk - e.g. hidden letter / drawer",
+   "type": "obj",
+   "object": "DK",
+   "footprint_tiles": {
+    "x": 9,
+    "y": 8,
+    "w": 4,
+    "h": 2
+   }
+  },
+  {
+   "id": "C2",
+   "description": "Fireplace - e.g. burnt papers",
+   "type": "obj",
+   "object": "F1",
+   "footprint_tiles": {
+    "x": 9,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   }
+  },
+  {
+   "id": "C3",
+   "description": "Bookshelf gap - e.g. out-of-place / missing book",
+   "type": "obj",
+   "object": "B4",
+   "footprint_tiles": {
+    "x": 7,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C4",
+   "description": "Display case - e.g. locked item",
+   "type": "obj",
+   "object": "DC",
+   "footprint_tiles": {
+    "x": 17,
+    "y": 12,
+    "w": 2,
+    "h": 1
+   }
+  },
+  {
+   "id": "C5",
+   "description": "Globe stand - e.g. secret compartment",
+   "type": "obj",
+   "object": "F2",
+   "footprint_tiles": {
+    "x": 20,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   }
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Bookshelf (2x1); Bookshelf (2x1); Bookshelf (2x1); Bookshelf (gap: missing book) (2x1); Bookshelf (2x1); Bookshelf (2x1); Bookshelf (2x1); Bookshelf (2x1); Fireplace (3x1); Globe stand (1x1); Rolling ladder (1x1); Free-standing stack A (2x1); Free-standing stack A (2x1); Free-standing stack A (2x1); Free-standing stack B (2x1); Free-standing stack B (2x1); Free-standing stack B (2x1); Writing desk (4x2); Desk chair (1x1); Armchair (2x1); Side table (1x1); Armchair (2x1); Display case (2x1).",
+  "D1 can be LOCKED: swap the open doorway for door_e_locked.png (see previews/library_study_preview_LOCKED_DOOR_variant.png)."
+ ],
+ "stats": {
+  "interior_tiles": 220,
+  "blocking_tiles": 49,
+  "walkable_tiles": 171,
+  "walkable_percent": 78
+ }
+}

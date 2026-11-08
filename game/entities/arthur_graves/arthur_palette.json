@@ -1,0 +1,91 @@
+{
+ "character": "Arthur Graves",
+ "frame_px": 32,
+ "body_px": [
+  16,
+  27
+ ],
+ "feet_row": 30,
+ "colors": {
+  "O": {
+   "hex": "#1b1622",
+   "use": "outline / eyes"
+  },
+  "H": {
+   "hex": "#96949e",
+   "use": "hair (grey)"
+  },
+  "h": {
+   "hex": "#ceccd6",
+   "use": "hair highlight"
+  },
+  "d": {
+   "hex": "#605e6c",
+   "use": "hair part / brows"
+  },
+  "S": {
+   "hex": "#e4bc98",
+   "use": "skin"
+  },
+  "s": {
+   "hex": "#c08c6e",
+   "use": "skin shade"
+  },
+  "C": {
+   "hex": "#2e2c3a",
+   "use": "tailcoat (black)"
+  },
+  "c": {
+   "hex": "#201e2c",
+   "use": "tailcoat shade"
+  },
+  "L": {
+   "hex": "#565468",
+   "use": "tailcoat lapels / highlights"
+  },
+  "T": {
+   "hex": "#282634",
+   "use": "bow tie / coat tail"
+  },
+  "t": {
+   "hex": "#1e1c2a",
+   "use": "tie shade"
+  },
+  "V": {
+   "hex": "#eeecf0",
+   "use": "white shirt and collar"
+  },
+  "Y": {
+   "hex": "#423e52",
+   "use": "waistcoat (dark slate)"
+  },
+  "G": {
+   "hex": "#babcc8",
+   "use": "silver buttons"
+  },
+  "Z": {
+   "hex": "#cea448",
+   "use": "brass key ring and keys"
+  },
+  "K": {
+   "hex": "#543c2e",
+   "use": "belt"
+  },
+  "g": {
+   "hex": "#9e9eaa",
+   "use": "gloves (gray)"
+  },
+  "P": {
+   "hex": "#2c2a38",
+   "use": "trousers"
+  },
+  "B": {
+   "hex": "#221e28",
+   "use": "boots"
+  },
+  "b": {
+   "hex": "#605c6a",
+   "use": "boot highlight"
+  }
+ }
+}

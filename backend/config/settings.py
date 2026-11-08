@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_mongodb_backend',
     'rest_framework',
+    'evidence',
     'dialogue.apps.DialogueConfig',
 ]
 

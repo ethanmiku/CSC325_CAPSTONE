@@ -1,0 +1,95 @@
+{
+ "character": "Edmund Blackwood",
+ "frame_px": 32,
+ "body_px": [
+  16,
+  28
+ ],
+ "feet_row": 30,
+ "colors": {
+  "O": {
+   "hex": "#1b1622",
+   "use": "outline / eyes"
+  },
+  "H": {
+   "hex": "#605a64",
+   "use": "hair base (salt-and-pepper grey)"
+  },
+  "h": {
+   "hex": "#b2acb4",
+   "use": "hair silver highlight"
+  },
+  "d": {
+   "hex": "#3c3640",
+   "use": "hair dark"
+  },
+  "M": {
+   "hex": "#cec8cc",
+   "use": "silver moustache and side-whiskers"
+  },
+  "S": {
+   "hex": "#e8b892",
+   "use": "skin"
+  },
+  "s": {
+   "hex": "#c48c6c",
+   "use": "skin shade"
+  },
+  "C": {
+   "hex": "#7a2634",
+   "use": "smoking jacket (burgundy)"
+  },
+  "c": {
+   "hex": "#541828",
+   "use": "jacket shade"
+  },
+  "L": {
+   "hex": "#a0424e",
+   "use": "jacket light / sash"
+  },
+  "T": {
+   "hex": "#5c1c2c",
+   "use": "shawl collar and jacket tail"
+  },
+  "t": {
+   "hex": "#3e1220",
+   "use": "shawl shade"
+  },
+  "G": {
+   "hex": "#f8d464",
+   "use": "gold (buttons, watch fob, cravat pin, tassel)"
+  },
+  "V": {
+   "hex": "#f0e6cc",
+   "use": "cravat and shirt (cream)"
+  },
+  "v": {
+   "hex": "#ccbea0",
+   "use": "cravat shade"
+  },
+  "Y": {
+   "hex": "#b2863a",
+   "use": "waistcoat (ochre)"
+  },
+  "y": {
+   "hex": "#825e2a",
+   "use": "waistcoat shade"
+  },
+  "R": {
+   "hex": "#ec96a0",
+   "use": "boutonniere"
+  },
+  "P": {
+   "hex": "#3a3644",
+   "use": "trousers"
+  },
+  "B": {
+   "hex": "#2c2228",
+   "use": "shoes"
+  },
+  "b": {
+   "hex": "#5c4c52",
+   "use": "shoe highlight"
+  }
+ }
+}
