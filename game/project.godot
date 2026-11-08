@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="murder-mystery-game"
-run/main_scene="uid://ddm6hhcwvihhn"
+run/main_scene="res://maps/main_hall/main_hall.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -64,5 +64,7 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.07, 0.05, 0.06, 1)
