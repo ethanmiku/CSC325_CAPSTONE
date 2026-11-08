@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d1karpchpgpww"]
+
+[ext_resource type="Script" uid="uid://cpberai3t6aqn" path="res://ui/settings_menu/settings_menu.gd" id="1_cobfr"]
+[ext_resource type="AudioStream" uid="uid://b418ex4ejne0h" path="res://ui/settings_menu/test_audio/dragon-studio-open-door-sfx-454245.mp3" id="2_kvsec"]
+
+[node name="SettingsMenu" type="Control" unique_id=11664918]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 84.0
+offset_right = 55.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cobfr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1894810414]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 150.0
+offset_right = 650.0
+offset_bottom = 350.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1830992083]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer" unique_id=1296184773]
+layout_mode = 2
+value = 100.0
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=82177066]
+layout_mode = 2
+text = "SFX Volume
+"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="VBoxContainer" unique_id=1300825308]
+layout_mode = 2
+value = 100.0
+
+[node name="SFXToggle" type="CheckBox" parent="VBoxContainer" unique_id=627460703]
+layout_mode = 2
+button_pressed = true
+text = "Enable Sound Effects"
+
+[node name="TestSoundButton" type="Button" parent="VBoxContainer" unique_id=1882961925]
+layout_mode = 2
+text = "Test Sound"
+
+[node name="DialogueSpeedLabel" type="Label" parent="VBoxContainer" unique_id=2108081587]
+layout_mode = 2
+text = "Dialogue Speed"
+
+[node name="DialogueSpeedOption" type="OptionButton" parent="VBoxContainer" unique_id=1467452783]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "Slow"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Fast"
+popup/item_2/id = 2
+
+[node name="RestoreDefaultsButton" type="Button" parent="VBoxContainer" unique_id=1559254879]
+layout_mode = 2
+text = "Restore Defaults"
+
+[node name="TestSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1308648744]
+stream = ExtResource("2_kvsec")
+bus = &"SFX"
