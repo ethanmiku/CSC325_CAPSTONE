@@ -1,6 +1,6 @@
 """Exercise Django, validation, service, SDK, and error formatting together.
 
-Only the HTTP transport is simulated; no Claude credits or database are used.
+The profile lookup and HTTP transport are simulated.
 """
 
 import json
@@ -14,12 +14,16 @@ from django.test import SimpleTestCase, override_settings
 from django.urls import reverse
 from rest_framework.test import APIClient
 
+from .management.commands.seed_npc_profiles import SEED_PROFILES
+from .test_profiles import mock_profile_lookup
+
 
 @override_settings(ANTHROPIC_API_KEY='test-key', ANTHROPIC_MODEL='test-model')
 class ConversationIntegrationTests(SimpleTestCase):
     def setUp(self):
         self.client = APIClient(enforce_csrf_checks=True)
         self.url = reverse('dialogue:message')
+        self.lookup = self.enterContext(mock_profile_lookup())
 
     def post_message(self, message='Hello', history=None, **extra):
         return self.client.post(self.url, {
@@ -105,6 +109,41 @@ class ConversationIntegrationTests(SimpleTestCase):
             self.assertEqual(self.post_message('New conversation').status_code, 200)
         self.assertEqual(messages[1], [{'role': 'user', 'content': 'New conversation'}])
 
+    def test_same_question_only_sends_each_npcs_authorized_facts(self):
+        requests = []
+        npc_ids = ('butler', 'clara_blackwood')
+        question = 'What happened in the hallway?'
+
+        def respond(request):
+            requests.append(json.loads(request.content))
+            return self.provider_reply()
+
+        with self.provider(respond):
+            for npc_id in npc_ids:
+                response = self.post_message(question, npc_id=npc_id)
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.json()['npc_id'], npc_id)
+
+        self.assertEqual(self.lookup.call_count, 2)
+        for request, npc_id, other_id in zip(requests, npc_ids, reversed(npc_ids), strict=True):
+            with self.subTest(npc_id=npc_id):
+                profile = SEED_PROFILES[npc_id]
+                for field in ('name', 'personality', 'background'):
+                    self.assertIn(profile[field], request['system'])
+                for fact in profile['known_facts']:
+                    self.assertIn(fact, request['system'])
+                for fact in SEED_PROFILES[other_id]['known_facts']:
+                    self.assertNotIn(fact, request['system'])
+                self.assertEqual(request['messages'], [{'role': 'user', 'content': question}])
+
+    @patch('dialogue.services.anthropic.Anthropic')
+    def test_unknown_npc_never_constructs_provider_client(self, constructor):
+        for npc_id in ('unknown', 'Butler', ' butler '):
+            with self.subTest(npc_id=npc_id):
+                self.assert_error(self.post_message(npc_id=npc_id), 404, 'npc_not_found')
+                self.lookup.assert_called_with(npc_id=npc_id)
+        constructor.assert_not_called()
+
     @patch('dialogue.services.anthropic.Anthropic')
     def test_rejected_input_never_constructs_provider_client(self, constructor):
         cases = [
@@ -118,6 +157,7 @@ class ConversationIntegrationTests(SimpleTestCase):
         for changes in cases:
             with self.subTest(changes=changes):
                 self.assert_error(self.post_message(**changes), 400, 'invalid_request')
+        self.lookup.assert_not_called()
         constructor.assert_not_called()
 
     def test_provider_http_failures_are_sanitized_and_not_retried(self):

@@ -5,14 +5,26 @@ requires the configuration below; automated tests use mocked Claude responses.
 
 ## Scope
 
-The first milestone supports a local Godot client talking to one predefined NPC
-through Django. Django generates replies using Claude. NPC definitions and case
-facts are stored in backend code; the generated dialogue is dynamic.
+Godot sends an NPC ID to Django, which loads the corresponding MongoDB profile
+and generates a reply using Claude. Each profile stores its own authorized case
+facts. Django supplies only those facts as authoritative case context.
 
 Conversation persistence, player accounts, game sessions, clue unlocks, streaming,
-and NPC management endpoints are outside this milestone. No new MongoDB models or
-migrations are required for dialogue. Existing Django configuration still requires
-the database environment variables described in the backend setup guides.
+and NPC management endpoints are outside this milestone.
+
+## Profile setup
+
+With MongoDB configured, run these commands from `backend`:
+
+```sh
+python manage.py migrate
+python manage.py seed_npc_profiles
+```
+
+The seed command creates missing profiles for Arthur (`butler`) and Clara
+(`clara_blackwood`) with provisional story facts. It preserves existing profiles.
+To retire a seeded NPC, remove its entry from the seed command, delete its
+MongoDB profile, and remove any game interactions that use its ID.
 
 ## Connection and conventions
 
@@ -78,7 +90,7 @@ with each request, and Django does not save the conversation.
 
 | Field | Type | Rules |
 | --- | --- | --- |
-| `npc_id` | String | Required. Exact, case-sensitive NPC identifier. The only supported value in this milestone is `butler`. |
+| `npc_id` | String | Required. Exact, case-sensitive NPC identifier. The default seed IDs are `butler` and `clara_blackwood`. |
 | `message` | String | Required. Trim leading and trailing whitespace; reject if empty after trimming. Maximum 1,000 characters before trimming. |
 | `history` | Array | Required. Use `[]` for the first turn. Maximum 20 entries (10 completed exchanges). |
 
@@ -210,7 +222,7 @@ computer. A shared remote backend is a separate deployment task.
 | --- | --- |
 | Maintain the API contract and communicate changes. | Use one configurable API base URL, initially `http://127.0.0.1:8000`. |
 | Validate input and return documented JSON responses. | Send `Content-Type: application/json` and `Accept: application/json`. |
-| Maintain NPC profiles, case facts, and prompts. | Use the supported NPC ID `butler`; display Arthur as the character name. |
+| Maintain NPC profiles, case facts, and prompts. | Send the ID of the NPC being interviewed. |
 | Configure Claude credentials, model, output budget, and timeout. | Keep credentials out of client requests and game files. |
 | Generate replies and translate provider failures. | Display loading, replies, and errors; allow only one pending send. |
 | Test backend behavior and document setup. | Keep history per NPC, trim complete exchanges to the stated limits, and clear it on reset. |

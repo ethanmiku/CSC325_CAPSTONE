@@ -173,6 +173,7 @@ Apply migrations:
 
 ```powershell
 python manage.py migrate
+python manage.py seed_npc_profiles
 ```
 
 This command connects to MongoDB and applies any pending database setup.
@@ -216,8 +217,8 @@ With the virtual environment active, from `backend`, run:
 python manage.py test dialogue --verbosity 2
 ```
 
-The suite currently contains 33 tests. It does not call Claude or query MongoDB,
-but Django still needs the configuration variables from step 4 to load settings.
+By default, the suite mocks Claude and skips the MongoDB integration test.
+Django still needs the configuration variables from step 4 to load settings.
 
 Keep the development server running and open a second PowerShell terminal. Follow
 the [API contract's PowerShell examples](docs/dialogue-api.md#manual-request-examples-powershell)

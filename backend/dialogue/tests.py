@@ -2,7 +2,8 @@ from django.test import SimpleTestCase
 from django.urls import reverse
 from rest_framework.test import APIClient
 
-from .npc_data import NPCNotFound, get_npc
+from .npc_data import get_npc
+from .test_profiles import mock_profile_lookup
 from .prompts import build_npc_prompt
 from .serializers import DialogueMessageSerializer
 
@@ -137,23 +138,10 @@ class DialogueValidationTests(SimpleTestCase):
                 serializer = DialogueMessageSerializer(data=self.request_data(history=history))
                 self.assertEqual(serializer.is_valid(), valid, serializer.errors)
 
-    def test_unknown_npc_raises_not_found_after_input_validation(self):
-        for npc_id in ('unknown', 'Butler', ' butler '):
-            with self.subTest(npc_id=npc_id):
-                serializer = DialogueMessageSerializer(data=self.request_data(npc_id=npc_id))
-                with self.assertRaises(NPCNotFound) as caught:
-                    serializer.is_valid(raise_exception=True)
-                self.assertEqual(caught.exception.status_code, 404)
-                self.assertEqual(caught.exception.get_codes(), 'npc_not_found')
-
-        serializer = DialogueMessageSerializer(data=self.request_data(npc_id='unknown', message=''))
-        self.assertFalse(serializer.is_valid())
-        self.assertIn('message', serializer.errors)
-
-
 class NPCPromptTests(SimpleTestCase):
     def test_prompt_includes_profile_facts_and_story_constraints(self):
-        npc = get_npc('butler')
+        with mock_profile_lookup():
+            npc = get_npc('butler')
         prompt = build_npc_prompt(npc)
 
         for text in (npc.name, npc.personality, npc.background, *npc.known_facts):

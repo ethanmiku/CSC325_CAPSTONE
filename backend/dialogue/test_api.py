@@ -9,6 +9,7 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 
 from .services import AIInvalidResponse, AITimeout, AIUnavailable, generate_reply
+from .test_profiles import mock_profile_lookup
 
 
 class DialogueEndpointTests(SimpleTestCase):
@@ -28,7 +29,6 @@ class DialogueEndpointTests(SimpleTestCase):
     def test_invalid_requests_never_generate(self, generate):
         for changes, status, code in (
             ({'message': ''}, 400, 'invalid_request'),
-            ({'npc_id': 'unknown'}, 404, 'npc_not_found'),
             ({'npc_id': 'unknown', 'message': ''}, 400, 'invalid_request'),
         ):
             with self.subTest(changes=changes):
@@ -88,6 +88,9 @@ class DialogueEndpointTests(SimpleTestCase):
 
 @override_settings(ANTHROPIC_API_KEY='test-key', ANTHROPIC_MODEL='test-model')
 class ClaudeServiceTests(SimpleTestCase):
+    def setUp(self):
+        self.enterContext(mock_profile_lookup())
+
     def test_real_sdk_serializes_the_expected_messages_request(self):
         captured = []
 
