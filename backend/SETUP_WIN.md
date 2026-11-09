@@ -217,7 +217,7 @@ With the virtual environment active, from `backend`, run:
 python manage.py test dialogue --verbosity 2
 ```
 
-By default, the suite mocks Claude and skips the MongoDB integration test.
+By default, the suite mocks Claude and skips the MongoDB integration tests.
 Django still needs the configuration variables from step 4 to load settings.
 
 Keep the development server running and open a second PowerShell terminal. Follow

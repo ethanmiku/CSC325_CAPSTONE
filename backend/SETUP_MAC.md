@@ -203,13 +203,13 @@ With the virtual environment active, from `backend`, run:
 python manage.py test dialogue --verbosity 2
 ```
 
-By default, the suite mocks Claude and skips the MongoDB integration test.
+By default, the suite mocks Claude and skips the MongoDB integration tests.
 Django still needs the configuration variables from step 4 to load settings.
 
 Leave the server running. In a second Terminal window, activate the virtual
 environment from the repository root and run this Python client. It sends a first
-message, then a follow-up containing the actual reply. Both calls use your Claude
-API account and incur API charges.
+message, then a follow-up using the same session ID. Both calls use your
+Claude API account and incur API charges.
 
 ```bash
 source .venv/bin/activate
@@ -217,6 +217,7 @@ python - <<'PY'
 import json
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
+from uuid import uuid4
 
 def send(payload):
     request = Request(
@@ -232,17 +233,18 @@ def send(payload):
         print('HTTP', error.code, error.read().decode('utf-8'))
         raise SystemExit(1)
 
+game_session_id = str(uuid4())
 message = 'Where were you last night?'
-first = send({'npc_id': 'butler', 'message': message, 'history': []})
+first = send({
+    'game_session_id': game_session_id,
+    'npc_id': 'butler',
+    'message': message,
+})
 print(json.dumps(first, indent=2))
-history = [
-    {'role': 'user', 'content': message},
-    {'role': 'assistant', 'content': first['reply']},
-]
 follow_up = send({
+    'game_session_id': game_session_id,
     'npc_id': 'butler',
     'message': 'Did you hear anything while you were there?',
-    'history': history,
 })
 print(json.dumps(follow_up, indent=2))
 PY
