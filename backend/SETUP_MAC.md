@@ -163,6 +163,7 @@ Apply the database migrations:
 
 ```bash
 python manage.py migrate
+python manage.py seed_npc_profiles
 ```
 
 This connects to MongoDB and applies pending database setup.
@@ -202,8 +203,8 @@ With the virtual environment active, from `backend`, run:
 python manage.py test dialogue --verbosity 2
 ```
 
-The suite currently contains 33 tests. It does not call Claude or query MongoDB,
-but Django still needs the configuration variables from step 4 to load settings.
+By default, the suite mocks Claude and skips the MongoDB integration test.
+Django still needs the configuration variables from step 4 to load settings.
 
 Leave the server running. In a second Terminal window, activate the virtual
 environment from the repository root and run this Python client. It sends a first
