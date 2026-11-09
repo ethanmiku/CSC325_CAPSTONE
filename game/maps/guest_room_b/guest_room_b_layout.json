@@ -1,0 +1,1125 @@
+{
+ "room": "Guest Room B",
+ "key": "guest_room_b",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 22,
+  "h": 16
+ },
+ "size_px": {
+  "w": 352,
+  "h": 256
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "guest",
+  "floor": "wood_light"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 20,
+  "y1": 14,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "guest_room_b_tileset.png",
+ "tileset_index": "guest_room_b_tileset.json",
+ "preview": "guest_room_b_preview.png",
+ "player_spawn": {
+  "tile": [
+   10,
+   12
+  ],
+  "godot_position_if_sprite_centered_px": [
+   168,
+   193
+  ],
+  "frame_top_left_px": [
+   152,
+   177
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "S",
+   "target": "Upstairs Hallway",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     10,
+     15
+    ],
+    [
+     11,
+     15
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 160,
+    "y": 240,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    10,
+    14
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "upstairs_hallway",
+   "go_to_spawn": "from_guest_room_b",
+   "interaction_zone_px": {
+    "x": 160,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "solid_door_block_px": {
+    "x": 160,
+    "y": 240,
+    "w": 32,
+    "h": 16
+   },
+   "player_must_face": "down",
+   "door_sprite_closed": "../../assets/architecture/doors/door_s_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_s_open.png"
+  }
+ ],
+ "furniture": [
+  {
+   "id": "NS1",
+   "name": "Nightstand (bed 1)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/nightstand_guest.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "BD1",
+   "name": "Single bed 1 (blue)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 2,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "../../assets/furniture/beds/bed_single_blue.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    32,
+    32
+   ]
+  },
+  {
+   "id": "NS2",
+   "name": "Nightstand (bed 2)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/nightstand_guest.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    80,
+    16
+   ]
+  },
+  {
+   "id": "BD2",
+   "name": "Single bed 2 (green)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 2,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 32,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "../../assets/furniture/beds/bed_single_green.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    96,
+    32
+   ]
+  },
+  {
+   "id": "FP",
+   "name": "Fireplace",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/fireplaces/fireplace_lit.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    16
+   ]
+  },
+  {
+   "id": "NS3",
+   "name": "Nightstand (bed 3)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/nightstand_guest.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    16
+   ]
+  },
+  {
+   "id": "BD3",
+   "name": "Single bed 3 (ochre)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 2,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 32,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "../../assets/furniture/beds/bed_single_ochre.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    224,
+    32
+   ]
+  },
+  {
+   "id": "NS4",
+   "name": "Nightstand (bed 4)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 17,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 272,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/nightstand_guest.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    16
+   ]
+  },
+  {
+   "id": "BD4",
+   "name": "Single bed 4 (plum)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 18,
+    "y": 2,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 288,
+    "y": 32,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 80,
+   "sprite": "../../assets/furniture/beds/bed_single_plum.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    288,
+    32
+   ]
+  },
+  {
+   "id": "TR1",
+   "name": "Trunk (bed 1)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/furniture/storage/trunk_master.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    32,
+    80
+   ]
+  },
+  {
+   "id": "TR2",
+   "name": "Trunk (bed 2)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/furniture/storage/trunk_master.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    80
+   ]
+  },
+  {
+   "id": "TR3",
+   "name": "Trunk (bed 3)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/furniture/storage/trunk_master.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    224,
+    80
+   ]
+  },
+  {
+   "id": "TR4",
+   "name": "Trunk (bed 4)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 18,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 288,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/furniture/storage/trunk_master.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    288,
+    80
+   ]
+  },
+  {
+   "id": "SF",
+   "name": "Sofa",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 8,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 128,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/furniture/seating/sofa_s.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    112
+   ]
+  },
+  {
+   "id": "TS",
+   "name": "Tea table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 9,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 144,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 160,
+   "sprite": "../../assets/furniture/tables/table_side.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    128
+   ]
+  },
+  {
+   "id": "AE",
+   "name": "Armchair (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 7,
+    "y": 9,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 112,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 160,
+   "sprite": "../../assets/furniture/seating/armchair_e.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    112,
+    128
+   ]
+  },
+  {
+   "id": "AW",
+   "name": "Armchair (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 9,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 160,
+   "sprite": "../../assets/furniture/seating/armchair_w.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    128
+   ]
+  },
+  {
+   "id": "WD1",
+   "name": "Wardrobe 1",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 14,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 224,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/storage/wardrobe_guest.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    32,
+    192
+   ]
+  },
+  {
+   "id": "WD2",
+   "name": "Wardrobe 2",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 5,
+    "y": 14,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 80,
+    "y": 224,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/storage/wardrobe_guest.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    80,
+    192
+   ]
+  },
+  {
+   "id": "MR",
+   "name": "Standing mirror",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 14,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 224,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/misc/standing_mirror.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    128,
+    208
+   ]
+  },
+  {
+   "id": "WS",
+   "name": "Washstand",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 14,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 224,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/tables/table_side.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    208
+   ]
+  },
+  {
+   "id": "DR",
+   "name": "Dresser",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 15,
+    "y": 14,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 240,
+    "y": 224,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/storage/dresser_master.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    240,
+    208
+   ]
+  },
+  {
+   "id": "WD3",
+   "name": "Wardrobe 3",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 18,
+    "y": 14,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 288,
+    "y": 224,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/storage/wardrobe_guest.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    288,
+    192
+   ]
+  },
+  {
+   "id": "PL1",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 12,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 192,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "../../assets/decorations/objects/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    176
+   ]
+  },
+  {
+   "id": "PL2",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 12,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 192,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 208,
+   "sprite": "../../assets/decorations/objects/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    320,
+    176
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "DS1",
+   "name": "Door to the hallway",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_s_closed.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    160,
+    240
+   ]
+  },
+  {
+   "id": "W1",
+   "name": "W1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_snow_curtains_blue.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    0
+   ]
+  },
+  {
+   "id": "W2",
+   "name": "W2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_snow_curtains_green.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    0
+   ]
+  },
+  {
+   "id": "W3",
+   "name": "W3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_snow_curtains_ochre.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    224,
+    0
+   ]
+  },
+  {
+   "id": "W4",
+   "name": "W4",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_snow_curtains_plum.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    288,
+    0
+   ]
+  },
+  {
+   "id": "WN1",
+   "name": "WN1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    112
+   ]
+  },
+  {
+   "id": "WN2",
+   "name": "WN2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    336,
+    112
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    168,
+    0
+   ]
+  },
+  {
+   "id": "S1",
+   "name": "S1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    128,
+    2
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "S2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    192,
+    2
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "T1",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    16,
+    17
+   ]
+  },
+  {
+   "id": "T2",
+   "name": "T2",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    80,
+    17
+   ]
+  },
+  {
+   "id": "T3",
+   "name": "T3",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    208,
+    17
+   ]
+  },
+  {
+   "id": "T4",
+   "name": "T4",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    272,
+    17
+   ]
+  },
+  {
+   "id": "C1",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../assets/decorations/lighting/chandelier_large.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    136,
+    76
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 4,
+    "y": 7,
+    "w": 13,
+    "h": 6
+   },
+   "palette": "o_sapphire",
+   "sprite": "../../assets/decorations/rugs/rug_o_sapphire_13x6.png",
+   "walkable": true,
+   "medallion": true,
+   "sprite_res": "res://blackwood_second_floor_v2/assets/decorations/rugs/rug_o_sapphire_13x6.png"
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "(open slot - guest 1)",
+   "tile": [
+    4,
+    10
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "(open slot - guest 2)",
+   "tile": [
+    17,
+    10
+   ]
+  },
+  {
+   "id": "N3",
+   "who": "(open slot - guest 3)",
+   "tile": [
+    7,
+    12
+   ]
+  },
+  {
+   "id": "N4",
+   "who": "(open slot - guest 4)",
+   "tile": [
+    14,
+    12
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Trunk at the foot of bed 3 - placeholder clue spot",
+   "type": "obj",
+   "object": "TR3",
+   "footprint_tiles": {
+    "x": 14,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C2",
+   "description": "Fireplace - placeholder clue spot",
+   "type": "obj",
+   "object": "FP",
+   "footprint_tiles": {
+    "x": 9,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C3",
+   "description": "Wardrobe 1 - placeholder clue spot",
+   "type": "obj",
+   "object": "WD1",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 14,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C4",
+   "description": "Dresser - placeholder clue spot",
+   "type": "obj",
+   "object": "DR",
+   "footprint_tiles": {
+    "x": 15,
+    "y": 14,
+    "w": 3,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Nightstand (bed 1) (1x1); Single bed 1 (blue) (2x3); Nightstand (bed 2) (1x1); Single bed 2 (green) (2x3); Fireplace (3x1); Nightstand (bed 3) (1x1); Single bed 3 (ochre) (2x3); Nightstand (bed 4) (1x1); Single bed 4 (plum) (2x3); Trunk (bed 1) (2x1); Trunk (bed 2) (2x1); Trunk (bed 3) (2x1); Trunk (bed 4) (2x1); Sofa (3x1); Tea table (1x1); Armchair (west) (2x1); Armchair (east) (2x1); Wardrobe 1 (2x1); Wardrobe 2 (2x1); Standing mirror (1x1); Washstand (1x1); Dresser (3x1); Wardrobe 3 (2x1); Potted plant (1x1); Potted plant (1x1)."
+ ],
+ "stats": {
+  "interior_tiles": 260,
+  "blocking_tiles": 60,
+  "walkable_tiles": 200,
+  "walkable_percent": 77
+ },
+ "dimensions_source": "specified in the second-floor brief (V1 and V2)",
+ "named_spawns": [
+  {
+   "name": "from_hallway",
+   "door": "D1",
+   "tile_y": 12,
+   "godot_position_px": [
+    176,
+    193
+   ],
+   "facing": "UP",
+   "note": "arrive from the hallway"
+  }
+ ]
+}
