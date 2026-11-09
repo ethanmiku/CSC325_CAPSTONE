@@ -1,29 +1,32 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://maps/main_hall/main_hall.gd" id="1_main_hall"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/main_hall_tileset.png" id="2_main_hall_tileset"]
+[ext_resource type="Script" path="res://maps/room.gd" id="1_room"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/main_hall_tileset.png" id="2_main_hall_tileset"]
 [ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://maps/door/door.tscn" id="4_door"]
 [ext_resource type="PackedScene" path="res://ui/touch_controls/touch_controls.tscn" id="5_touch_controls"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/rug_burgundy_8x6.png" id="8_rug_burgundy_8x6"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/front_door_snowed.png" id="9_front_door_snowed"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_portrait.png" id="10_painting_portrait"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_landscape.png" id="11_painting_landscape"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/wall_sconce.png" id="12_wall_sconce"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_small.png" id="13_painting_small"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_portrait_damaged.png" id="14_painting_portrait_damaged"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/rug_burgundy_8x6.png" id="6_rug_burgundy_8x6"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/front_door_snowed.png" id="7_front_door_snowed"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_portrait.png" id="8_painting_portrait"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_landscape.png" id="9_painting_landscape"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/wall_sconce.png" id="10_wall_sconce"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_small.png" id="11_painting_small"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_portrait_damaged.png" id="12_painting_portrait_damaged"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="13_door_w_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="14_door_e_open"]
 [ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="15_fireplace_lit"]
 [ext_resource type="Texture2D" path="res://shared_assets/furniture/grandfather_clock.png" id="16_grandfather_clock"]
 [ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/grand_staircase.png" id="17_grand_staircase"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/plant_potted.png" id="18_plant_potted"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="18_plant_potted"]
 [ext_resource type="Texture2D" path="res://shared_assets/furniture/table_console.png" id="19_table_console"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/candlestick.png" id="20_candlestick"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/vase_flowers.png" id="21_vase_flowers"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/bench_indoor.png" id="22_bench_indoor"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/coat_stand.png" id="23_coat_stand"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/umbrella_stand.png" id="24_umbrella_stand"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/chandelier_large.png" id="25_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/bench_indoor.png" id="20_bench_indoor"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/coat_stand.png" id="21_coat_stand"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/umbrella_stand.png" id="22_umbrella_stand"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="23_candlestick"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/vase_flowers.png" id="24_vase_flowers"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="25_chandelier_large"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_main_hall"]
+[sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_main_hall_tileset")
 texture_region_size = Vector2i(16, 16)
 0:0/0 = 0
@@ -50,259 +53,407 @@ texture_region_size = Vector2i(16, 16)
 5:2/0 = 0
 6:2/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_main_hall"]
-sources/0 = SubResource("TileSetAtlasSource_main_hall")
+[sub_resource type="TileSet" id="TileSet_room"]
+sources/0 = SubResource("Atlas_room")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_north"]
-size = Vector2(320, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_south"]
-size = Vector2(320, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_west"]
-size = Vector2(16, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_east"]
-size = Vector2(16, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1"]
+[sub_resource type="RectangleShape2D" id="Rect_48x16"]
 size = Vector2(48, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3"]
+[sub_resource type="RectangleShape2D" id="Rect_16x16"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_st"]
+[sub_resource type="RectangleShape2D" id="Rect_96x48"]
 size = Vector2(96, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2"]
-size = Vector2(48, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5"]
-size = Vector2(48, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6"]
-size = Vector2(48, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd"]
+[sub_resource type="RectangleShape2D" id="Rect_64x16"]
 size = Vector2(64, 16)
 
+[sub_resource type="RectangleShape2D" id="Rect_320x32"]
+size = Vector2(320, 32)
+
+[sub_resource type="RectangleShape2D" id="Rect_320x16"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x32"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x80"]
+size = Vector2(16, 80)
+
 [node name="MainHall" type="Node2D"]
-script = ExtResource("1_main_hall")
+script = ExtResource("1_room")
+metadata/room_key = "main_hall"
+metadata/size_tiles = Vector2i(20, 16)
 
 [node name="Floor" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 6, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 7, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 8, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 10, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 11, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 12, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 13, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 14, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 15, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 16, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 17, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 18, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 19, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 10, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 13, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 16, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 18, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 19, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 6, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 15, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 7, 0, 1, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 10, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 11, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 15, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 18, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 9, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 17, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 5, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 6, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 6, 0, 0, 0, 3, 0, 0, 0, 0, 0, 8, 0, 6, 0, 0, 0, 2, 0, 0, 0, 0, 0, 9, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 6, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 6, 0, 0, 0, 2, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 6, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 10, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 7, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 7, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 0, 0, 2, 0, 0, 0, 0, 0, 7, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 8, 0, 0, 0, 3, 0, 0, 0, 0, 0, 10, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 8, 0, 0, 0, 3, 0, 0, 0, 0, 0, 15, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 8, 0, 0, 0, 3, 0, 0, 0, 0, 0, 18, 0, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 8, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 9, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 9, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 9, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 9, 0, 0, 0, 2, 0, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 9, 0, 0, 0, 3, 0, 0, 0, 0, 0, 11, 0, 9, 0, 0, 0, 2, 0, 0, 0, 0, 0, 12, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 17, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 9, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 10, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 8, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 10, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 10, 0, 0, 0, 2, 0, 0, 0, 0, 0, 13, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 18, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 10, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 11, 0, 0, 0, 7, 0, 1, 0, 0, 0, 1, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 11, 0, 0, 0, 3, 0, 0, 0, 0, 0, 9, 0, 11, 0, 0, 0, 2, 0, 0, 0, 0, 0, 10, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 11, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 11, 0, 0, 0, 3, 0, 0, 0, 0, 0, 15, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 11, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 12, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 12, 0, 0, 0, 3, 0, 0, 0, 0, 0, 7, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 8, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 11, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 12, 0, 12, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 16, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 18, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 12, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 13, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 13, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, 0, 13, 0, 0, 0, 3, 0, 0, 0, 0, 0, 7, 0, 13, 0, 0, 0, 2, 0, 0, 0, 0, 0, 8, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 13, 0, 0, 0, 2, 0, 0, 0, 0, 0, 12, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 13, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 17, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 13, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 14, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 14, 0, 0, 0, 2, 0, 0, 0, 0, 0, 9, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 10, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 14, 0, 0, 0, 2, 0, 0, 0, 0, 0, 13, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 16, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 18, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 14, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 15, 0, 0, 0, 5, 0, 1, 0, 0, 0, 1, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 2, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 3, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 4, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 6, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 7, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 8, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 9, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 10, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 11, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 12, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 13, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 14, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 15, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 16, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 17, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 18, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 19, 0, 15, 0, 0, 0, 6, 0, 1, 0, 0, 0)
-tile_set = SubResource("TileSet_main_hall")
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 6, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 7, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 8, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 11, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 12, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 13, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 14, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 15, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 16, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 17, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 18, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 19, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 17, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 18, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0, 19, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 8, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 13, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 15, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 7, 0, 1, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 13, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 15, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 18, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 4, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 9, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 5, 0, 0, 0, 2, 0, 0, 0, 0, 0, 17, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 5, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 6, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 6, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 6, 0, 0, 0, 2, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 6, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 7, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 8, 0, 0, 0, 3, 0, 0, 0, 0, 0, 15, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 8, 0, 0, 0, 3, 0, 0, 0, 0, 0, 18, 0, 8, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 8, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 9, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 9, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 9, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 17, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 19, 0, 9, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 10, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 18, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 10, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 11, 0, 0, 0, 7, 0, 1, 0, 0, 0, 1, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 11, 0, 0, 0, 3, 0, 0, 0, 0, 0, 15, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 11, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 12, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 6, 0, 12, 0, 0, 0, 3, 0, 0, 0, 0, 0, 7, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 8, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 12, 0, 12, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 16, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 18, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 12, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 13, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 13, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, 0, 13, 0, 0, 0, 3, 0, 0, 0, 0, 0, 7, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 13, 0, 0, 0, 2, 0, 0, 0, 0, 0, 12, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 13, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 16, 0, 13, 0, 0, 0, 1, 0, 0, 0, 0, 0, 17, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 13, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 14, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 14, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0, 0, 15, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 16, 0, 14, 0, 0, 0, 2, 0, 0, 0, 0, 0, 17, 0, 14, 0, 0, 0, 3, 0, 0, 0, 0, 0, 18, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 14, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 15, 0, 0, 0, 5, 0, 1, 0, 0, 0, 1, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 2, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 3, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 4, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 6, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 7, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 8, 0, 15, 0, 0, 0, 4, 0, 0, 0, 0, 0, 9, 0, 15, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 15, 0, 0, 0, 4, 0, 0, 0, 0, 0, 11, 0, 15, 0, 0, 0, 4, 0, 0, 0, 0, 0, 12, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 13, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 14, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 15, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 16, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 17, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 18, 0, 15, 0, 0, 0, 4, 0, 1, 0, 0, 0, 19, 0, 15, 0, 0, 0, 6, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_room")
 
-[node name="Rug" type="Sprite2D" parent="."]
+[node name="Rugs" type="Node2D" parent="."]
+
+[node name="Rug_1" type="Sprite2D" parent="Rugs"]
 position = Vector2(96, 96)
-texture = ExtResource("8_rug_burgundy_8x6")
+texture = ExtResource("6_rug_burgundy_8x6")
 centered = false
 
 [node name="WallDecor" type="Node2D" parent="."]
 
-[node name="FrontDoorsSnowedIn" type="Sprite2D" parent="WallDecor"]
+[node name="FD" type="Sprite2D" parent="WallDecor"]
 position = Vector2(128, 224)
-texture = ExtResource("9_front_door_snowed")
+texture = ExtResource("7_front_door_snowed")
 centered = false
 
-[node name="PaintingPortrait" type="Sprite2D" parent="WallDecor"]
+[node name="P1" type="Sprite2D" parent="WallDecor"]
 position = Vector2(16, 0)
-texture = ExtResource("10_painting_portrait")
+texture = ExtResource("8_painting_portrait")
 centered = false
 
-[node name="PaintingLandscape" type="Sprite2D" parent="WallDecor"]
+[node name="P2" type="Sprite2D" parent="WallDecor"]
 position = Vector2(40, 0)
-texture = ExtResource("11_painting_landscape")
+texture = ExtResource("9_painting_landscape")
 centered = false
 
-[node name="WallSconce" type="Sprite2D" parent="WallDecor"]
+[node name="S1" type="Sprite2D" parent="WallDecor"]
 position = Vector2(80, 2)
-texture = ExtResource("12_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
-[node name="WallSconce2" type="Sprite2D" parent="WallDecor"]
+[node name="S2" type="Sprite2D" parent="WallDecor"]
 position = Vector2(224, 2)
-texture = ExtResource("12_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
-[node name="PaintingSmall" type="Sprite2D" parent="WallDecor"]
+[node name="P3" type="Sprite2D" parent="WallDecor"]
 position = Vector2(208, 0)
-texture = ExtResource("13_painting_small")
+texture = ExtResource("11_painting_small")
 centered = false
 
-[node name="PaintingLandscape2" type="Sprite2D" parent="WallDecor"]
+[node name="P4" type="Sprite2D" parent="WallDecor"]
 position = Vector2(248, 0)
-texture = ExtResource("11_painting_landscape")
+texture = ExtResource("9_painting_landscape")
 centered = false
 
-[node name="SlashedPortrait" type="Sprite2D" parent="WallDecor"]
+[node name="P5" type="Sprite2D" parent="WallDecor"]
 position = Vector2(288, 0)
-texture = ExtResource("14_painting_portrait_damaged")
+texture = ExtResource("12_painting_portrait_damaged")
 centered = false
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Doors" type="Node2D" parent="."]
 
-[node name="North" type="CollisionShape2D" parent="Walls"]
-position = Vector2(160, 16)
-shape = SubResource("RectangleShape2D_wall_north")
+[node name="Door_D1" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(0, 64)
+target_scene = "res://maps/library_study/library_study.tscn"
+target_spawn = "from_main_hall"
+enter_direction = "left"
+trigger_size = Vector2(16, 32)
+closed_texture = ExtResource("13_door_w_open")
+open_texture = ExtResource("13_door_w_open")
+metadata/door_id = "D1"
+metadata/leads_to = "library_study"
 
-[node name="South" type="CollisionShape2D" parent="Walls"]
-position = Vector2(160, 248)
-shape = SubResource("RectangleShape2D_wall_south")
+[node name="Door_D2" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(0, 176)
+target_scene = "res://maps/guest_room/guest_room.tscn"
+target_spawn = "from_main_hall"
+enter_direction = "left"
+trigger_size = Vector2(16, 32)
+closed_texture = ExtResource("13_door_w_open")
+open_texture = ExtResource("13_door_w_open")
+metadata/door_id = "D2"
+metadata/leads_to = "guest_room"
 
-[node name="West" type="CollisionShape2D" parent="Walls"]
-position = Vector2(8, 136)
-shape = SubResource("RectangleShape2D_wall_west")
+[node name="Door_D3" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(304, 64)
+target_scene = "res://maps/dining_room/dining_room.tscn"
+target_spawn = "from_main_hall"
+enter_direction = "right"
+trigger_size = Vector2(16, 32)
+closed_texture = ExtResource("14_door_e_open")
+open_texture = ExtResource("14_door_e_open")
+metadata/door_id = "D3"
+metadata/leads_to = "dining_room"
 
-[node name="East" type="CollisionShape2D" parent="Walls"]
-position = Vector2(312, 136)
-shape = SubResource("RectangleShape2D_wall_east")
+[node name="Door_D4" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(304, 176)
+target_scene = "res://maps/kitchen/kitchen.tscn"
+target_spawn = "from_main_hall"
+enter_direction = "right"
+trigger_size = Vector2(16, 32)
+closed_texture = ExtResource("14_door_e_open")
+open_texture = ExtResource("14_door_e_open")
+metadata/door_id = "D4"
+metadata/leads_to = "kitchen"
 
-[node name="World" type="Node2D" parent="."]
+[node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Fireplace" type="StaticBody2D" parent="World"]
+[node name="F1" type="Node2D" parent="Entities"]
 position = Vector2(32, 48)
+metadata/display_name = "Fireplace"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/Fireplace"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F1"]
 position = Vector2(0, -32)
 texture = ExtResource("15_fireplace_lit")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Fireplace"]
+[node name="Body" type="StaticBody2D" parent="Entities/F1"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/F1/Body"]
 position = Vector2(24, -8)
-shape = SubResource("RectangleShape2D_f1")
+shape = SubResource("Rect_48x16")
 
-[node name="GrandfatherClock" type="StaticBody2D" parent="World"]
+[node name="F3" type="Node2D" parent="Entities"]
 position = Vector2(96, 48)
+metadata/display_name = "Grandfather clock"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/GrandfatherClock"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F3"]
 position = Vector2(0, -32)
 texture = ExtResource("16_grandfather_clock")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GrandfatherClock"]
+[node name="Body" type="StaticBody2D" parent="Entities/F3"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/F3/Body"]
 position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_f3")
+shape = SubResource("Rect_16x16")
 
-[node name="GrandStaircase" type="StaticBody2D" parent="World"]
+[node name="ST" type="Node2D" parent="Entities"]
 position = Vector2(112, 80)
+metadata/display_name = "Grand staircase (blocked)"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/GrandStaircase"]
+[node name="Sprite" type="Sprite2D" parent="Entities/ST"]
 position = Vector2(0, -80)
 texture = ExtResource("17_grand_staircase")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GrandStaircase"]
+[node name="Body" type="StaticBody2D" parent="Entities/ST"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/ST/Body"]
 position = Vector2(48, -24)
-shape = SubResource("RectangleShape2D_st")
+shape = SubResource("Rect_96x48")
 
-[node name="PottedPlant" type="StaticBody2D" parent="World"]
+[node name="F4" type="Node2D" parent="Entities"]
 position = Vector2(208, 48)
+metadata/display_name = "Potted plant"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/PottedPlant"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F4"]
 position = Vector2(0, -32)
 texture = ExtResource("18_plant_potted")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/PottedPlant"]
+[node name="Body" type="StaticBody2D" parent="Entities/F4"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/F4/Body"]
 position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_f4")
+shape = SubResource("Rect_16x16")
 
-[node name="ConsoleTable" type="StaticBody2D" parent="World"]
+[node name="F2" type="Node2D" parent="Entities"]
 position = Vector2(240, 48)
+metadata/display_name = "Console table"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/ConsoleTable"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F2"]
 position = Vector2(0, -32)
 texture = ExtResource("19_table_console")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/ConsoleTable"]
+[node name="Body" type="StaticBody2D" parent="Entities/F2"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/F2/Body"]
 position = Vector2(24, -8)
-shape = SubResource("RectangleShape2D_f2")
+shape = SubResource("Rect_48x16")
 
-[node name="Candlestick" type="Sprite2D" parent="World/ConsoleTable"]
-position = Vector2(4, -38)
-texture = ExtResource("20_candlestick")
-centered = false
-
-[node name="VaseFlowers" type="Sprite2D" parent="World/ConsoleTable"]
-position = Vector2(30, -36)
-texture = ExtResource("21_vase_flowers")
-centered = false
-
-[node name="Bench" type="StaticBody2D" parent="World"]
+[node name="F5" type="Node2D" parent="Entities"]
 position = Vector2(48, 240)
+metadata/display_name = "Bench"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/Bench"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F5"]
 position = Vector2(0, -16)
-texture = ExtResource("22_bench_indoor")
+texture = ExtResource("20_bench_indoor")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Bench"]
-position = Vector2(24, -8)
-shape = SubResource("RectangleShape2D_f5")
+[node name="Body" type="StaticBody2D" parent="Entities/F5"]
 
-[node name="Bench2" type="StaticBody2D" parent="World"]
+[node name="Shape" type="CollisionShape2D" parent="Entities/F5/Body"]
+position = Vector2(24, -8)
+shape = SubResource("Rect_48x16")
+
+[node name="F6" type="Node2D" parent="Entities"]
 position = Vector2(224, 240)
+metadata/display_name = "Bench"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/Bench2"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F6"]
 position = Vector2(0, -16)
-texture = ExtResource("22_bench_indoor")
+texture = ExtResource("20_bench_indoor")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Bench2"]
+[node name="Body" type="StaticBody2D" parent="Entities/F6"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/F6/Body"]
 position = Vector2(24, -8)
-shape = SubResource("RectangleShape2D_f6")
+shape = SubResource("Rect_48x16")
 
-[node name="CoatStand" type="StaticBody2D" parent="World"]
+[node name="F7" type="Node2D" parent="Entities"]
 position = Vector2(112, 240)
+metadata/display_name = "Coat stand"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/CoatStand"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F7"]
 position = Vector2(0, -32)
-texture = ExtResource("23_coat_stand")
+texture = ExtResource("21_coat_stand")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CoatStand"]
-position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_f7")
+[node name="Body" type="StaticBody2D" parent="Entities/F7"]
 
-[node name="UmbrellaStand" type="StaticBody2D" parent="World"]
+[node name="Shape" type="CollisionShape2D" parent="Entities/F7/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
+[node name="F8" type="Node2D" parent="Entities"]
 position = Vector2(192, 240)
+metadata/display_name = "Umbrella stand"
 
-[node name="Sprite2D" type="Sprite2D" parent="World/UmbrellaStand"]
+[node name="Sprite" type="Sprite2D" parent="Entities/F8"]
 position = Vector2(0, -16)
-texture = ExtResource("24_umbrella_stand")
+texture = ExtResource("22_umbrella_stand")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/UmbrellaStand"]
+[node name="Body" type="StaticBody2D" parent="Entities/F8"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/F8/Body"]
 position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_f8")
+shape = SubResource("Rect_16x16")
 
-[node name="SnowDrift" type="StaticBody2D" parent="World"]
+[node name="SD" type="Node2D" parent="Entities"]
 position = Vector2(128, 240)
+metadata/display_name = "Snow drift (blocks front door)"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/SnowDrift"]
+[node name="Body" type="StaticBody2D" parent="Entities/SD"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/SD/Body"]
 position = Vector2(32, -8)
-shape = SubResource("RectangleShape2D_sd")
+shape = SubResource("Rect_64x16")
 
-[node name="Player" parent="World" instance=ExtResource("3_player")]
+[node name="Top_T1" type="Sprite2D" parent="Entities/F2"]
+position = Vector2(4, -38)
+texture = ExtResource("23_candlestick")
+centered = false
+
+[node name="Top_T2" type="Sprite2D" parent="Entities/F2"]
+position = Vector2(30, -36)
+texture = ExtResource("24_vase_flowers")
+centered = false
+
+[node name="Player" parent="Entities" instance=ExtResource("3_player")]
 position = Vector2(168, 207)
-speed = 80.0
+speed = 80
 
-[node name="Chandelier" type="Sprite2D" parent="."]
+[node name="Overhead" type="Node2D" parent="."]
+z_index = 20
+
+[node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(136, 118)
 texture = ExtResource("25_chandelier_large")
 centered = false
-z_index = 10
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall_0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 16)
+shape = SubResource("Rect_320x32")
+
+[node name="Wall_1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 248)
+shape = SubResource("Rect_320x16")
+
+[node name="Wall_2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(8, 48)
+shape = SubResource("Rect_16x32")
+
+[node name="Wall_3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(8, 136)
+shape = SubResource("Rect_16x80")
+
+[node name="Wall_4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(8, 224)
+shape = SubResource("Rect_16x32")
+
+[node name="Wall_5" type="CollisionShape2D" parent="Walls"]
+position = Vector2(312, 48)
+shape = SubResource("Rect_16x32")
+
+[node name="Wall_6" type="CollisionShape2D" parent="Walls"]
+position = Vector2(312, 136)
+shape = SubResource("Rect_16x80")
+
+[node name="Wall_7" type="CollisionShape2D" parent="Walls"]
+position = Vector2(312, 224)
+shape = SubResource("Rect_16x32")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="start" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(168, 207)
+metadata/facing = "down"
+metadata/note = "default spawn when this room is the first scene"
+
+[node name="from_library_study" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(24, 83)
+metadata/facing = "right"
+metadata/note = "arrive from library_study through D1"
+
+[node name="from_guest_room" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(24, 195)
+metadata/facing = "right"
+metadata/note = "arrive from guest_room through D2"
+
+[node name="from_dining_room" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(296, 83)
+metadata/facing = "left"
+metadata/note = "arrive from dining_room through D3"
+
+[node name="from_kitchen" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(296, 195)
+metadata/facing = "left"
+metadata/note = "arrive from kitchen through D4"
+
+[node name="NpcSlots" type="Node2D" parent="."]
+
+[node name="Npc_N1" type="Marker2D" parent="NpcSlots" groups=["npc_slots"]]
+position = Vector2(56, 143)
+metadata/who = "Victoria Blackwood"
+
+[node name="Npc_N2" type="Marker2D" parent="NpcSlots" groups=["npc_slots"]]
+position = Vector2(264, 143)
+metadata/who = "Thomas Hale"
+
+[node name="Npc_N3" type="Marker2D" parent="NpcSlots" groups=["npc_slots"]]
+position = Vector2(168, 159)
+metadata/who = "Dr. Elias Warren"
+
+[node name="ClueSpots" type="Node2D" parent="."]
+
+[node name="Clue_C1" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(56, 40)
+metadata/description = "Fireplace - e.g. ashes / burnt paper"
+metadata/placeholder = true
+
+[node name="Clue_C2" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(264, 40)
+metadata/description = "Console table - e.g. letters / guest ledger"
+metadata/placeholder = true
+
+[node name="Clue_C3" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(104, 40)
+metadata/description = "Grandfather clock - e.g. stopped clock"
+metadata/placeholder = true
+
+[node name="Clue_C4" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(152, 216)
+metadata/description = "Entry floor - e.g. wet footprints"
+metadata/placeholder = true
+
+[node name="Clue_C5" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(296, 16)
+metadata/description = "Slashed portrait - e.g. something hidden behind it"
+metadata/placeholder = true
 
 [node name="TouchControls" parent="." instance=ExtResource("5_touch_controls")]
