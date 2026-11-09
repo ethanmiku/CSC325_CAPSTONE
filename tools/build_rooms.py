@@ -38,11 +38,27 @@ TILE = 16
 # Room key -> scene root node name. The order is the order rooms are built in.
 ROOMS = {
     "main_hall": "MainHall",
+    "dining_room": "DiningRoom",
+    "kitchen": "Kitchen",
+    "library_study": "LibraryStudy",
+    "guest_room": "GuestRoom",
+    "snowy_backyard": "SnowyBackyard",
+    "master_bedroom": "MasterBedroom",
+    "attached_bathroom": "AttachedBathroom",
 }
 
 # Two-way door links: ((room, door id), (room, door id)). A door that isn't listed here
 # stays a solid wall.
-CONNECTIONS = []
+CONNECTIONS = [
+    (("main_hall", "D1"), ("library_study", "D1")),
+    (("main_hall", "D2"), ("guest_room", "D1")),
+    (("main_hall", "D3"), ("dining_room", "D1")),
+    (("main_hall", "D4"), ("kitchen", "D1")),
+    (("dining_room", "D2"), ("kitchen", "D2")),
+    (("kitchen", "D3"), ("snowy_backyard", "D2")),
+    (("dining_room", "D3"), ("snowy_backyard", "D1")),
+    (("master_bedroom", "D2"), ("attached_bathroom", "D1")),
+]
 
 # Doors that aren't in a room's layout data
 EXTRA_DOORS = {}
@@ -66,7 +82,10 @@ DEFAULT_DOOR_SPRITES = {
     "E": ("door_e_closed.png", "door_e_open.png"),
 }
 # Room-specific door sprites: (room, door id) -> (closed, open)
-DOOR_SPRITE_OVERRIDES = {}
+DOOR_SPRITE_OVERRIDES = {
+    # The Dining Room side of the French doors to the backyard
+    ("dining_room", "D3"): ("french_doors_interior.png", "french_doors_interior.png"),
+}
 
 ENTER_DIRECTION = {"N": "up", "S": "down", "W": "left", "E": "right"}
 ARRIVE_FACING = {"N": "down", "S": "up", "W": "right", "E": "left"}
@@ -197,15 +216,25 @@ def solve_floor(room, layout, tiles, overlay, rug_cells):
                 grid[(x, y)] = rug_cells[(x, y)]
                 continue
             interior = 1 <= x <= w - 2 and 2 <= y <= h - 2 and (x, y) not in door_cells
-            candidates = floor_names if interior else ring_names + floor_names
-            best, best_score = None, None
-            for name in candidates:
-                tile = tiles[name][2]
-                score = diff_score(Image.alpha_composite(tile, cover), target)
-                if best_score is None or score < best_score:
-                    best, best_score = name, score
-                    if score == 0:
-                        break
+
+            def closest(names):
+                best, best_score = None, None
+                for name in names:
+                    score = diff_score(Image.alpha_composite(tiles[name][2], cover), target)
+                    if best_score is None or score < best_score:
+                        best, best_score = name, score
+                        if score == 0:
+                            break
+                return best, best_score
+
+            if interior:
+                best, best_score = closest(floor_names)
+            else:
+                # Edge cells are wall unless the preview shows an exact floor tile there
+                # (the backyard's open edges); a missing sprite over a wall must not turn it to floor
+                best, best_score = closest(ring_names + floor_names)
+                if best_score and ring_names:
+                    best, best_score = closest(ring_names)
             exact += best_score == 0
             grid[(x, y)] = (best, 0)
     return grid, exact
