@@ -777,14 +777,13 @@ def main():
     assets = Assets()
     links = connection_map()
     results = {}
+    # Every room is built so the missing-art list stays complete; only selected ones are written
     for room in ROOMS:
-        if room not in selected and not args.check:
-            continue
         text, info = build_room(room, ROOMS[room], assets, links)
         results[room] = info
-        if not args.check:
+        if room in selected and not args.check:
             (MAPS / room / f"{room}.tscn").write_text(text)
-        print(f"{room}: {info['exact_cells']}/{info['cells']} floor cells match the preview exactly")
+            print(f"{room}: {info['exact_cells']}/{info['cells']} floor cells match the preview exactly")
 
     if args.check:
         for room, info in results.items():
