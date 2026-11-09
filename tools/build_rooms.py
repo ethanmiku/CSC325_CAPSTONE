@@ -69,13 +69,23 @@ CONNECTIONS = [
     (("upstairs_hallway", "D3"), ("grand_study", "D1")),
     (("upstairs_hallway", "D4"), ("edmund_bedroom", "D1")),
     (("upstairs_hallway", "D6"), ("clara_bedroom", "D1")),
+    (("upstairs_hallway", "D7"), ("master_bedroom", "D1")),
 ]
 
 # Doors that aren't in a room's layout data
-EXTRA_DOORS = {}
+EXTRA_DOORS = {
+    # West end of the hallway, leading to the Master Bedroom (rows 4-5 are clear)
+    "upstairs_hallway": [{
+        "id": "D7", "wall": "W", "target": "Master Bedroom", "status": "open",
+        "door_tiles": [[0, 4], [0, 5]], "arrive_here_tile": [1, 4],
+    }],
+}
 
 # Tiles a room borrows from another room's tileset: room -> (source room, [tile names])
-EXTRA_TILES = {}
+EXTRA_TILES = {
+    # The hallway tileset has no west-wall doorway; borrow the Main Hall's (same burgundy walls)
+    "upstairs_hallway": ("main_hall", ["door_w_top", "door_w_bot"]),
+}
 
 # Furniture whose collision differs from its layout footprint: (room, id) -> [rects px]
 COLLISION_OVERRIDES = {}

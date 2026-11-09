@@ -17,7 +17,7 @@ under `game/shared_assets/` and run `python3 tools/build_rooms.py` again.
 | `chair_toppled.png` | dining_room, kitchen, library_study |
 | `cobweb_corner.png` | dining_room |
 | `door_e_closed.png` | guest_room, kitchen, library_study, main_hall, master_bedroom |
-| `door_w_closed.png` | attached_bathroom, dining_room, kitchen, main_hall |
+| `door_w_closed.png` | attached_bathroom, dining_room, kitchen, main_hall, upstairs_hallway |
 | `glass_shards.png` | attached_bathroom, dining_room, kitchen, library_study, master_bedroom |
 | `mirror_oval.png` | attached_bathroom |
 | `rug_blue_5x3.png` | guest_room |
