@@ -7,19 +7,20 @@
 [ext_resource type="PackedScene" path="res://ui/touch_controls/touch_controls.tscn" id="5_touch_controls"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_small_frosted.png" id="6_window_small_frosted"]
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_landscape.png" id="7_painting_landscape"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="8_door_e_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/bookshelf_tall.png" id="9_bookshelf_tall"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="10_fireplace_lit"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/globe_stand.png" id="11_globe_stand"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/library_ladder.png" id="12_library_ladder"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/writing_desk.png" id="13_writing_desk"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_s.png" id="14_chair_dining_s"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side.png" id="15_table_side"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="16_display_cabinet"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/papers_pile.png" id="17_papers_pile"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/open_book.png" id="18_open_book"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/inkwell_quill.png" id="19_inkwell_quill"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="20_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_closed_placeholder.png" id="8_door_e_closed_placeholder"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="9_door_e_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/bookshelf_tall.png" id="10_bookshelf_tall"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="11_fireplace_lit"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/globe_stand.png" id="12_globe_stand"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/library_ladder.png" id="13_library_ladder"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/writing_desk.png" id="14_writing_desk"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_s.png" id="15_chair_dining_s"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side.png" id="16_table_side"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="17_display_cabinet"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/papers_pile.png" id="18_papers_pile"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/open_book.png" id="19_open_book"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/inkwell_quill.png" id="20_inkwell_quill"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="21_chandelier_large"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_library_study_tileset")
@@ -121,8 +122,8 @@ target_scene = "res://maps/main_hall/main_hall.tscn"
 target_spawn = "from_library_study"
 enter_direction = "right"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("8_door_e_open")
-open_texture = ExtResource("8_door_e_open")
+closed_texture = ExtResource("8_door_e_closed_placeholder")
+open_texture = ExtResource("9_door_e_open")
 metadata/door_id = "D1"
 metadata/leads_to = "main_hall"
 
@@ -135,7 +136,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B1"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B1"]
@@ -150,7 +151,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B2"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B2"]
@@ -165,7 +166,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B3"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B3"]
@@ -190,7 +191,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B5"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B5"]
@@ -205,7 +206,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B6"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B6"]
@@ -220,7 +221,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B7"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B7"]
@@ -235,7 +236,7 @@ metadata/display_name = "Bookshelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B8"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B8"]
@@ -250,7 +251,7 @@ metadata/display_name = "Fireplace"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F1"]
 position = Vector2(0, -32)
-texture = ExtResource("10_fireplace_lit")
+texture = ExtResource("11_fireplace_lit")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F1"]
@@ -265,7 +266,7 @@ metadata/display_name = "Globe stand"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F2"]
 position = Vector2(0, -32)
-texture = ExtResource("11_globe_stand")
+texture = ExtResource("12_globe_stand")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F2"]
@@ -280,7 +281,7 @@ metadata/display_name = "Rolling ladder"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LD"]
 position = Vector2(0, -32)
-texture = ExtResource("12_library_ladder")
+texture = ExtResource("13_library_ladder")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LD"]
@@ -295,7 +296,7 @@ metadata/display_name = "Free-standing stack A"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SA1"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SA1"]
@@ -310,7 +311,7 @@ metadata/display_name = "Free-standing stack A"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SA2"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SA2"]
@@ -325,7 +326,7 @@ metadata/display_name = "Free-standing stack A"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SA3"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SA3"]
@@ -340,7 +341,7 @@ metadata/display_name = "Free-standing stack B"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SB1"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SB1"]
@@ -355,7 +356,7 @@ metadata/display_name = "Free-standing stack B"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SB2"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SB2"]
@@ -370,7 +371,7 @@ metadata/display_name = "Free-standing stack B"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SB3"]
 position = Vector2(0, -32)
-texture = ExtResource("9_bookshelf_tall")
+texture = ExtResource("10_bookshelf_tall")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SB3"]
@@ -385,7 +386,7 @@ metadata/display_name = "Writing desk"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(0, -48)
-texture = ExtResource("13_writing_desk")
+texture = ExtResource("14_writing_desk")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DK"]
@@ -400,7 +401,7 @@ metadata/display_name = "Desk chair"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CH1"]
 position = Vector2(0, -32)
-texture = ExtResource("14_chair_dining_s")
+texture = ExtResource("15_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CH1"]
@@ -425,7 +426,7 @@ metadata/display_name = "Side table"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/A3"]
 position = Vector2(0, -32)
-texture = ExtResource("15_table_side")
+texture = ExtResource("16_table_side")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/A3"]
@@ -450,7 +451,7 @@ metadata/display_name = "Display case"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DC"]
 position = Vector2(0, -32)
-texture = ExtResource("16_display_cabinet")
+texture = ExtResource("17_display_cabinet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DC"]
@@ -461,17 +462,17 @@ shape = SubResource("Rect_32x16")
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(8, -43)
-texture = ExtResource("17_papers_pile")
+texture = ExtResource("18_papers_pile")
 centered = false
 
 [node name="Top_T2" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(32, -38)
-texture = ExtResource("18_open_book")
+texture = ExtResource("19_open_book")
 centered = false
 
 [node name="Top_T3" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(50, -43)
-texture = ExtResource("19_inkwell_quill")
+texture = ExtResource("20_inkwell_quill")
 centered = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_player")]
@@ -483,7 +484,7 @@ z_index = 20
 
 [node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(152, 84)
-texture = ExtResource("20_chandelier_large")
+texture = ExtResource("21_chandelier_large")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]

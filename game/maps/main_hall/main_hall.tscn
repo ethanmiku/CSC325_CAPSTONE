@@ -12,19 +12,21 @@
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/wall_sconce.png" id="10_wall_sconce"]
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_small.png" id="11_painting_small"]
 [ext_resource type="Texture2D" path="res://shared_assets/furniture/painting_portrait_damaged.png" id="12_painting_portrait_damaged"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="13_door_w_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="14_door_e_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="15_fireplace_lit"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/grandfather_clock.png" id="16_grandfather_clock"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/grand_staircase.png" id="17_grand_staircase"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="18_plant_potted"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/table_console.png" id="19_table_console"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/bench_indoor.png" id="20_bench_indoor"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/coat_stand.png" id="21_coat_stand"]
-[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/umbrella_stand.png" id="22_umbrella_stand"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="23_candlestick"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/vase_flowers.png" id="24_vase_flowers"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="25_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_closed_placeholder.png" id="13_door_w_closed_placeholder"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="14_door_w_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_closed_placeholder.png" id="15_door_e_closed_placeholder"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="16_door_e_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="17_fireplace_lit"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/grandfather_clock.png" id="18_grandfather_clock"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/grand_staircase.png" id="19_grand_staircase"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="20_plant_potted"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/table_console.png" id="21_table_console"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/bench_indoor.png" id="22_bench_indoor"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/coat_stand.png" id="23_coat_stand"]
+[ext_resource type="Texture2D" path="res://maps/main_hall/assets/furniture/umbrella_stand.png" id="24_umbrella_stand"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="25_candlestick"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/vase_flowers.png" id="26_vase_flowers"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="27_chandelier_large"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_main_hall_tileset")
@@ -146,8 +148,8 @@ target_scene = "res://maps/library_study/library_study.tscn"
 target_spawn = "from_main_hall"
 enter_direction = "left"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("13_door_w_open")
-open_texture = ExtResource("13_door_w_open")
+closed_texture = ExtResource("13_door_w_closed_placeholder")
+open_texture = ExtResource("14_door_w_open")
 metadata/door_id = "D1"
 metadata/leads_to = "library_study"
 
@@ -157,8 +159,8 @@ target_scene = "res://maps/guest_room/guest_room.tscn"
 target_spawn = "from_main_hall"
 enter_direction = "left"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("13_door_w_open")
-open_texture = ExtResource("13_door_w_open")
+closed_texture = ExtResource("13_door_w_closed_placeholder")
+open_texture = ExtResource("14_door_w_open")
 metadata/door_id = "D2"
 metadata/leads_to = "guest_room"
 
@@ -168,8 +170,8 @@ target_scene = "res://maps/dining_room/dining_room.tscn"
 target_spawn = "from_main_hall"
 enter_direction = "right"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("14_door_e_open")
-open_texture = ExtResource("14_door_e_open")
+closed_texture = ExtResource("15_door_e_closed_placeholder")
+open_texture = ExtResource("16_door_e_open")
 metadata/door_id = "D3"
 metadata/leads_to = "dining_room"
 
@@ -179,8 +181,8 @@ target_scene = "res://maps/kitchen/kitchen.tscn"
 target_spawn = "from_main_hall"
 enter_direction = "right"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("14_door_e_open")
-open_texture = ExtResource("14_door_e_open")
+closed_texture = ExtResource("15_door_e_closed_placeholder")
+open_texture = ExtResource("16_door_e_open")
 metadata/door_id = "D4"
 metadata/leads_to = "kitchen"
 
@@ -202,7 +204,7 @@ metadata/display_name = "Fireplace"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F1"]
 position = Vector2(0, -32)
-texture = ExtResource("15_fireplace_lit")
+texture = ExtResource("17_fireplace_lit")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F1"]
@@ -217,7 +219,7 @@ metadata/display_name = "Grandfather clock"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F3"]
 position = Vector2(0, -32)
-texture = ExtResource("16_grandfather_clock")
+texture = ExtResource("18_grandfather_clock")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F3"]
@@ -232,7 +234,7 @@ metadata/display_name = "Grand staircase (blocked)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/ST"]
 position = Vector2(0, -32)
-texture = ExtResource("17_grand_staircase")
+texture = ExtResource("19_grand_staircase")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/ST"]
@@ -251,7 +253,7 @@ metadata/display_name = "Potted plant"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F4"]
 position = Vector2(0, -32)
-texture = ExtResource("18_plant_potted")
+texture = ExtResource("20_plant_potted")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F4"]
@@ -266,7 +268,7 @@ metadata/display_name = "Console table"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F2"]
 position = Vector2(0, -32)
-texture = ExtResource("19_table_console")
+texture = ExtResource("21_table_console")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F2"]
@@ -281,7 +283,7 @@ metadata/display_name = "Bench"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F5"]
 position = Vector2(0, -16)
-texture = ExtResource("20_bench_indoor")
+texture = ExtResource("22_bench_indoor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F5"]
@@ -296,7 +298,7 @@ metadata/display_name = "Bench"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F6"]
 position = Vector2(0, -16)
-texture = ExtResource("20_bench_indoor")
+texture = ExtResource("22_bench_indoor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F6"]
@@ -311,7 +313,7 @@ metadata/display_name = "Coat stand"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F7"]
 position = Vector2(0, -32)
-texture = ExtResource("21_coat_stand")
+texture = ExtResource("23_coat_stand")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F7"]
@@ -326,7 +328,7 @@ metadata/display_name = "Umbrella stand"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F8"]
 position = Vector2(0, -16)
-texture = ExtResource("22_umbrella_stand")
+texture = ExtResource("24_umbrella_stand")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F8"]
@@ -347,12 +349,12 @@ shape = SubResource("Rect_64x16")
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/F2"]
 position = Vector2(4, -38)
-texture = ExtResource("23_candlestick")
+texture = ExtResource("25_candlestick")
 centered = false
 
 [node name="Top_T2" type="Sprite2D" parent="Entities/F2"]
 position = Vector2(30, -36)
-texture = ExtResource("24_vase_flowers")
+texture = ExtResource("26_vase_flowers")
 centered = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_player")]
@@ -364,7 +366,7 @@ z_index = 20
 
 [node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(136, 118)
-texture = ExtResource("25_chandelier_large")
+texture = ExtResource("27_chandelier_large")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]

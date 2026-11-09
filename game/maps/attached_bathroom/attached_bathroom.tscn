@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_small_frosted.png" id="7_window_small_frosted"]
 [ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/towel_rail.png" id="8_towel_rail"]
 [ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/bath_shelf.png" id="9_bath_shelf"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="10_door_w_open"]
-[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/washbasin.png" id="11_washbasin"]
-[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/toilet.png" id="12_toilet"]
-[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/clawfoot_tub.png" id="13_clawfoot_tub"]
-[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/bath_cabinet.png" id="14_bath_cabinet"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_closed_placeholder.png" id="10_door_w_closed_placeholder"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="11_door_w_open"]
+[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/washbasin.png" id="12_washbasin"]
+[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/toilet.png" id="13_toilet"]
+[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/clawfoot_tub.png" id="14_clawfoot_tub"]
+[ext_resource type="Texture2D" path="res://maps/attached_bathroom/furniture/bath_cabinet.png" id="15_bath_cabinet"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_attached_bathroom_tileset")
@@ -101,8 +102,8 @@ target_scene = "res://maps/master_bedroom/master_bedroom.tscn"
 target_spawn = "from_attached_bathroom"
 enter_direction = "left"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("10_door_w_open")
-open_texture = ExtResource("10_door_w_open")
+closed_texture = ExtResource("10_door_w_closed_placeholder")
+open_texture = ExtResource("11_door_w_open")
 metadata/door_id = "D1"
 metadata/leads_to = "master_bedroom"
 
@@ -115,7 +116,7 @@ metadata/display_name = "Washbasin"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/WB"]
 position = Vector2(0, -32)
-texture = ExtResource("11_washbasin")
+texture = ExtResource("12_washbasin")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/WB"]
@@ -130,7 +131,7 @@ metadata/display_name = "Toilet"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TL"]
 position = Vector2(0, -32)
-texture = ExtResource("12_toilet")
+texture = ExtResource("13_toilet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TL"]
@@ -145,7 +146,7 @@ metadata/display_name = "Clawfoot tub"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TB"]
 position = Vector2(0, -32)
-texture = ExtResource("13_clawfoot_tub")
+texture = ExtResource("14_clawfoot_tub")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TB"]
@@ -160,7 +161,7 @@ metadata/display_name = "Cabinet"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CB"]
 position = Vector2(0, -32)
-texture = ExtResource("14_bath_cabinet")
+texture = ExtResource("15_bath_cabinet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CB"]

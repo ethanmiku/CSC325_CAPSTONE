@@ -9,19 +9,20 @@
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_landscape.png" id="7_painting_landscape"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_closed.png" id="8_door_s_closed"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_open.png" id="9_door_s_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="10_door_e_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="11_fireplace_lit"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/nightstand_master.png" id="12_nightstand_master"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/bed_large_master.png" id="13_bed_large_master"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/wardrobe_master.png" id="14_wardrobe_master"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/trunk_master.png" id="15_trunk_master"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/chaise_master.png" id="16_chaise_master"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_w.png" id="17_armchair_w"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side.png" id="18_table_side"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/dresser_master.png" id="19_dresser_master"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/vanity_master.png" id="20_vanity_master"]
-[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/jewelry_box.png" id="21_jewelry_box"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="22_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_closed_placeholder.png" id="10_door_e_closed_placeholder"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="11_door_e_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="12_fireplace_lit"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/nightstand_master.png" id="13_nightstand_master"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/bed_large_master.png" id="14_bed_large_master"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/wardrobe_master.png" id="15_wardrobe_master"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/trunk_master.png" id="16_trunk_master"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/chaise_master.png" id="17_chaise_master"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_w.png" id="18_armchair_w"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side.png" id="19_table_side"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/dresser_master.png" id="20_dresser_master"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/vanity_master.png" id="21_vanity_master"]
+[ext_resource type="Texture2D" path="res://maps/master_bedroom/furniture/jewelry_box.png" id="22_jewelry_box"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="23_chandelier_large"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_master_bedroom_tileset")
@@ -139,8 +140,8 @@ target_scene = "res://maps/attached_bathroom/attached_bathroom.tscn"
 target_spawn = "from_master_bedroom"
 enter_direction = "right"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("10_door_e_open")
-open_texture = ExtResource("10_door_e_open")
+closed_texture = ExtResource("10_door_e_closed_placeholder")
+open_texture = ExtResource("11_door_e_open")
 metadata/door_id = "D2"
 metadata/leads_to = "attached_bathroom"
 
@@ -153,7 +154,7 @@ metadata/display_name = "Fireplace"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FP"]
 position = Vector2(0, -32)
-texture = ExtResource("11_fireplace_lit")
+texture = ExtResource("12_fireplace_lit")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FP"]
@@ -168,7 +169,7 @@ metadata/display_name = "Nightstand (lamp)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/NS1"]
 position = Vector2(0, -32)
-texture = ExtResource("12_nightstand_master")
+texture = ExtResource("13_nightstand_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/NS1"]
@@ -183,7 +184,7 @@ metadata/display_name = "Four-poster bed"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/BD"]
 position = Vector2(0, -64)
-texture = ExtResource("13_bed_large_master")
+texture = ExtResource("14_bed_large_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/BD"]
@@ -198,7 +199,7 @@ metadata/display_name = "Nightstand (lamp)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/NS2"]
 position = Vector2(0, -32)
-texture = ExtResource("12_nightstand_master")
+texture = ExtResource("13_nightstand_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/NS2"]
@@ -213,7 +214,7 @@ metadata/display_name = "Grand wardrobe"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/WD"]
 position = Vector2(0, -48)
-texture = ExtResource("14_wardrobe_master")
+texture = ExtResource("15_wardrobe_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/WD"]
@@ -228,7 +229,7 @@ metadata/display_name = "Trunk at foot of bed"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TR"]
 position = Vector2(0, -16)
-texture = ExtResource("15_trunk_master")
+texture = ExtResource("16_trunk_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TR"]
@@ -243,7 +244,7 @@ metadata/display_name = "Chaise lounge"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CL"]
 position = Vector2(0, -32)
-texture = ExtResource("16_chaise_master")
+texture = ExtResource("17_chaise_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CL"]
@@ -258,7 +259,7 @@ metadata/display_name = "Armchair"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/AC"]
 position = Vector2(0, -32)
-texture = ExtResource("17_armchair_w")
+texture = ExtResource("18_armchair_w")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/AC"]
@@ -273,7 +274,7 @@ metadata/display_name = "Side table"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TS"]
 position = Vector2(0, -32)
-texture = ExtResource("18_table_side")
+texture = ExtResource("19_table_side")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TS"]
@@ -288,7 +289,7 @@ metadata/display_name = "Dresser"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DR"]
 position = Vector2(0, -32)
-texture = ExtResource("19_dresser_master")
+texture = ExtResource("20_dresser_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DR"]
@@ -303,7 +304,7 @@ metadata/display_name = "Vanity with mirror"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/VN"]
 position = Vector2(0, -48)
-texture = ExtResource("20_vanity_master")
+texture = ExtResource("21_vanity_master")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/VN"]
@@ -314,7 +315,7 @@ shape = SubResource("Rect_32x16")
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/DR"]
 position = Vector2(24, -38)
-texture = ExtResource("21_jewelry_box")
+texture = ExtResource("22_jewelry_box")
 centered = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_player")]
@@ -326,7 +327,7 @@ z_index = 20
 
 [node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(120, 118)
-texture = ExtResource("22_chandelier_large")
+texture = ExtResource("23_chandelier_large")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
