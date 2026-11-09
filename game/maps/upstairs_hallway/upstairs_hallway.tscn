@@ -87,8 +87,8 @@ size = Vector2(160, 32)
 [sub_resource type="RectangleShape2D" id="Rect_80x16"]
 size = Vector2(80, 16)
 
-[sub_resource type="RectangleShape2D" id="Rect_352x16"]
-size = Vector2(352, 16)
+[sub_resource type="RectangleShape2D" id="Rect_144x16"]
+size = Vector2(144, 16)
 
 [sub_resource type="RectangleShape2D" id="Rect_16x48"]
 size = Vector2(16, 48)
@@ -238,6 +238,15 @@ open_texture = ExtResource("17_door_s_open")
 sprite_offset = Vector2(0, 0)
 metadata/door_id = "D4"
 metadata/leads_to = "edmund_bedroom"
+
+[node name="Door_D5" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(256, 144)
+target_scene = "res://maps/main_hall/main_hall.tscn"
+target_spawn = "from_upstairs_hallway"
+enter_direction = "down"
+trigger_size = Vector2(64, 16)
+metadata/door_id = "D5"
+metadata/leads_to = "main_hall"
 
 [node name="Door_D6" parent="Doors" instance=ExtResource("4_door")]
 position = Vector2(464, 144)
@@ -630,22 +639,26 @@ position = Vector2(40, 152)
 shape = SubResource("Rect_80x16")
 
 [node name="Wall_5" type="CollisionShape2D" parent="Walls"]
-position = Vector2(288, 152)
-shape = SubResource("Rect_352x16")
+position = Vector2(184, 152)
+shape = SubResource("Rect_144x16")
 
 [node name="Wall_6" type="CollisionShape2D" parent="Walls"]
+position = Vector2(392, 152)
+shape = SubResource("Rect_144x16")
+
+[node name="Wall_7" type="CollisionShape2D" parent="Walls"]
 position = Vector2(536, 152)
 shape = SubResource("Rect_80x16")
 
-[node name="Wall_7" type="CollisionShape2D" parent="Walls"]
+[node name="Wall_8" type="CollisionShape2D" parent="Walls"]
 position = Vector2(8, 48)
 shape = SubResource("Rect_16x32")
 
-[node name="Wall_8" type="CollisionShape2D" parent="Walls"]
+[node name="Wall_9" type="CollisionShape2D" parent="Walls"]
 position = Vector2(8, 120)
 shape = SubResource("Rect_16x48")
 
-[node name="Wall_9" type="CollisionShape2D" parent="Walls"]
+[node name="Wall_10" type="CollisionShape2D" parent="Walls"]
 position = Vector2(568, 88)
 shape = SubResource("Rect_16x112")
 
@@ -675,6 +688,11 @@ metadata/note = "arrive from grand_study through D3"
 position = Vector2(96, 142)
 metadata/facing = "up"
 metadata/note = "arrive from edmund_bedroom through D4"
+
+[node name="from_main_hall" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(288, 142)
+metadata/facing = "up"
+metadata/note = "arrive from main_hall through D5"
 
 [node name="from_clara_bedroom" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
 position = Vector2(480, 142)

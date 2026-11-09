@@ -62,8 +62,8 @@ size = Vector2(48, 16)
 [sub_resource type="RectangleShape2D" id="Rect_16x16"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="Rect_96x48"]
-size = Vector2(96, 48)
+[sub_resource type="RectangleShape2D" id="Rect_24x48"]
+size = Vector2(24, 48)
 
 [sub_resource type="RectangleShape2D" id="Rect_64x16"]
 size = Vector2(64, 16)
@@ -184,6 +184,15 @@ open_texture = ExtResource("14_door_e_open")
 metadata/door_id = "D4"
 metadata/leads_to = "kitchen"
 
+[node name="Door_Stairs" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(136, 32)
+target_scene = "res://maps/upstairs_hallway/upstairs_hallway.tscn"
+target_spawn = "from_main_hall"
+enter_direction = "up"
+trigger_size = Vector2(48, 24)
+metadata/door_id = "Stairs"
+metadata/leads_to = "upstairs_hallway"
+
 [node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -218,19 +227,23 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="ST" type="Node2D" parent="Entities"]
-position = Vector2(112, 80)
+position = Vector2(112, 32)
 metadata/display_name = "Grand staircase (blocked)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/ST"]
-position = Vector2(0, -80)
+position = Vector2(0, -32)
 texture = ExtResource("17_grand_staircase")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/ST"]
 
 [node name="Shape" type="CollisionShape2D" parent="Entities/ST/Body"]
-position = Vector2(48, -24)
-shape = SubResource("Rect_96x48")
+position = Vector2(12, 24)
+shape = SubResource("Rect_24x48")
+
+[node name="Shape2" type="CollisionShape2D" parent="Entities/ST/Body"]
+position = Vector2(84, 24)
+shape = SubResource("Rect_24x48")
 
 [node name="F4" type="Node2D" parent="Entities"]
 position = Vector2(208, 48)
@@ -414,6 +427,11 @@ metadata/note = "arrive from dining_room through D3"
 position = Vector2(296, 195)
 metadata/facing = "left"
 metadata/note = "arrive from kitchen through D4"
+
+[node name="from_upstairs_hallway" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(160, 110)
+metadata/facing = "down"
+metadata/note = "added by build_rooms.py"
 
 [node name="NpcSlots" type="Node2D" parent="."]
 

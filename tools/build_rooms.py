@@ -70,10 +70,17 @@ CONNECTIONS = [
     (("upstairs_hallway", "D4"), ("edmund_bedroom", "D1")),
     (("upstairs_hallway", "D6"), ("clara_bedroom", "D1")),
     (("upstairs_hallway", "D7"), ("master_bedroom", "D1")),
+    (("main_hall", "Stairs"), ("upstairs_hallway", "D5")),
 ]
 
 # Doors that aren't in a room's layout data
 EXTRA_DOORS = {
+    # The grand staircase: walking up the steps between the railings goes upstairs.
+    # It has no door cells; the wall behind the staircase stays solid
+    "main_hall": [{
+        "id": "Stairs", "wall": "N", "target": "Upstairs Hallway", "status": "open", "variant": "stairs",
+        "door_tiles": [], "trigger_px": [136, 32, 48, 24], "arrive_here_tile": [10, 6],
+    }],
     # West end of the hallway, leading to the Master Bedroom (rows 4-5 are clear)
     "upstairs_hallway": [{
         "id": "D7", "wall": "W", "target": "Master Bedroom", "status": "open",
@@ -88,10 +95,22 @@ EXTRA_TILES = {
 }
 
 # Furniture whose collision differs from its layout footprint: (room, id) -> [rects px]
-COLLISION_OVERRIDES = {}
+COLLISION_OVERRIDES = {
+    # Main Hall grand staircase: only the railings are solid, so the player can climb the steps
+    ("main_hall", "ST"): [(112, 32, 24, 48), (184, 32, 24, 48)],
+}
+
+# Furniture that y-sorts at a different height than its footprint bottom: (room, id) -> y px.
+# The staircase sorts at its top step so the player stays in front of it while climbing.
+Y_SORT_OVERRIDES = {
+    ("main_hall", "ST"): 32,
+}
 
 # Spawn points that aren't derived from a door: room -> {name: (x, y, facing)}
-EXTRA_SPAWNS = {}
+EXTRA_SPAWNS = {
+    # Foot of the grand staircase, coming down from the Upstairs Hallway
+    "main_hall": {"from_upstairs_hallway": (160, 110, "down")},
+}
 
 # Door sprite to use when the layout doesn't draw one, by wall: (closed, open).
 # There are no closed east/west door sprites yet; the generator uses the closed file
@@ -157,7 +176,9 @@ def load_layout(room):
 
 
 def door_rect(door):
-    """Pixel rect (x, y, w, h) covering a door's cells."""
+    """Pixel rect (x, y, w, h) covering a door's cells, or its trigger_px if it has one."""
+    if "trigger_px" in door:
+        return tuple(door["trigger_px"])
     xs = [c[0] for c in door["door_tiles"]]
     ys = [c[1] for c in door["door_tiles"]]
     x0, y0 = min(xs), min(ys)
@@ -269,7 +290,7 @@ def door_tile_names(door):
     if wall in ("W", "E"):
         for i, c in enumerate(cells):
             names[tuple(c)] = f"door_{wall.lower()}_{'top' if i == 0 else 'bot'}"
-    elif wall == "N":
+    elif wall == "N" and cells:
         top = min(c[1] for c in cells)
         xs = sorted({c[0] for c in cells})
         for c in cells:
@@ -543,8 +564,7 @@ def build_room(room, root_name, assets, links):
     scene.node("Entities", "Node2D", ".", props={"y_sort_enabled": "true"})
     furniture_rects = {}
     for item in layout["furniture"]:
-        ft = item["footprint_tiles"]
-        origin = (ft["x"] * TILE, (ft["y"] + ft["h"]) * TILE)
+        origin = furniture_origin(room, item)
         name = safe_name(item["id"])
         furniture_rects[name] = item
         scene.node(name, "Node2D", "Entities", props={
@@ -583,8 +603,7 @@ def build_room(room, root_name, assets, links):
                 break
         if host:
             name, f = host
-            ft = f["footprint_tiles"]
-            origin = (ft["x"] * TILE, (ft["y"] + ft["h"]) * TILE)
+            origin = furniture_origin(room, f)
             scene.node(f"Top_{safe_name(item['id'])}", "Sprite2D", f"Entities/{name}", props={
                 "position": vec(ix - origin[0], iy - origin[1]), "texture": f'ExtResource("{tex}")', "centered": "false"})
         else:
@@ -641,6 +660,14 @@ def build_room(room, root_name, assets, links):
     return scene.text(), {"exact_cells": exact, "cells": w * h, "layout": layout, "spawns": spawns,
                           "active_doors": active_doors, "overlay": overlay, "grid": grid, "tiles": tiles,
                           "extra_tiles": extra_tiles}
+
+
+def furniture_origin(room, item):
+    """Node origin for a piece of furniture: the bottom-left of its footprint, which is
+    where it y-sorts against the player, unless Y_SORT_OVERRIDES moves it."""
+    ft = item["footprint_tiles"]
+    y = Y_SORT_OVERRIDES.get((room, item["id"]), (ft["y"] + ft["h"]) * TILE)
+    return (ft["x"] * TILE, y)
 
 
 def _overlaps(item, rect):
