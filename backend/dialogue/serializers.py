@@ -2,8 +2,6 @@ from collections.abc import Mapping
 
 from rest_framework import serializers
 
-from .npc_data import get_npc
-
 
 class StrictTextField(serializers.CharField):
     """Reject coercion and enforce length before whitespace is stripped."""
@@ -67,8 +65,3 @@ class DialogueMessageSerializer(StrictObjectSerializer):
                     'History must alternate user and assistant, starting with user.'
                 )
         return value
-
-    def validate(self, attrs):
-        # Resolve only after every field and history constraint has passed.
-        get_npc(attrs['npc_id'])
-        return attrs
