@@ -13,6 +13,7 @@ extends Node
 
 ### Variables ###
 const TIMEOUT = 4.0
+const OPPOSITE = {"up": "down", "down": "up", "left": "right", "right": "left"}
 
 var _passes := 0
 var _failures := 0
@@ -90,6 +91,7 @@ func _walk_room(room: String) -> void:
 		if marker == null or player.global_position.distance_to(marker.global_position) > 0.5:
 			_fail("%s: player isn't on spawn %s" % [room, arrival])
 			continue
+		await _check_door_sprite(room, door)
 
 		Input.action_press(door.direction)
 		var arrived := await _wait_for_transition()
@@ -114,6 +116,31 @@ func _walk_room(room: String) -> void:
 func _load_room(room: String, spawn: String) -> bool:
 	RoomTransition.go_to(_scene_path(room), spawn)
 	return await _wait_for_transition()
+
+# The player has just arrived beside this door: it should show open, then close once the
+# player walks a tile away from it
+func _check_door_sprite(room: String, info: Dictionary) -> void:
+	var door: Door = get_tree().current_scene.get_node("Doors/" + info.name)
+	var sprite: Sprite2D = door.get_node("Sprite")
+	if door.closed_texture == null:
+		return
+	var label := "%s %s" % [room, info.name]
+	if door.open_texture and door.open_texture != door.closed_texture:
+		if sprite.texture != door.open_texture:
+			_fail("%s: not open while the player stands next to it" % label)
+			return
+	elif door.closed_texture.resource_path.contains("_open"):
+		_fail("%s: its closed sprite is an open door (%s)" % [label, door.closed_texture.resource_path.get_file()])
+		return
+	var away: String = OPPOSITE[info.direction]
+	Input.action_press(away)
+	await get_tree().create_timer(0.5).timeout
+	Input.action_release(away)
+	await get_tree().physics_frame
+	if sprite.texture != door.closed_texture:
+		_fail("%s: still open after walking away" % label)
+	else:
+		_pass("%s: open beside it, closed after walking away" % label)
 
 # Waits for a RoomTransition to start and finish. False if none starts within TIMEOUT
 func _wait_for_transition() -> bool:
