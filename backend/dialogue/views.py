@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .exceptions import dialogue_exception_handler
+from .history import get_history_messages, save_exchange
 from .serializers import DialogueMessageSerializer
 from .services import generate_reply
 
@@ -34,5 +35,8 @@ class DialogueMessageView(DialogueAPIView):
         serializer = DialogueMessageSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
-        reply = generate_reply(**data)
+        scope = {'game_session_id': data['game_session_id'], 'npc_id': data['npc_id']}
+        history = get_history_messages(**scope)
+        reply = generate_reply(data['npc_id'], data['message'], history)
+        save_exchange(**scope, player_message=data['message'], npc_reply=reply)
         return Response({'npc_id': data['npc_id'], 'reply': reply})

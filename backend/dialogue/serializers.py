@@ -26,42 +26,14 @@ class StrictObjectSerializer(serializers.Serializer):
         return super().to_internal_value(data)
 
 
-class HistoryEntrySerializer(StrictObjectSerializer):
-    role = StrictTextField(trim_whitespace=False)
-    content = StrictTextField(max_length=4000)
-
-    def validate_role(self, value):
-        if value not in ('user', 'assistant'):
-            raise serializers.ValidationError('Must be user or assistant.')
-        return value
-
-
-class HistoryField(serializers.ListField):
+class StrictUUIDField(serializers.UUIDField):
     def to_internal_value(self, data):
-        if not isinstance(data, list):
-            self.fail('not_a_list', input_type=type(data).__name__)
-        # Inspect raw strings so trimming cannot bypass the total size limit.
-        total = sum(
-            len(entry['content']) for entry in data
-            if isinstance(entry, Mapping) and isinstance(entry.get('content'), str)
-        )
-        if total > 20000:
-            raise serializers.ValidationError('History must not exceed 20,000 characters.')
+        if not isinstance(data, str):
+            self.fail('invalid')
         return super().to_internal_value(data)
 
 
 class DialogueMessageSerializer(StrictObjectSerializer):
-    npc_id = StrictTextField(trim_whitespace=False)
+    game_session_id = StrictUUIDField()
+    npc_id = StrictTextField(max_length=100, trim_whitespace=False)
     message = StrictTextField(max_length=1000)
-    history = HistoryField(child=HistoryEntrySerializer(), max_length=20)
-
-    def validate_history(self, value):
-        if len(value) % 2:
-            raise serializers.ValidationError('History must contain completed exchanges.')
-        for index, entry in enumerate(value):
-            expected = 'user' if index % 2 == 0 else 'assistant'
-            if entry['role'] != expected:
-                raise serializers.ValidationError(
-                    'History must alternate user and assistant, starting with user.'
-                )
-        return value
