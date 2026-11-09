@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://cokj5nrp37iia"
 [autoload]
 
 ClaudeDialogue="*res://services/claude_dialogue/claude_dialogue.gd"
+RoomTransition="*res://services/room_transition/room_transition.gd"
 
 [display]
 
