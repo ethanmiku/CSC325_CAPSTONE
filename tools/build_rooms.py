@@ -45,6 +45,12 @@ ROOMS = {
     "snowy_backyard": "SnowyBackyard",
     "master_bedroom": "MasterBedroom",
     "attached_bathroom": "AttachedBathroom",
+    "upstairs_hallway": "UpstairsHallway",
+    "curio_room": "CurioRoom",
+    "guest_room_b": "GuestRoomB",
+    "grand_study": "GrandStudy",
+    "edmund_bedroom": "EdmundBedroom",
+    "clara_bedroom": "ClaraBedroom",
 }
 
 # Two-way door links: ((room, door id), (room, door id)). A door that isn't listed here
@@ -58,6 +64,11 @@ CONNECTIONS = [
     (("kitchen", "D3"), ("snowy_backyard", "D2")),
     (("dining_room", "D3"), ("snowy_backyard", "D1")),
     (("master_bedroom", "D2"), ("attached_bathroom", "D1")),
+    (("upstairs_hallway", "D1"), ("curio_room", "D1")),
+    (("upstairs_hallway", "D2"), ("guest_room_b", "D1")),
+    (("upstairs_hallway", "D3"), ("grand_study", "D1")),
+    (("upstairs_hallway", "D4"), ("edmund_bedroom", "D1")),
+    (("upstairs_hallway", "D6"), ("clara_bedroom", "D1")),
 ]
 
 # Doors that aren't in a room's layout data
