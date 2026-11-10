@@ -133,7 +133,30 @@ DOOR_SPRITE_OVERRIDES = {
 #   "tiles": {(x, y): (sx, sy)}         copy the floor tile from cell (sx, sy), used where the
 #                                       tile under a removed window isn't plain wall
 # An id that isn't in the room is an error.
-LAYOUT_PATCHES = {}
+LAYOUT_PATCHES = {'dining_room': {'furniture': {'C1a': {'pos': [104, 64],
+                                       'collision': [104, 80, 16, 16],
+                                       'origin': [104, 96]},
+                               'C1b': {'pos': [136, 64],
+                                       'collision': [136, 80, 16, 16],
+                                       'origin': [136, 96]},
+                               'C1c': {'pos': [168, 64],
+                                       'collision': [168, 80, 16, 16],
+                                       'origin': [168, 96]},
+                               'C2a': {'pos': [104, 112],
+                                       'collision': [104, 128, 16, 16],
+                                       'origin': [104, 144]},
+                               'C2b': {'pos': [136, 112],
+                                       'collision': [136, 128, 16, 16],
+                                       'origin': [136, 144]},
+                               'C2c': {'pos': [168, 112],
+                                       'collision': [168, 128, 16, 16],
+                                       'origin': [168, 144]},
+                               'H1': {'pos': [80, 88],
+                                      'collision': [80, 104, 16, 16],
+                                      'origin': [80, 120]},
+                               'H2': {'pos': [192, 88],
+                                      'collision': [192, 104, 16, 16],
+                                      'origin': [192, 120]}}}}
 
 ENTER_DIRECTION = {"N": "up", "S": "down", "W": "left", "E": "right"}
 ARRIVE_FACING = {"N": "down", "S": "up", "W": "right", "E": "left"}

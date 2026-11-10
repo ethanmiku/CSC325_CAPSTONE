@@ -232,7 +232,7 @@ position = Vector2(48, -16)
 shape = SubResource("Rect_96x32")
 
 [node name="H1" type="Node2D" parent="Entities"]
-position = Vector2(80, 112)
+position = Vector2(80, 120)
 metadata/display_name = "Chair (head, west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/H1"]
@@ -247,7 +247,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="H2" type="Node2D" parent="Entities"]
-position = Vector2(192, 128)
+position = Vector2(192, 120)
 metadata/display_name = "Chair (head, east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/H2"]
@@ -262,7 +262,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="C1a" type="Node2D" parent="Entities"]
-position = Vector2(96, 96)
+position = Vector2(104, 96)
 metadata/display_name = "C1a"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1a"]
@@ -277,7 +277,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="C1b" type="Node2D" parent="Entities"]
-position = Vector2(128, 96)
+position = Vector2(136, 96)
 metadata/display_name = "C1b"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1b"]
@@ -292,7 +292,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="C1c" type="Node2D" parent="Entities"]
-position = Vector2(160, 96)
+position = Vector2(168, 96)
 metadata/display_name = "C1c"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1c"]
@@ -307,7 +307,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="C2a" type="Node2D" parent="Entities"]
-position = Vector2(112, 144)
+position = Vector2(104, 144)
 metadata/display_name = "C2a"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C2a"]
@@ -322,7 +322,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="C2b" type="Node2D" parent="Entities"]
-position = Vector2(144, 144)
+position = Vector2(136, 144)
 metadata/display_name = "C2b"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C2b"]
@@ -337,7 +337,7 @@ position = Vector2(8, -8)
 shape = SubResource("Rect_16x16")
 
 [node name="C2c" type="Node2D" parent="Entities"]
-position = Vector2(176, 144)
+position = Vector2(168, 144)
 metadata/display_name = "C2c"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C2c"]
