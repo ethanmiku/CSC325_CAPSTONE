@@ -1,4 +1,4 @@
-# A walk-through door. The door sprite opens while the player is close, and walking into the
+# A walk-through door. The door sprite opens while the player is in the approach zone, and walking into the
 # doorway (moving in enter_direction) fades to target_scene and places the player at the
 # SpawnPoints child named target_spawn.
 #
@@ -20,6 +20,8 @@ const APPROACH_DEPTH = 16.0
 const EDGE_DEPTH = 2.0
 # Pause on the open door before the fade starts
 const OPEN_DELAY = 0.12
+# Total time of the closed - half - open swing
+const ANIM_TIME = 0.15
 
 @export_file("*.tscn") var target_scene := ""
 @export var target_spawn := ""
@@ -37,6 +39,8 @@ const OPEN_DELAY = 0.12
 		closed_texture = value
 		_apply_layout()
 @export var open_texture: Texture2D
+# Optional middle frame shown while the door swings open or shut
+@export var half_texture: Texture2D
 # Sprite top-left, relative to the doorway's top-left
 @export var sprite_offset := Vector2.ZERO:
 	set(value):
@@ -54,9 +58,9 @@ const OPEN_DELAY = 0.12
 @onready var _approach_shape: CollisionShape2D = $Approach/Shape
 @onready var _blocker_shape: CollisionShape2D = $Blocker/Shape
 
-var _player: Node2D
-var _near := false
+var _open := false
 var _entering := false
+var _tween: Tween
 
 ### Functions ###
 func _ready() -> void:
@@ -64,46 +68,57 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	add_to_group("doors")
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
-	_approach.body_entered.connect(_on_approach_changed.bind(true))
-	_approach.body_exited.connect(_on_approach_changed.bind(false))
 
+# The open/closed state is read from where the player is every physics frame instead of from
+# enter/exit signals, so a missed signal (a teleport, a freed player) can't leave it stale
 func _physics_process(_delta: float) -> void:
-	if Engine.is_editor_hint() or _player == null or _entering or locked:
+	if Engine.is_editor_hint():
 		return
-	if RoomTransition.is_busy():
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	var near := player != null and _approach.overlaps_body(player)
+	_set_open((near or _entering) and not locked)
+
+	if player == null or _entering or locked or RoomTransition.is_busy():
 		return
-	# Only go through when walking into the door, not when sliding past its edge
-	var moving: Vector2 = _player.get_move_direction()
+	# Only go through when standing in the doorway and walking into it, not when sliding past its edge
+	if not overlaps_body(player):
+		return
+	var moving: Vector2 = player.get_move_direction()
 	if moving.dot(DIRECTIONS[enter_direction]) > 0.5:
 		_enter()
 
 func _enter() -> void:
 	_entering = true
-	_show_open(true)
+	_set_open(true)
 	await get_tree().create_timer(OPEN_DELAY).timeout
 	RoomTransition.go_to(target_scene, target_spawn)
+	# go_to() returns early when a transition is already running or the scene is missing.
+	# Then this door must close again and work again instead of staying open and dead
+	if not RoomTransition.is_busy():
+		_entering = false
 
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
-		_player = body
+# True while the door is open or opening
+func is_open() -> bool:
+	return _open
 
-func _on_body_exited(body: Node) -> void:
-	if body == _player:
-		_player = null
-
-func _on_approach_changed(body: Node, inside: bool) -> void:
-	if not body.is_in_group("player"):
+# Opens or closes the door, going through half_texture on the way when there is one
+func _set_open(open: bool) -> void:
+	if open == _open or _sprite == null:
 		return
-	_near = inside
-	if not _entering:
-		_show_open(inside and not locked)
-
-func _show_open(open: bool) -> void:
-	if _sprite == null:
+	_open = open
+	if _tween:
+		_tween.kill()
+		_tween = null
+	var final_texture := open_texture if open and open_texture else closed_texture
+	if half_texture == null or final_texture == _sprite.texture or closed_texture == null \
+			or open_texture == null or closed_texture == open_texture:
+		_sprite.texture = final_texture
 		return
-	_sprite.texture = open_texture if open and open_texture else closed_texture
+	_tween = create_tween()
+	_tween.tween_interval(ANIM_TIME / 2.0)
+	_tween.tween_callback(func(): _sprite.texture = half_texture)
+	_tween.tween_interval(ANIM_TIME / 2.0)
+	_tween.tween_callback(func(): _sprite.texture = final_texture)
 
 # Sizes the trigger, approach zone and edge blocker from the exports
 func _apply_layout() -> void:
