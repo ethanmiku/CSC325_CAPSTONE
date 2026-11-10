@@ -162,7 +162,10 @@ LAYOUT_PATCHES = {'dining_room': {'furniture': {'C1a': {'pos': [104, 64],
  'curio_room': {'remove_decor': ['WN2']},
  'guest_room_b': {'remove_decor': ['WN1', 'WN2']},
  'grand_study': {'remove_decor': ['WN1', 'WN2']},
- 'edmund_bedroom': {'remove_decor': ['WN1', 'WN2']},
+ 'edmund_bedroom': {'remove_decor': ['WN1', 'WN2'],
+                    'decor': {'WI': {'sprite': 'window_s_curtains_burgundy.png',
+                                     'size': [32, 16],
+                                     'pos': [32, 208]}}},
  'clara_bedroom': {'remove_decor': ['WN1', 'W1']},
  'upstairs_hallway': {'remove_decor': ['W1', 'W2']}}
 

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/rugs/rug_o_burgundy_8x6.png" id="6_rug_o_burgundy_8x6"]
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_landscape.png" id="7_painting_landscape"]
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/wall_crest.png" id="8_wall_crest"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_snow_curtains_burgundy.png" id="9_window_snow_curtains_burgundy"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_s_curtains_burgundy.png" id="9_window_s_curtains_burgundy"]
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_small.png" id="10_painting_small"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_closed.png" id="11_door_n_closed"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_open.png" id="12_door_n_open"]
@@ -112,8 +112,8 @@ texture = ExtResource("8_wall_crest")
 centered = false
 
 [node name="WI" type="Sprite2D" parent="WallDecor"]
-position = Vector2(80, 0)
-texture = ExtResource("9_window_snow_curtains_burgundy")
+position = Vector2(32, 208)
+texture = ExtResource("9_window_s_curtains_burgundy")
 centered = false
 
 [node name="P2" type="Sprite2D" parent="WallDecor"]
