@@ -5,18 +5,17 @@
 [ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="3_player"]
 [ext_resource type="PackedScene" path="res://maps/door/door.tscn" id="4_door"]
 [ext_resource type="PackedScene" path="res://ui/touch_controls/touch_controls.tscn" id="5_touch_controls"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/french_doors_exterior.png" id="6_french_doors_exterior"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/tree_bare_small.png" id="7_tree_bare_small"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/tree_bare_large.png" id="8_tree_bare_large"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/fountain_frozen.png" id="9_fountain_frozen"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/bench_garden.png" id="10_bench_garden"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/woodpile.png" id="11_woodpile"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/bush_snow.png" id="12_bush_snow"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/bush_snow_berries.png" id="13_bush_snow_berries"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/snowdrift_wide.png" id="14_snowdrift_wide"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/snow_cart.png" id="15_snow_cart"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/shovel_stuck.png" id="16_shovel_stuck"]
-[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/lamp_post.png" id="17_lamp_post"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/tree_bare_small.png" id="6_tree_bare_small"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/tree_bare_large.png" id="7_tree_bare_large"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/fountain_frozen.png" id="8_fountain_frozen"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/bench_garden.png" id="9_bench_garden"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/woodpile.png" id="10_woodpile"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/bush_snow.png" id="11_bush_snow"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/bush_snow_berries.png" id="12_bush_snow_berries"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/snowdrift_wide.png" id="13_snowdrift_wide"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/snow_cart.png" id="14_snow_cart"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/shovel_stuck.png" id="15_shovel_stuck"]
+[ext_resource type="Texture2D" path="res://maps/snowy_backyard/furniture/lamp_post.png" id="16_lamp_post"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_snowy_backyard_tileset")
@@ -96,11 +95,6 @@ tile_set = SubResource("TileSet_room")
 
 [node name="WallDecor" type="Node2D" parent="."]
 
-[node name="FD1" type="Sprite2D" parent="WallDecor"]
-position = Vector2(0, 64)
-texture = ExtResource("6_french_doors_exterior")
-centered = false
-
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Door_D1" parent="Doors" instance=ExtResource("4_door")]
@@ -130,7 +124,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T1"]
 position = Vector2(-8, -48)
-texture = ExtResource("7_tree_bare_small")
+texture = ExtResource("6_tree_bare_small")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T1"]
@@ -145,7 +139,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T2"]
 position = Vector2(-8, -48)
-texture = ExtResource("7_tree_bare_small")
+texture = ExtResource("6_tree_bare_small")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T2"]
@@ -160,7 +154,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T3"]
 position = Vector2(-8, -48)
-texture = ExtResource("7_tree_bare_small")
+texture = ExtResource("6_tree_bare_small")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T3"]
@@ -175,7 +169,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T4"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T4"]
@@ -190,7 +184,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T5"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T5"]
@@ -205,7 +199,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T6"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T6"]
@@ -220,7 +214,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T7"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T7"]
@@ -235,7 +229,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T8"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T8"]
@@ -250,7 +244,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T9"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T9"]
@@ -265,7 +259,7 @@ metadata/display_name = "Bare tree"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/T10"]
 position = Vector2(-16, -64)
-texture = ExtResource("8_tree_bare_large")
+texture = ExtResource("7_tree_bare_large")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/T10"]
@@ -280,7 +274,7 @@ metadata/display_name = "Frozen fountain"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FT"]
 position = Vector2(0, -64)
-texture = ExtResource("9_fountain_frozen")
+texture = ExtResource("8_fountain_frozen")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FT"]
@@ -295,7 +289,7 @@ metadata/display_name = "Bench"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/BN"]
 position = Vector2(0, -16)
-texture = ExtResource("10_bench_garden")
+texture = ExtResource("9_bench_garden")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/BN"]
@@ -310,7 +304,7 @@ metadata/display_name = "Bench"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/BS"]
 position = Vector2(0, -16)
-texture = ExtResource("10_bench_garden")
+texture = ExtResource("9_bench_garden")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/BS"]
@@ -325,7 +319,7 @@ metadata/display_name = "Woodpile"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/WP"]
 position = Vector2(0, -16)
-texture = ExtResource("11_woodpile")
+texture = ExtResource("10_woodpile")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/WP"]
@@ -340,7 +334,7 @@ metadata/display_name = "Snowy bush"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB10"]
 position = Vector2(0, -16)
-texture = ExtResource("12_bush_snow")
+texture = ExtResource("11_bush_snow")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB10"]
@@ -355,7 +349,7 @@ metadata/display_name = "Snowy bush"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB11"]
 position = Vector2(0, -16)
-texture = ExtResource("12_bush_snow")
+texture = ExtResource("11_bush_snow")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB11"]
@@ -370,7 +364,7 @@ metadata/display_name = "Snowy bush"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB12"]
 position = Vector2(0, -16)
-texture = ExtResource("12_bush_snow")
+texture = ExtResource("11_bush_snow")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB12"]
@@ -385,7 +379,7 @@ metadata/display_name = "Snowy bush"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB13"]
 position = Vector2(0, -16)
-texture = ExtResource("12_bush_snow")
+texture = ExtResource("11_bush_snow")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB13"]
@@ -400,7 +394,7 @@ metadata/display_name = "Snowy bush (berries)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB20"]
 position = Vector2(0, -16)
-texture = ExtResource("13_bush_snow_berries")
+texture = ExtResource("12_bush_snow_berries")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB20"]
@@ -415,7 +409,7 @@ metadata/display_name = "Snowy bush (berries)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB21"]
 position = Vector2(0, -16)
-texture = ExtResource("13_bush_snow_berries")
+texture = ExtResource("12_bush_snow_berries")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB21"]
@@ -430,7 +424,7 @@ metadata/display_name = "Snowy bush (berries)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB22"]
 position = Vector2(0, -16)
-texture = ExtResource("13_bush_snow_berries")
+texture = ExtResource("12_bush_snow_berries")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB22"]
@@ -445,7 +439,7 @@ metadata/display_name = "Snowy bush (berries)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FB23"]
 position = Vector2(0, -16)
-texture = ExtResource("13_bush_snow_berries")
+texture = ExtResource("12_bush_snow_berries")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FB23"]
@@ -460,7 +454,7 @@ metadata/display_name = "Snow drift"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DR1"]
 position = Vector2(0, -16)
-texture = ExtResource("14_snowdrift_wide")
+texture = ExtResource("13_snowdrift_wide")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DR1"]
@@ -475,7 +469,7 @@ metadata/display_name = "Snow drift"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DR1b"]
 position = Vector2(0, -16)
-texture = ExtResource("14_snowdrift_wide")
+texture = ExtResource("13_snowdrift_wide")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DR1b"]
@@ -490,7 +484,7 @@ metadata/display_name = "Snow drift"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DR2"]
 position = Vector2(0, -16)
-texture = ExtResource("14_snowdrift_wide")
+texture = ExtResource("13_snowdrift_wide")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DR2"]
@@ -505,7 +499,7 @@ metadata/display_name = "Snow drift"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DR2b"]
 position = Vector2(0, -16)
-texture = ExtResource("14_snowdrift_wide")
+texture = ExtResource("13_snowdrift_wide")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DR2b"]
@@ -520,7 +514,7 @@ metadata/display_name = "Snow-filled cart"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SC"]
 position = Vector2(0, -32)
-texture = ExtResource("15_snow_cart")
+texture = ExtResource("14_snow_cart")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SC"]
@@ -535,7 +529,7 @@ metadata/display_name = "Shovel"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SH"]
 position = Vector2(0, -16)
-texture = ExtResource("16_shovel_stuck")
+texture = ExtResource("15_shovel_stuck")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SH"]
@@ -550,7 +544,7 @@ metadata/display_name = "Lamp post"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/L1"]
 position = Vector2(0, -48)
-texture = ExtResource("17_lamp_post")
+texture = ExtResource("16_lamp_post")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/L1"]
@@ -565,7 +559,7 @@ metadata/display_name = "Lamp post"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/L2"]
 position = Vector2(0, -48)
-texture = ExtResource("17_lamp_post")
+texture = ExtResource("16_lamp_post")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/L2"]
@@ -580,7 +574,7 @@ metadata/display_name = "Lamp post"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/L3"]
 position = Vector2(0, -48)
-texture = ExtResource("17_lamp_post")
+texture = ExtResource("16_lamp_post")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/L3"]
@@ -595,7 +589,7 @@ metadata/display_name = "Lamp post"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/L4"]
 position = Vector2(0, -48)
-texture = ExtResource("17_lamp_post")
+texture = ExtResource("16_lamp_post")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/L4"]

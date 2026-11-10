@@ -146,7 +146,6 @@ enter_direction = "up"
 trigger_size = Vector2(32, 32)
 closed_texture = ExtResource("12_door_n_closed")
 open_texture = ExtResource("13_door_n_open")
-sprite_offset = Vector2(0, 0)
 metadata/door_id = "D1"
 metadata/leads_to = "upstairs_hallway"
 

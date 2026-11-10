@@ -10,6 +10,12 @@ The layout files don't store the floor grid, so each cell's tile is recovered fr
 <room>_preview.png: the known sprites are layered over every candidate tile and the closest
 match wins. Sprites that aren't in the project yet are skipped and listed in
 tools/MISSING_ART.md; add the PNGs anywhere under game/shared_assets/ and run this again.
+A furniture piece whose sprite is missing gets no collision (it would be an invisible wall),
+and --check reports it as a PROBLEM. Doors work the same way: every connected door needs its
+<base>_closed.png and <base>_open.png (plus <base>_half.png if it exists), or --check fails.
+
+LAYOUT_PATCHES edits a room's layout after the floor has been matched to the preview, for
+things the vendor layout gets wrong (windows on shared walls, misplaced chairs).
 
 Usage (from the repo root):
     python3 tools/build_rooms.py            # write every scene in ROOMS
@@ -88,12 +94,6 @@ EXTRA_DOORS = {
     }],
 }
 
-# Tiles a room borrows from another room's tileset: room -> (source room, [tile names])
-EXTRA_TILES = {
-    # The hallway tileset has no west-wall doorway; borrow the Main Hall's (same burgundy walls)
-    "upstairs_hallway": ("main_hall", ["door_w_top", "door_w_bot"]),
-}
-
 # Furniture whose collision differs from its layout footprint: (room, id) -> [rects px]
 COLLISION_OVERRIDES = {
     # Main Hall grand staircase: only the railings are solid, so the player can climb the steps
@@ -112,21 +112,28 @@ EXTRA_SPAWNS = {
     "main_hall": {"from_upstairs_hallway": (160, 110, "down")},
 }
 
-# Door sprite to use when the layout doesn't draw one, by wall: (closed, open).
-# There are no closed east/west door sprites yet. Until there are, the generator uses
-# door_<w|e>_closed_placeholder.png (the open frame with a panelled leaf drawn in the
-# north door's palette), and switches to the real file as soon as it exists.
-DEFAULT_DOOR_SPRITES = {
-    "N": ("door_n_closed.png", "door_n_open.png"),
-    "S": ("door_s_closed.png", "door_s_open.png"),
-    "W": ("door_w_closed.png", "door_w_open.png"),
-    "E": ("door_e_closed.png", "door_e_open.png"),
-}
-# Room-specific door sprites: (room, door id) -> (closed, open)
+# Door sprite set by wall: the file name base. The generator looks for <base>_closed.png,
+# <base>_open.png and (optional) <base>_half.png in game/shared_assets/architecture/doors/.
+DEFAULT_DOOR_SPRITES = {"N": "door_n", "S": "door_s", "W": "door_w", "E": "door_e"}
+# Room-specific door sprite bases: (room, door id) -> base
 DOOR_SPRITE_OVERRIDES = {
-    # The Dining Room side of the French doors to the backyard
-    ("dining_room", "D3"): ("french_doors_interior.png", "french_doors_interior.png"),
+    # Both sides of the French doors between the Dining Room and the backyard
+    ("dining_room", "D3"): "french_doors_interior",
+    ("snowy_backyard", "D1"): "french_doors_exterior",
+    ("snowy_backyard", "D2"): "door_ext_w",
 }
+
+# Per-room fixes applied to the layout after the floor is matched against the preview (so
+# the floor solver still sees the vendor layout the preview was drawn from). room -> patch:
+#   "remove_decor": [ids]               drop decor items (no sprite, no tile overlay)
+#   "decor" / "furniture": {id: change} change is any of:
+#       "sprite": file name   "size": [w, h] sprite px   "pos": [x, y] sprite top-left px
+#       "collision": [x, y, w, h] px   "footprint": [x, y, w, h] tiles
+#       "origin": [x, y] px, the y-sort origin for a piece that is no longer tile-aligned
+#   "tiles": {(x, y): (sx, sy)}         copy the floor tile from cell (sx, sy), used where the
+#                                       tile under a removed window isn't plain wall
+# An id that isn't in the room is an error.
+LAYOUT_PATCHES = {}
 
 ENTER_DIRECTION = {"N": "up", "S": "down", "W": "left", "E": "right"}
 ARRIVE_FACING = {"N": "down", "S": "up", "W": "right", "E": "left"}
@@ -361,6 +368,41 @@ def safe_name(text):
     return "".join(ch if ch.isalnum() or ch == "_" else "_" for ch in str(text))
 
 
+def apply_patches(room, layout, grid):
+    """Applies LAYOUT_PATCHES[room] to the layout (and floor grid) in place."""
+    patch = LAYOUT_PATCHES.get(room)
+    if not patch:
+        return
+    known = {"remove_decor", "decor", "furniture", "tiles"}
+    if set(patch) - known:
+        raise SystemExit(f"{room}: unknown LAYOUT_PATCHES keys {sorted(set(patch) - known)}")
+    lists = {"decor": layout["decor"], "furniture": layout["furniture"]}
+
+    def find(kind, item_id):
+        for item in lists[kind]:
+            if item["id"] == item_id:
+                return item
+        raise SystemExit(f"{room}: LAYOUT_PATCHES names {kind} id {item_id!r}, which isn't in the layout")
+
+    for item_id in patch.get("remove_decor", []):
+        lists["decor"].remove(find("decor", item_id))
+    keys = {"sprite": "sprite", "size": "sprite_size_px", "pos": "sprite_top_left_px", "origin": "origin_px"}
+    for kind in ("decor", "furniture"):
+        for item_id, change in patch.get(kind, {}).items():
+            item = find(kind, item_id)
+            for key, value in change.items():
+                if key in keys:
+                    item[keys[key]] = value
+                elif key == "collision":
+                    item["collision_rect_px"] = dict(zip("xywh", value))
+                elif key == "footprint":
+                    item["footprint_tiles"] = dict(zip("xywh", value))
+                else:
+                    raise SystemExit(f"{room} {item_id}: unknown LAYOUT_PATCHES change {key!r}")
+    for cell, src in patch.get("tiles", {}).items():
+        grid[cell] = grid[src]
+
+
 def build_room(room, root_name, assets, links):
     layout = load_layout(room)
     w, h = layout["size_tiles"]
@@ -376,6 +418,8 @@ def build_room(room, root_name, assets, links):
         path = assets.find(sprite_ref, room)
         return (path, scene.ext_res("Texture2D", res_path(path))) if path else (None, None)
 
+    problems = []
+
     # Which doors lead somewhere
     active_doors = []
     for door in layout["doors"]:
@@ -384,32 +428,33 @@ def build_room(room, root_name, assets, links):
             active_doors.append((door, target))
     active_cells = {tuple(c) for d, _ in active_doors for c in d["door_tiles"]}
 
-    # Door sprites drawn by the layout (V2 rooms draw closed doors as decor)
-    decor_doors = {}
-    for item in layout["decor"]:
-        if not item.get("sprite") or not os.path.basename(item["sprite"]).startswith("door_"):
+    # Door sprite sets. The V2 rooms draw their doors (and the backyard its French doors) as
+    # decor; those items move onto the Door node, which keeps their position as sprite_offset.
+    door_sprites = {}
+    decor_doors = set()
+    for door, _ in active_doors:
+        if door.get("variant") == "stairs":
             continue
-        ix, iy = item["sprite_top_left_px"]
-        for door, _ in active_doors:
-            dx, dy, dw, dh = door_rect(door)
-            if dx <= ix < dx + dw and dy <= iy < dy + dh:
-                decor_doors[door["id"]] = item
+        base = DOOR_SPRITE_OVERRIDES.get((room, door["id"])) or DEFAULT_DOOR_SPRITES[door["wall"]]
+        rect = door_rect(door)
+        offset = (0, 0)
+        for item in layout["decor"]:
+            if not item.get("sprite"):
+                continue
+            stem = Path(item["sprite"]).stem
+            ix, iy = item["sprite_top_left_px"]
+            if (stem.startswith("door_") or stem == base) and rect[0] <= ix < rect[0] + rect[2] and rect[1] <= iy < rect[1] + rect[3]:
+                decor_doors.add(item["id"])
+                offset = (ix - rect[0], iy - rect[1])
+        half = f"{base}_half.png"
+        door_sprites[door["id"]] = {
+            "closed": f"{base}_closed.png", "open": f"{base}_open.png",
+            "half": half if half in assets.by_name else None, "offset": offset}
 
     # ---- sprites layered over the floor, used to match the preview
-    overlay = Image.new("RGBA", (w * TILE, h * TILE), (0, 0, 0, 0))
-
-    def paste(sprite_ref, top_left):
-        path = assets.find(sprite_ref, room)
-        if path:
-            image = Image.open(path).convert("RGBA")
-            overlay.alpha_composite(image, tuple(int(v) for v in top_left))
-
     rugs_as_tiles = {}
     for rug in layout["rugs"]:
-        if assets.find(rug.get("sprite"), room):
-            r = rug["tile_rect"]
-            paste(rug["sprite"], (r["x"] * TILE, r["y"] * TILE))
-        else:
+        if not assets.find(rug.get("sprite"), room):
             r = rug["tile_rect"]
             prefix = f"rug_{rug['palette']}_"
             for yy in range(r["h"]):
@@ -417,18 +462,48 @@ def build_room(room, root_name, assets, links):
                     name, flip = rug_tile(xx, yy, r["w"], r["h"], prefix)
                     if name in tiles:
                         rugs_as_tiles[(r["x"] + xx, r["y"] + yy)] = (name, flip)
+
+    def make_overlay(skip_decor, draw_doors):
+        """Every sprite layered over the floor, in draw order. skip_decor: ids left out."""
+        overlay = Image.new("RGBA", (w * TILE, h * TILE), (0, 0, 0, 0))
+
+        def paste(sprite_ref, top_left):
+            path = assets.find(sprite_ref, room)
+            if path:
+                image = Image.open(path).convert("RGBA")
+                overlay.alpha_composite(image, tuple(int(v) for v in top_left))
+
+        for rug in layout["rugs"]:
+            if assets.find(rug.get("sprite"), room):
+                r = rug["tile_rect"]
+                paste(rug["sprite"], (r["x"] * TILE, r["y"] * TILE))
+        layers = {"floor": [], "wall": [], "top": [], "over": []}
+        for item in layout["decor"]:
+            if item["id"] not in skip_decor:
+                layers.setdefault(item.get("layer", "wall"), []).append(item)
+        for item in layers["floor"] + layers["wall"]:
+            paste(item["sprite"], item["sprite_top_left_px"])
+        if draw_doors:
+            for door, _ in active_doors:
+                sprites = door_sprites.get(door["id"])
+                if sprites:
+                    dx, dy, _, _ = door_rect(door)
+                    paste(sprites["closed"], (dx + sprites["offset"][0], dy + sprites["offset"][1]))
+        for item in sorted(layout["furniture"], key=lambda f: f.get("y_sort_px", 0)):
+            if item.get("sprite"):
+                paste(item["sprite"], item["sprite_top_left_px"])
+        for item in layers["top"] + layers["over"]:
+            paste(item["sprite"], item["sprite_top_left_px"])
+        return overlay
+
+    grid, exact = solve_floor(room, layout, tiles, make_overlay((), False), rugs_as_tiles)
+
+    # Everything from here on uses the patched layout
+    apply_patches(room, layout, grid)
+    overlay = make_overlay(decor_doors, True)
     by_layer = {"floor": [], "wall": [], "top": [], "over": []}
     for item in layout["decor"]:
         by_layer.setdefault(item.get("layer", "wall"), []).append(item)
-    for item in by_layer["floor"] + by_layer["wall"]:
-        paste(item["sprite"], item["sprite_top_left_px"])
-    for item in sorted(layout["furniture"], key=lambda f: f.get("y_sort_px", 0)):
-        if item.get("sprite"):
-            paste(item["sprite"], item["sprite_top_left_px"])
-    for item in by_layer["top"] + by_layer["over"]:
-        paste(item["sprite"], item["sprite_top_left_px"])
-
-    grid, exact = solve_floor(room, layout, tiles, overlay, rugs_as_tiles)
 
     # Doorway tiles for active doors that the preview drew as wall (e.g. a new door)
     for door, _ in active_doors:
@@ -436,24 +511,38 @@ def build_room(room, root_name, assets, links):
             if name in tiles and not grid[cell][0].startswith(("door", "ext_door")):
                 grid[cell] = (name, 0)
 
-    # ---- TileSet
-    extra = EXTRA_TILES.get(room)
-    extra_tiles = {}
-    if extra:
-        src_room, names = extra
-        src_tiles = load_tileset(src_room)
-        for name in names:
-            extra_tiles[name] = src_tiles[name]
-        for door, _ in active_doors:
-            for cell, name in door_tile_names(door).items():
-                if name in extra_tiles and name not in tiles:
-                    grid[cell] = ("extra:" + name, 0)
+    # A door sprite carries its own frame, so the doorway tile under it (which has a frame
+    # baked in) is swapped for the plain wall beside the door; otherwise two doors show at once
+    for door, _ in active_doors:
+        sprites = door_sprites.get(door["id"])
+        path = assets.find(sprites["closed"], room) if sprites else None
+        if not path or door["wall"] == "N":
+            continue
+        dx, dy, _, _ = door_rect(door)
+        sw, sh = Image.open(path).size
+        sx, sy = dx + sprites["offset"][0], dy + sprites["offset"][1]
+        cells = [tuple(c) for c in door["door_tiles"]]
+        covered = [c for c in cells if sx < (c[0] + 1) * TILE and c[0] * TILE < sx + sw
+                   and sy < (c[1] + 1) * TILE and c[1] * TILE < sy + sh]
+        if not covered:
+            continue
+        along = (0, 1) if door["wall"] in ("W", "E") else (1, 0)
+        lo = min(covered, key=lambda c: (c[1], c[0]))
+        hi = max(covered, key=lambda c: (c[1], c[0]))
+        # Nearest wall cell before the door along the wall, else the one after it
+        for cell in [(lo[0] - along[0], lo[1] - along[1]), (hi[0] + along[0], hi[1] + along[1])]:
+            name = grid.get(cell, ("", 0))[0]
+            if name and not any(part in name for part in ("door", "corner")):
+                for c in covered:
+                    grid[c] = grid[cell]
+                break
 
+    # ---- TileSet
     atlas_lines = [f'[sub_resource type="TileSetAtlasSource" id="Atlas_room"]',
                    f'texture = ExtResource("{tileset_png}")', "texture_region_size = Vector2i(16, 16)"]
     flips_used = {}
     for (name, flip) in grid.values():
-        if not name.startswith("extra:") and flip:
+        if flip:
             flips_used.setdefault(name, set()).add(flip)
     for name, (col, row, _) in sorted(tiles.items(), key=lambda kv: (kv[1][1], kv[1][0])):
         atlas_lines.append(f"{col}:{row}/0 = 0")
@@ -464,28 +553,14 @@ def build_room(room, root_name, assets, links):
             if flip & 2:
                 atlas_lines.append(f"{col}:{row}/{flip}/flip_v = true")
     scene.sub.append("\n".join(atlas_lines) + "\n")
-    sources = ['sources/0 = SubResource("Atlas_room")']
-    if extra_tiles:
-        src_png = scene.ext_res("Texture2D", res_path(MAPS / extra[0] / f"{extra[0]}_tileset.png"))
-        lines = ['[sub_resource type="TileSetAtlasSource" id="Atlas_extra"]',
-                 f'texture = ExtResource("{src_png}")', "texture_region_size = Vector2i(16, 16)"]
-        for name, (col, row, _) in extra_tiles.items():
-            lines.append(f"{col}:{row}/0 = 0")
-        scene.sub.append("\n".join(lines) + "\n")
-        sources.append('sources/1 = SubResource("Atlas_extra")')
-    scene.sub.append('[sub_resource type="TileSet" id="TileSet_room"]\n' + "\n".join(sources) + "\n")
+    scene.sub.append('[sub_resource type="TileSet" id="TileSet_room"]\nsources/0 = SubResource("Atlas_room")\n')
 
     data = bytearray(struct.pack("<H", 0))
     for y in range(h):
         for x in range(w):
             name, flip = grid[(x, y)]
-            if name.startswith("extra:"):
-                col, row, _ = extra_tiles[name[6:]]
-                source = 1
-            else:
-                col, row, _ = tiles[name]
-                source = 0
-            data += struct.pack("<hhHHHH", x, y, source, col, row, flip)
+            col, row, _ = tiles[name]
+            data += struct.pack("<hhHHHH", x, y, 0, col, row, flip)
     tile_data = "PackedByteArray(" + ", ".join(str(b) for b in data) + ")"
 
     # ---- root and floor
@@ -511,10 +586,9 @@ def build_room(room, root_name, assets, links):
                 "position": vec(*item["sprite_top_left_px"]), "texture": f'ExtResource("{tex}")', "centered": "false"})
 
     # ---- wall decor (door sprites move to their Door)
-    decor_door_ids = {id(item) for item in decor_doors.values()}
     scene.node("WallDecor", "Node2D", ".")
     for item in by_layer["wall"]:
-        if id(item) in decor_door_ids:
+        if item["id"] in decor_doors:
             continue
         path, tex = texture(item["sprite"])
         if tex:
@@ -532,33 +606,18 @@ def build_room(room, root_name, assets, links):
             "enter_direction": gd_string(ENTER_DIRECTION[door["wall"]]),
             "trigger_size": vec(dw, dh),
         }
-        closed_ref = open_ref = None
-        sprite_top_left = None
-        if (room, door["id"]) in DOOR_SPRITE_OVERRIDES:
-            closed_ref, open_ref = DOOR_SPRITE_OVERRIDES[(room, door["id"])]
-        elif door["id"] in decor_doors:
-            item = decor_doors[door["id"]]
-            closed_ref = item["sprite"]
-            open_ref = door.get("door_sprite_open") or item["sprite"]
-            sprite_top_left = item["sprite_top_left_px"]
-        elif layout.get("indoor", True) and door.get("variant") != "stairs":
-            overlapping = [i for i in layout["decor"] if i.get("sprite") and _overlaps(i, (dx, dy, dw, dh))]
-            if not overlapping:
-                closed_ref, open_ref = DEFAULT_DOOR_SPRITES[door["wall"]]
-                if closed_ref not in assets.by_name:
-                    # Use the stand-in until the real closed sprite is delivered
-                    assets.missing.setdefault(closed_ref, set()).add(room)
-                    placeholder = closed_ref.replace(".png", "_placeholder.png")
-                    closed_ref = placeholder if placeholder in assets.by_name else open_ref
-        if closed_ref:
-            _, closed_tex = texture(closed_ref)
-            _, open_tex = texture(open_ref)
-            if closed_tex:
-                props["closed_texture"] = f'ExtResource("{closed_tex}")'
-            if open_tex:
-                props["open_texture"] = f'ExtResource("{open_tex}")'
-            if sprite_top_left:
-                props["sprite_offset"] = vec(sprite_top_left[0] - dx, sprite_top_left[1] - dy)
+        sprites = door_sprites.get(door["id"])
+        if sprites:
+            for key, prop in (("closed", "closed_texture"), ("open", "open_texture"), ("half", "half_texture")):
+                if not sprites[key]:
+                    continue
+                _, tex = texture(sprites[key])
+                if tex:
+                    props[prop] = f'ExtResource("{tex}")'
+                elif key != "half":
+                    problems.append(f"{room} {door['id']}: door sprite {sprites[key]} not found")
+            if sprites["offset"] != (0, 0):
+                props["sprite_offset"] = vec(*sprites["offset"])
         props["metadata/door_id"] = gd_string(door["id"])
         props["metadata/leads_to"] = gd_string(target_room)
         scene.node(f"Door_{door['id']}", None, "Doors", instance=door_scene, props=props)
@@ -566,6 +625,7 @@ def build_room(room, root_name, assets, links):
     # ---- furniture (y-sorted with the player)
     scene.node("Entities", "Node2D", ".", props={"y_sort_enabled": "true"})
     furniture_rects = {}
+    blockers = []
     for item in layout["furniture"]:
         origin = furniture_origin(room, item)
         name = safe_name(item["id"])
@@ -577,10 +637,12 @@ def build_room(room, root_name, assets, links):
             sx, sy = item["sprite_top_left_px"]
             scene.node("Sprite", "Sprite2D", f"Entities/{name}", props={
                 "position": vec(sx - origin[0], sy - origin[1]), "texture": f'ExtResource("{tex}")', "centered": "false"})
-        rects = COLLISION_OVERRIDES.get((room, item["id"]))
-        if rects is None and item.get("collides", True) and item.get("collision_rect_px"):
-            c = item["collision_rect_px"]
-            rects = [(c["x"], c["y"], c["w"], c["h"])]
+        rects = furniture_collision(room, item)
+        if item.get("sprite") and not tex:
+            # No art yet: a solid body with nothing drawn would be an invisible wall
+            rects = []
+            problems.append(f"{room} {item['id']}: sprite {os.path.basename(item['sprite'])} not found, so it has no collision")
+        blockers += rects
         if rects:
             scene.node("Body", "StaticBody2D", f"Entities/{name}")
             for i, (cx, cy, cw, ch) in enumerate(rects):
@@ -662,12 +724,24 @@ def build_room(room, root_name, assets, links):
     scene.node("TouchControls", None, ".", instance=touch)
     return scene.text(), {"exact_cells": exact, "cells": w * h, "layout": layout, "spawns": spawns,
                           "active_doors": active_doors, "overlay": overlay, "grid": grid, "tiles": tiles,
-                          "extra_tiles": extra_tiles}
+                          "problems": problems, "blockers": blockers, "door_sprites": door_sprites}
+
+
+def furniture_collision(room, item):
+    """Collision rects (x, y, w, h) px the layout asks for, whether or not the sprite exists."""
+    rects = COLLISION_OVERRIDES.get((room, item["id"]))
+    if rects is None and item.get("collides", True) and item.get("collision_rect_px"):
+        c = item["collision_rect_px"]
+        rects = [(c["x"], c["y"], c["w"], c["h"])]
+    return list(rects or [])
 
 
 def furniture_origin(room, item):
     """Node origin for a piece of furniture: the bottom-left of its footprint, which is
-    where it y-sorts against the player, unless Y_SORT_OVERRIDES moves it."""
+    where it y-sorts against the player, unless Y_SORT_OVERRIDES or a patch's explicit
+    origin_px moves it."""
+    if "origin_px" in item:
+        return tuple(item["origin_px"])
     ft = item["footprint_tiles"]
     y = Y_SORT_OVERRIDES.get((room, item["id"]), (ft["y"] + ft["h"]) * TILE)
     return (ft["x"] * TILE, y)
@@ -738,10 +812,7 @@ def render(info, room):
     w, h = layout["size_tiles"]
     image = Image.new("RGBA", (w * TILE, h * TILE))
     for (x, y), (name, flip) in info["grid"].items():
-        if name.startswith("extra:"):
-            tile = info["extra_tiles"][name[6:]][2]
-        else:
-            tile = info["tiles"][name][2]
+        tile = info["tiles"][name][2]
         if FLIPS[flip] is not None:
             tile = tile.transpose(FLIPS[flip])
         image.paste(tile, (x * TILE, y * TILE))
@@ -760,11 +831,8 @@ def check(results):
             elif target_room in rooms and f"from_{room}" not in rooms[target_room]["spawns"]:
                 problems.append(f"{room} {door['id']}: {target_room} has no spawn from_{room}")
         # Spawns must not touch furniture collision, walls or door triggers
-        blockers = []
-        for item in info["layout"]["furniture"]:
-            for r in COLLISION_OVERRIDES.get((room, item["id"])) or (
-                    [(item["collision_rect_px"][k] for k in "xywh")] if item.get("collides", True) and item.get("collision_rect_px") else []):
-                blockers.append(tuple(r))
+        problems += info["problems"]
+        blockers = list(info["blockers"])
         active_cells = {tuple(c) for d, _ in info["active_doors"] for c in d["door_tiles"]}
         w, h = info["layout"]["size_tiles"]
         blockers += wall_rects(w, h, active_cells)
@@ -802,9 +870,10 @@ def write_missing(assets):
     lines = ["# Missing room art", "",
              "Generated by `tools/build_rooms.py`. These sprites are referenced by the room layouts but",
              "aren't in the project yet, so the scenes leave them out. Rugs without a sprite are drawn",
-             "from the room tileset's 9-slice rug tiles (no centre medallion), and east/west doors use",
-             "`door_<w|e>_closed_placeholder.png` until the real closed sprites arrive. Add the PNGs anywhere",
-             "under `game/shared_assets/` and run `python3 tools/build_rooms.py` again.", ""]
+             "from the room tileset's 9-slice rug tiles (no centre medallion). A furniture piece whose sprite",
+             "is missing gets no collision, and a connected door whose closed or open sprite is missing",
+             "has no sprite; `--check` reports both as problems. Add the PNGs anywhere under",
+             "`game/shared_assets/` and run `python3 tools/build_rooms.py` again.", ""]
     if not assets.missing:
         lines.append("Nothing is missing.")
     else:

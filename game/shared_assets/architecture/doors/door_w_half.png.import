@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cthavvt0ab6hf"
-path="res://.godot/imported/door_e_closed_placeholder.png-61082ec9b348d0728090b7b4992f9345.ctex"
+uid="uid://dagwqk62d6sc8"
+path="res://.godot/imported/door_w_half.png-9c6581fe8ea7fb35b4cfebf47fa3922e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shared_assets/architecture/doors/door_e_closed_placeholder.png"
-dest_files=["res://.godot/imported/door_e_closed_placeholder.png-61082ec9b348d0728090b7b4992f9345.ctex"]
+source_file="res://shared_assets/architecture/doors/door_w_half.png"
+dest_files=["res://.godot/imported/door_w_half.png-9c6581fe8ea7fb35b4cfebf47fa3922e.ctex"]
 
 [params]
 
