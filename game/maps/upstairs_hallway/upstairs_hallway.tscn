@@ -7,32 +7,31 @@
 [ext_resource type="PackedScene" path="res://ui/touch_controls/touch_controls.tscn" id="5_touch_controls"]
 [ext_resource type="Texture2D" path="res://shared_assets/decorations/rugs/runner_burgundy_32x3.png" id="6_runner_burgundy_32x3"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/stairs/stairwell_down.png" id="7_stairwell_down"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_snow_curtains_burgundy.png" id="8_window_snow_curtains_burgundy"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_portrait_lady.png" id="9_painting_portrait_lady"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_portrait_gentleman.png" id="10_painting_portrait_gentleman"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/wall_sconce.png" id="11_wall_sconce"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_small.png" id="12_painting_small"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_closed.png" id="13_door_n_closed"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_open.png" id="14_door_n_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_half.png" id="15_door_n_half"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_closed.png" id="16_door_s_closed"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_open.png" id="17_door_s_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_half.png" id="18_door_s_half"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_closed.png" id="19_door_w_closed"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="20_door_w_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_half.png" id="21_door_w_half"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/grandfather_clock.png" id="22_grandfather_clock"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="23_plant_potted"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/table_console.png" id="24_table_console"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/floor_lamp.png" id="25_floor_lamp"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candelabra_floor.png" id="26_candelabra_floor"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/columns/column_decor.png" id="27_column_decor"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/settee_green_s.png" id="28_settee_green_s"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="29_display_cabinet"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side_mahogany.png" id="30_table_side_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="31_candlestick"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/vase_flowers.png" id="32_vase_flowers"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="33_chandelier_small"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_portrait_lady.png" id="8_painting_portrait_lady"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_portrait_gentleman.png" id="9_painting_portrait_gentleman"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/wall_sconce.png" id="10_wall_sconce"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_small.png" id="11_painting_small"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_closed.png" id="12_door_n_closed"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_open.png" id="13_door_n_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_half.png" id="14_door_n_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_closed.png" id="15_door_s_closed"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_open.png" id="16_door_s_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_half.png" id="17_door_s_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_closed.png" id="18_door_w_closed"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_open.png" id="19_door_w_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_half.png" id="20_door_w_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/grandfather_clock.png" id="21_grandfather_clock"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="22_plant_potted"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/table_console.png" id="23_table_console"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/floor_lamp.png" id="24_floor_lamp"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candelabra_floor.png" id="25_candelabra_floor"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/columns/column_decor.png" id="26_column_decor"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/settee_green_s.png" id="27_settee_green_s"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="28_display_cabinet"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side_mahogany.png" id="29_table_side_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="30_candlestick"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/vase_flowers.png" id="31_vase_flowers"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="32_chandelier_small"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_upstairs_hallway_tileset")
@@ -115,74 +114,64 @@ position = Vector2(240, 112)
 texture = ExtResource("7_stairwell_down")
 centered = false
 
-[node name="W1" type="Sprite2D" parent="WallDecor"]
-position = Vector2(160, 0)
-texture = ExtResource("8_window_snow_curtains_burgundy")
-centered = false
-
-[node name="W2" type="Sprite2D" parent="WallDecor"]
-position = Vector2(384, 0)
-texture = ExtResource("8_window_snow_curtains_burgundy")
-centered = false
-
 [node name="P1" type="Sprite2D" parent="WallDecor"]
 position = Vector2(32, 0)
-texture = ExtResource("9_painting_portrait_lady")
+texture = ExtResource("8_painting_portrait_lady")
 centered = false
 
 [node name="P2" type="Sprite2D" parent="WallDecor"]
 position = Vector2(128, 0)
-texture = ExtResource("10_painting_portrait_gentleman")
+texture = ExtResource("9_painting_portrait_gentleman")
 centered = false
 
 [node name="P5" type="Sprite2D" parent="WallDecor"]
 position = Vector2(432, 0)
-texture = ExtResource("9_painting_portrait_lady")
+texture = ExtResource("8_painting_portrait_lady")
 centered = false
 
 [node name="P6" type="Sprite2D" parent="WallDecor"]
 position = Vector2(528, 0)
-texture = ExtResource("10_painting_portrait_gentleman")
+texture = ExtResource("9_painting_portrait_gentleman")
 centered = false
 
 [node name="S1" type="Sprite2D" parent="WallDecor"]
 position = Vector2(64, 2)
-texture = ExtResource("11_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
 [node name="S2" type="Sprite2D" parent="WallDecor"]
 position = Vector2(112, 2)
-texture = ExtResource("11_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
 [node name="S3" type="Sprite2D" parent="WallDecor"]
 position = Vector2(256, 2)
-texture = ExtResource("11_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
 [node name="S4" type="Sprite2D" parent="WallDecor"]
 position = Vector2(304, 2)
-texture = ExtResource("11_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
 [node name="S5" type="Sprite2D" parent="WallDecor"]
 position = Vector2(448, 2)
-texture = ExtResource("11_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
 [node name="S6" type="Sprite2D" parent="WallDecor"]
 position = Vector2(496, 2)
-texture = ExtResource("11_wall_sconce")
+texture = ExtResource("10_wall_sconce")
 centered = false
 
 [node name="P3" type="Sprite2D" parent="WallDecor"]
 position = Vector2(200, 0)
-texture = ExtResource("12_painting_small")
+texture = ExtResource("11_painting_small")
 centered = false
 
 [node name="P4" type="Sprite2D" parent="WallDecor"]
 position = Vector2(360, 0)
-texture = ExtResource("12_painting_small")
+texture = ExtResource("11_painting_small")
 centered = false
 
 [node name="Doors" type="Node2D" parent="."]
@@ -193,9 +182,9 @@ target_scene = "res://maps/curio_room/curio_room.tscn"
 target_spawn = "from_upstairs_hallway"
 enter_direction = "up"
 trigger_size = Vector2(32, 32)
-closed_texture = ExtResource("13_door_n_closed")
-open_texture = ExtResource("14_door_n_open")
-half_texture = ExtResource("15_door_n_half")
+closed_texture = ExtResource("12_door_n_closed")
+open_texture = ExtResource("13_door_n_open")
+half_texture = ExtResource("14_door_n_half")
 metadata/door_id = "D1"
 metadata/leads_to = "curio_room"
 
@@ -205,9 +194,9 @@ target_scene = "res://maps/guest_room_b/guest_room_b.tscn"
 target_spawn = "from_upstairs_hallway"
 enter_direction = "up"
 trigger_size = Vector2(32, 32)
-closed_texture = ExtResource("13_door_n_closed")
-open_texture = ExtResource("14_door_n_open")
-half_texture = ExtResource("15_door_n_half")
+closed_texture = ExtResource("12_door_n_closed")
+open_texture = ExtResource("13_door_n_open")
+half_texture = ExtResource("14_door_n_half")
 metadata/door_id = "D2"
 metadata/leads_to = "guest_room_b"
 
@@ -217,9 +206,9 @@ target_scene = "res://maps/grand_study/grand_study.tscn"
 target_spawn = "from_upstairs_hallway"
 enter_direction = "up"
 trigger_size = Vector2(32, 32)
-closed_texture = ExtResource("13_door_n_closed")
-open_texture = ExtResource("14_door_n_open")
-half_texture = ExtResource("15_door_n_half")
+closed_texture = ExtResource("12_door_n_closed")
+open_texture = ExtResource("13_door_n_open")
+half_texture = ExtResource("14_door_n_half")
 metadata/door_id = "D3"
 metadata/leads_to = "grand_study"
 
@@ -229,9 +218,9 @@ target_scene = "res://maps/edmund_bedroom/edmund_bedroom.tscn"
 target_spawn = "from_upstairs_hallway"
 enter_direction = "down"
 trigger_size = Vector2(32, 16)
-closed_texture = ExtResource("16_door_s_closed")
-open_texture = ExtResource("17_door_s_open")
-half_texture = ExtResource("18_door_s_half")
+closed_texture = ExtResource("15_door_s_closed")
+open_texture = ExtResource("16_door_s_open")
+half_texture = ExtResource("17_door_s_half")
 metadata/door_id = "D4"
 metadata/leads_to = "edmund_bedroom"
 
@@ -250,9 +239,9 @@ target_scene = "res://maps/clara_bedroom/clara_bedroom.tscn"
 target_spawn = "from_upstairs_hallway"
 enter_direction = "down"
 trigger_size = Vector2(32, 16)
-closed_texture = ExtResource("16_door_s_closed")
-open_texture = ExtResource("17_door_s_open")
-half_texture = ExtResource("18_door_s_half")
+closed_texture = ExtResource("15_door_s_closed")
+open_texture = ExtResource("16_door_s_open")
+half_texture = ExtResource("17_door_s_half")
 metadata/door_id = "D6"
 metadata/leads_to = "clara_bedroom"
 
@@ -262,9 +251,9 @@ target_scene = "res://maps/master_bedroom/master_bedroom.tscn"
 target_spawn = "from_upstairs_hallway"
 enter_direction = "left"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("19_door_w_closed")
-open_texture = ExtResource("20_door_w_open")
-half_texture = ExtResource("21_door_w_half")
+closed_texture = ExtResource("18_door_w_closed")
+open_texture = ExtResource("19_door_w_open")
+half_texture = ExtResource("20_door_w_half")
 metadata/door_id = "D7"
 metadata/leads_to = "master_bedroom"
 
@@ -277,7 +266,7 @@ metadata/display_name = "Grandfather clock"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CK"]
 position = Vector2(0, -32)
-texture = ExtResource("22_grandfather_clock")
+texture = ExtResource("21_grandfather_clock")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CK"]
@@ -292,7 +281,7 @@ metadata/display_name = "Potted plant"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/PL1"]
 position = Vector2(0, -32)
-texture = ExtResource("23_plant_potted")
+texture = ExtResource("22_plant_potted")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/PL1"]
@@ -307,7 +296,7 @@ metadata/display_name = "Potted plant"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/PL2"]
 position = Vector2(0, -32)
-texture = ExtResource("23_plant_potted")
+texture = ExtResource("22_plant_potted")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/PL2"]
@@ -322,7 +311,7 @@ metadata/display_name = "Potted plant"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/PL3"]
 position = Vector2(0, -32)
-texture = ExtResource("23_plant_potted")
+texture = ExtResource("22_plant_potted")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/PL3"]
@@ -337,7 +326,7 @@ metadata/display_name = "Console table (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TB1"]
 position = Vector2(0, -32)
-texture = ExtResource("24_table_console")
+texture = ExtResource("23_table_console")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TB1"]
@@ -352,7 +341,7 @@ metadata/display_name = "Console table (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TB2"]
 position = Vector2(0, -32)
-texture = ExtResource("24_table_console")
+texture = ExtResource("23_table_console")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TB2"]
@@ -367,7 +356,7 @@ metadata/display_name = "Floor lamp"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LP1"]
 position = Vector2(0, -32)
-texture = ExtResource("25_floor_lamp")
+texture = ExtResource("24_floor_lamp")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LP1"]
@@ -382,7 +371,7 @@ metadata/display_name = "Floor lamp"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LP2"]
 position = Vector2(0, -32)
-texture = ExtResource("25_floor_lamp")
+texture = ExtResource("24_floor_lamp")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LP2"]
@@ -397,7 +386,7 @@ metadata/display_name = "Candelabra"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CD1"]
 position = Vector2(0, -32)
-texture = ExtResource("26_candelabra_floor")
+texture = ExtResource("25_candelabra_floor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CD1"]
@@ -412,7 +401,7 @@ metadata/display_name = "Candelabra"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CD2"]
 position = Vector2(0, -32)
-texture = ExtResource("26_candelabra_floor")
+texture = ExtResource("25_candelabra_floor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CD2"]
@@ -427,7 +416,7 @@ metadata/display_name = "Column"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CO1"]
 position = Vector2(0, -48)
-texture = ExtResource("27_column_decor")
+texture = ExtResource("26_column_decor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CO1"]
@@ -442,7 +431,7 @@ metadata/display_name = "Column"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CO2"]
 position = Vector2(0, -48)
-texture = ExtResource("27_column_decor")
+texture = ExtResource("26_column_decor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CO2"]
@@ -477,7 +466,7 @@ metadata/display_name = "Green velvet settee (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SE1"]
 position = Vector2(0, -32)
-texture = ExtResource("28_settee_green_s")
+texture = ExtResource("27_settee_green_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SE1"]
@@ -492,7 +481,7 @@ metadata/display_name = "Green velvet settee (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SE2"]
 position = Vector2(0, -32)
-texture = ExtResource("28_settee_green_s")
+texture = ExtResource("27_settee_green_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SE2"]
@@ -507,7 +496,7 @@ metadata/display_name = "Small display cabinet (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DC1"]
 position = Vector2(0, -32)
-texture = ExtResource("29_display_cabinet")
+texture = ExtResource("28_display_cabinet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DC1"]
@@ -522,7 +511,7 @@ metadata/display_name = "Small display cabinet (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DC2"]
 position = Vector2(0, -32)
-texture = ExtResource("29_display_cabinet")
+texture = ExtResource("28_display_cabinet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DC2"]
@@ -537,7 +526,7 @@ metadata/display_name = "Side table (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/ST1"]
 position = Vector2(0, -32)
-texture = ExtResource("30_table_side_mahogany")
+texture = ExtResource("29_table_side_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/ST1"]
@@ -552,7 +541,7 @@ metadata/display_name = "Side table (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/ST2"]
 position = Vector2(0, -32)
-texture = ExtResource("30_table_side_mahogany")
+texture = ExtResource("29_table_side_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/ST2"]
@@ -563,32 +552,32 @@ shape = SubResource("Rect_16x16")
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/TB1"]
 position = Vector2(4, -38)
-texture = ExtResource("31_candlestick")
+texture = ExtResource("30_candlestick")
 centered = false
 
 [node name="Top_T2" type="Sprite2D" parent="Entities/TB1"]
 position = Vector2(30, -36)
-texture = ExtResource("32_vase_flowers")
+texture = ExtResource("31_vase_flowers")
 centered = false
 
 [node name="Top_T3" type="Sprite2D" parent="Entities/TB2"]
 position = Vector2(4, -38)
-texture = ExtResource("31_candlestick")
+texture = ExtResource("30_candlestick")
 centered = false
 
 [node name="Top_T4" type="Sprite2D" parent="Entities/TB2"]
 position = Vector2(30, -36)
-texture = ExtResource("32_vase_flowers")
+texture = ExtResource("31_vase_flowers")
 centered = false
 
 [node name="Top_T5" type="Sprite2D" parent="Entities/ST1"]
 position = Vector2(0, -31)
-texture = ExtResource("31_candlestick")
+texture = ExtResource("30_candlestick")
 centered = false
 
 [node name="Top_T6" type="Sprite2D" parent="Entities/ST2"]
 position = Vector2(0, -31)
-texture = ExtResource("32_vase_flowers")
+texture = ExtResource("31_vase_flowers")
 centered = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_player")]
@@ -600,17 +589,17 @@ z_index = 20
 
 [node name="C1" type="Sprite2D" parent="Overhead"]
 position = Vector2(96, 56)
-texture = ExtResource("33_chandelier_small")
+texture = ExtResource("32_chandelier_small")
 centered = false
 
 [node name="C2" type="Sprite2D" parent="Overhead"]
 position = Vector2(272, 56)
-texture = ExtResource("33_chandelier_small")
+texture = ExtResource("32_chandelier_small")
 centered = false
 
 [node name="C3" type="Sprite2D" parent="Overhead"]
 position = Vector2(448, 56)
-texture = ExtResource("33_chandelier_small")
+texture = ExtResource("32_chandelier_small")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]

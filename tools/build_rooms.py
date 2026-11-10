@@ -156,7 +156,15 @@ LAYOUT_PATCHES = {'dining_room': {'furniture': {'C1a': {'pos': [104, 64],
                                       'origin': [80, 120]},
                                'H2': {'pos': [192, 88],
                                       'collision': [192, 104, 16, 16],
-                                      'origin': [192, 120]}}}}
+                                      'origin': [192, 120]}}},
+ 'guest_room': {'remove_decor': ['WN2']},
+ 'library_study': {'remove_decor': ['WN2']},
+ 'curio_room': {'remove_decor': ['WN2']},
+ 'guest_room_b': {'remove_decor': ['WN1', 'WN2']},
+ 'grand_study': {'remove_decor': ['WN1', 'WN2']},
+ 'edmund_bedroom': {'remove_decor': ['WN1', 'WN2']},
+ 'clara_bedroom': {'remove_decor': ['WN1', 'W1']},
+ 'upstairs_hallway': {'remove_decor': ['W1', 'W2']}}
 
 ENTER_DIRECTION = {"N": "up", "S": "down", "W": "left", "E": "right"}
 ARRIVE_FACING = {"N": "down", "S": "up", "W": "right", "E": "left"}

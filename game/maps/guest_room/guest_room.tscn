@@ -117,11 +117,6 @@ position = Vector2(0, 80)
 texture = ExtResource("8_window_small_frosted")
 centered = false
 
-[node name="WN2" type="Sprite2D" parent="WallDecor"]
-position = Vector2(208, 32)
-texture = ExtResource("8_window_small_frosted")
-centered = false
-
 [node name="P1" type="Sprite2D" parent="WallDecor"]
 position = Vector2(128, 0)
 texture = ExtResource("9_painting_small")
