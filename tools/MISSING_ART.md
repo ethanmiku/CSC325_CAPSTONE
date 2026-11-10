@@ -18,12 +18,6 @@ has no sprite; `--check` reports both as problems. Add the PNGs anywhere under
 | `chair_dining_w.png` | dining_room |
 | `chair_toppled.png` | dining_room, kitchen, library_study |
 | `cobweb_corner.png` | dining_room |
-| `door_ext_w_closed.png` | snowy_backyard |
-| `door_ext_w_open.png` | snowy_backyard |
-| `french_doors_exterior_closed.png` | snowy_backyard |
-| `french_doors_exterior_open.png` | snowy_backyard |
-| `french_doors_interior_closed.png` | dining_room |
-| `french_doors_interior_open.png` | dining_room |
 | `glass_shards.png` | attached_bathroom, dining_room, kitchen, library_study, master_bedroom |
 | `mirror_oval.png` | attached_bathroom |
 | `rug_blue_5x3.png` | guest_room |
