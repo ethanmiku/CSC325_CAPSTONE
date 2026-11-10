@@ -9,13 +9,8 @@ has no sprite; `--check` reports both as problems. Add the PNGs anywhere under
 
 | Sprite | Used in |
 |---|---|
-| `armchair_s.png` | library_study |
 | `books_stack.png` | library_study |
-| `bookshelf_tall_gap.png` | library_study |
 | `candelabra_table.png` | library_study |
-| `chair_dining_e.png` | dining_room |
-| `chair_dining_n.png` | dining_room |
-| `chair_dining_w.png` | dining_room |
 | `chair_toppled.png` | dining_room, kitchen, library_study |
 | `cobweb_corner.png` | dining_room |
 | `glass_shards.png` | attached_bathroom, dining_room, kitchen, library_study, master_bedroom |

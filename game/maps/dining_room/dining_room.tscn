@@ -22,10 +22,13 @@
 [ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="20_fireplace_lit"]
 [ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="21_display_cabinet"]
 [ext_resource type="Texture2D" path="res://maps/dining_room/furniture/dining_table_set.png" id="22_dining_table_set"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_s.png" id="23_chair_dining_s"]
-[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/sideboard.png" id="24_sideboard"]
-[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/serving_cart.png" id="25_serving_cart"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="26_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_e.png" id="23_chair_dining_e"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_w.png" id="24_chair_dining_w"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_s.png" id="25_chair_dining_s"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_n.png" id="26_chair_dining_n"]
+[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/sideboard.png" id="27_sideboard"]
+[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/serving_cart.png" id="28_serving_cart"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="29_chandelier_large"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_dining_room_tileset")
@@ -232,9 +235,31 @@ shape = SubResource("Rect_96x32")
 position = Vector2(80, 112)
 metadata/display_name = "Chair (head, west)"
 
+[node name="Sprite" type="Sprite2D" parent="Entities/H1"]
+position = Vector2(0, -32)
+texture = ExtResource("23_chair_dining_e")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/H1"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/H1/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
 [node name="H2" type="Node2D" parent="Entities"]
 position = Vector2(192, 128)
 metadata/display_name = "Chair (head, east)"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/H2"]
+position = Vector2(0, -32)
+texture = ExtResource("24_chair_dining_w")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/H2"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/H2/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
 
 [node name="C1a" type="Node2D" parent="Entities"]
 position = Vector2(96, 96)
@@ -242,7 +267,7 @@ metadata/display_name = "C1a"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1a"]
 position = Vector2(0, -32)
-texture = ExtResource("23_chair_dining_s")
+texture = ExtResource("25_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/C1a"]
@@ -257,7 +282,7 @@ metadata/display_name = "C1b"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1b"]
 position = Vector2(0, -32)
-texture = ExtResource("23_chair_dining_s")
+texture = ExtResource("25_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/C1b"]
@@ -272,7 +297,7 @@ metadata/display_name = "C1c"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1c"]
 position = Vector2(0, -32)
-texture = ExtResource("23_chair_dining_s")
+texture = ExtResource("25_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/C1c"]
@@ -285,13 +310,46 @@ shape = SubResource("Rect_16x16")
 position = Vector2(112, 144)
 metadata/display_name = "C2a"
 
+[node name="Sprite" type="Sprite2D" parent="Entities/C2a"]
+position = Vector2(0, -32)
+texture = ExtResource("26_chair_dining_n")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/C2a"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/C2a/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
 [node name="C2b" type="Node2D" parent="Entities"]
 position = Vector2(144, 144)
 metadata/display_name = "C2b"
 
+[node name="Sprite" type="Sprite2D" parent="Entities/C2b"]
+position = Vector2(0, -32)
+texture = ExtResource("26_chair_dining_n")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/C2b"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/C2b/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
 [node name="C2c" type="Node2D" parent="Entities"]
 position = Vector2(176, 144)
 metadata/display_name = "C2c"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/C2c"]
+position = Vector2(0, -32)
+texture = ExtResource("26_chair_dining_n")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/C2c"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/C2c/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
 
 [node name="F3" type="Node2D" parent="Entities"]
 position = Vector2(32, 176)
@@ -299,7 +357,7 @@ metadata/display_name = "Sideboard"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F3"]
 position = Vector2(0, -32)
-texture = ExtResource("24_sideboard")
+texture = ExtResource("27_sideboard")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F3"]
@@ -314,7 +372,7 @@ metadata/display_name = "Serving cart"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F4"]
 position = Vector2(0, -32)
-texture = ExtResource("25_serving_cart")
+texture = ExtResource("28_serving_cart")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F4"]
@@ -332,7 +390,7 @@ z_index = 20
 
 [node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(120, 78)
-texture = ExtResource("26_chandelier_large")
+texture = ExtResource("29_chandelier_large")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
