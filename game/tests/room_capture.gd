@@ -3,10 +3,12 @@
 # Run from the repo root (it needs a window, so not --headless):
 #   godot --path game res://tests/room_capture.tscn -- /tmp/room_captures
 #   godot --path game res://tests/room_capture.tscn -- /tmp/room_captures kitchen main_hall
+#   godot --path game res://tests/room_capture.tscn -- /tmp/room_captures --game-camera
 #
 # For each room it saves <room>.png with the player on the start spawn (every door should be
 # closed), then <room>_<door>.png with the player standing just inside each door (that door
-# should be open). The whole room is in frame in every picture.
+# should be open). The whole room is in frame in every picture, unless --game-camera is given:
+# then the pictures use the camera the player sees.
 extends Node
 
 ### Variables ###
@@ -14,6 +16,7 @@ extends Node
 const SETTLE_TIME = 0.5
 
 var _out_dir := ""
+var _game_camera := false
 
 ### Functions ###
 func _ready() -> void:
@@ -21,14 +24,16 @@ func _ready() -> void:
 	get_tree().current_scene = null
 	await get_tree().process_frame
 
-	var args := OS.get_cmdline_user_args()
+	var args := Array(OS.get_cmdline_user_args())
+	_game_camera = args.has("--game-camera")
+	args.erase("--game-camera")
 	if args.is_empty():
 		push_error("room_capture: pass an output folder after --")
 		get_tree().quit(1)
 		return
 	_out_dir = args[0]
 	DirAccess.make_dir_recursive_absolute(_out_dir)
-	var rooms := args.slice(1)
+	var rooms := PackedStringArray(args.slice(1))
 	if rooms.is_empty():
 		rooms = _all_rooms()
 	for room in rooms:
@@ -54,7 +59,8 @@ func _capture_room(room: String) -> void:
 	await RoomTransition.transition_finished
 	var scene: Room = get_tree().current_scene
 	var player: Node2D = get_tree().get_first_node_in_group("player")
-	_frame_whole_room(scene)
+	if not _game_camera:
+		_frame_whole_room(scene)
 	var touch := scene.get_node_or_null("TouchControls")
 	if touch:
 		touch.visible = false
