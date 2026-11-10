@@ -133,41 +133,41 @@ DOOR_SPRITE_OVERRIDES = {
 #   "tiles": {(x, y): (sx, sy)}         copy the floor tile from cell (sx, sy), used where the
 #                                       tile under a removed window isn't plain wall
 # An id that isn't in the room is an error.
-LAYOUT_PATCHES = {'dining_room': {'furniture': {'C1a': {'pos': [104, 64],
-                                       'collision': [104, 80, 16, 16],
-                                       'origin': [104, 96]},
-                               'C1b': {'pos': [136, 64],
-                                       'collision': [136, 80, 16, 16],
-                                       'origin': [136, 96]},
-                               'C1c': {'pos': [168, 64],
-                                       'collision': [168, 80, 16, 16],
-                                       'origin': [168, 96]},
-                               'C2a': {'pos': [104, 112],
-                                       'collision': [104, 128, 16, 16],
-                                       'origin': [104, 144]},
-                               'C2b': {'pos': [136, 112],
-                                       'collision': [136, 128, 16, 16],
-                                       'origin': [136, 144]},
-                               'C2c': {'pos': [168, 112],
-                                       'collision': [168, 128, 16, 16],
-                                       'origin': [168, 144]},
-                               'H1': {'pos': [80, 88],
-                                      'collision': [80, 104, 16, 16],
-                                      'origin': [80, 120]},
-                               'H2': {'pos': [192, 88],
-                                      'collision': [192, 104, 16, 16],
-                                      'origin': [192, 120]}}},
- 'guest_room': {'remove_decor': ['WN2']},
- 'library_study': {'remove_decor': ['WN2']},
- 'curio_room': {'remove_decor': ['WN2']},
- 'guest_room_b': {'remove_decor': ['WN1', 'WN2']},
- 'grand_study': {'remove_decor': ['WN1', 'WN2']},
- 'edmund_bedroom': {'remove_decor': ['WN1', 'WN2'],
-                    'decor': {'WI': {'sprite': 'window_s_curtains_burgundy.png',
-                                     'size': [32, 16],
-                                     'pos': [32, 208]}}},
- 'clara_bedroom': {'remove_decor': ['WN1', 'W1']},
- 'upstairs_hallway': {'remove_decor': ['W1', 'W2']}}
+LAYOUT_PATCHES = {
+    # Windows on walls the room shares with another room come out
+    "guest_room": {"remove_decor": ["WN2"]},
+    "library_study": {"remove_decor": ["WN2"]},
+    "curio_room": {"remove_decor": ["WN2"]},
+    "guest_room_b": {"remove_decor": ["WN1", "WN2"]},
+    "grand_study": {"remove_decor": ["WN1", "WN2"]},
+    "edmund_bedroom": {
+        "remove_decor": ["WN1", "WN2"],
+        # The north window moves to the south wall beside the desk
+        "decor": {"WI": {"sprite": "window_s_curtains_burgundy.png", "size": [32, 16], "pos": [32, 208]}},
+    },
+    "clara_bedroom": {
+        "remove_decor": ["WN1", "W1"],
+        "furniture": {
+            # Down the east wall, 32px clear of the window; the lamp below it stays reachable
+            "LV": {"pos": [208, 144], "collision": [208, 144, 32, 32], "footprint": [13, 9, 2, 2]},
+        },
+        # The vase stands on the tabletop instead of the table's stem
+        "decor": {"T1": {"pos": [168, 116]}},
+    },
+    "upstairs_hallway": {"remove_decor": ["W1", "W2"]},
+    # Chairs centred on the table (sprite 96x48 at (96,80), collision (96,96,96,32)): three a side
+    # at x 104/136/168, one centred on each short end. Collision stays under the sprite's lower half.
+    "dining_room": {"furniture": {
+        "C1a": {"pos": [104, 64], "collision": [104, 80, 16, 16], "origin": [104, 96]},
+        "C1b": {"pos": [136, 64], "collision": [136, 80, 16, 16], "origin": [136, 96]},
+        "C1c": {"pos": [168, 64], "collision": [168, 80, 16, 16], "origin": [168, 96]},
+        "C2a": {"pos": [104, 112], "collision": [104, 128, 16, 16], "origin": [104, 144]},
+        "C2b": {"pos": [136, 112], "collision": [136, 128, 16, 16], "origin": [136, 144]},
+        "C2c": {"pos": [168, 112], "collision": [168, 128, 16, 16], "origin": [168, 144]},
+        "H1": {"pos": [80, 88], "collision": [80, 104, 16, 16], "origin": [80, 120]},
+        "H2": {"pos": [192, 88], "collision": [192, 104, 16, 16], "origin": [192, 120]},
+    }},
+}
 
 ENTER_DIRECTION = {"N": "up", "S": "down", "W": "left", "E": "right"}
 ARRIVE_FACING = {"N": "down", "S": "up", "W": "right", "E": "left"}

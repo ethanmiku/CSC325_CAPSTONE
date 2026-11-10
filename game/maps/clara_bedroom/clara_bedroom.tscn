@@ -319,7 +319,7 @@ position = Vector2(16, -8)
 shape = SubResource("Rect_32x16")
 
 [node name="LV" type="Node2D" parent="Entities"]
-position = Vector2(208, 144)
+position = Vector2(208, 176)
 metadata/display_name = "Loveseat"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LV"]
@@ -339,7 +339,7 @@ texture = ExtResource("25_candlestick")
 centered = false
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/TT"]
-position = Vector2(8, -22)
+position = Vector2(8, -28)
 texture = ExtResource("26_vase_flowers")
 centered = false
 
