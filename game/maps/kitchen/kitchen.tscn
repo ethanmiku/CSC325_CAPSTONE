@@ -12,23 +12,24 @@
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_half.png" id="10_door_w_half"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_closed.png" id="11_door_n_closed"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_open.png" id="12_door_n_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_closed.png" id="13_door_e_closed"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="14_door_e_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_half.png" id="15_door_e_half"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/pantry_cabinet.png" id="16_pantry_cabinet"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/kitchen_counter.png" id="17_kitchen_counter"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/kitchen_sink.png" id="18_kitchen_sink"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/stove_victorian.png" id="19_stove_victorian"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/pots_shelf.png" id="20_pots_shelf"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/icebox.png" id="21_icebox"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/prep_island.png" id="22_prep_island"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/staff_table.png" id="23_staff_table"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/crate.png" id="24_crate"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/crate_stack.png" id="25_crate_stack"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/sack.png" id="26_sack"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/barrel.png" id="27_barrel"]
-[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/wash_tub.png" id="28_wash_tub"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="29_chandelier_small"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_half.png" id="13_door_n_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_closed.png" id="14_door_e_closed"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_open.png" id="15_door_e_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_e_half.png" id="16_door_e_half"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/pantry_cabinet.png" id="17_pantry_cabinet"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/kitchen_counter.png" id="18_kitchen_counter"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/kitchen_sink.png" id="19_kitchen_sink"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/stove_victorian.png" id="20_stove_victorian"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/pots_shelf.png" id="21_pots_shelf"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/icebox.png" id="22_icebox"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/prep_island.png" id="23_prep_island"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/staff_table.png" id="24_staff_table"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/crate.png" id="25_crate"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/crate_stack.png" id="26_crate_stack"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/sack.png" id="27_sack"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/barrel.png" id="28_barrel"]
+[ext_resource type="Texture2D" path="res://maps/kitchen/furniture/wash_tub.png" id="29_wash_tub"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="30_chandelier_small"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_kitchen_tileset")
@@ -150,6 +151,7 @@ enter_direction = "up"
 trigger_size = Vector2(32, 32)
 closed_texture = ExtResource("11_door_n_closed")
 open_texture = ExtResource("12_door_n_open")
+half_texture = ExtResource("13_door_n_half")
 metadata/door_id = "D2"
 metadata/leads_to = "dining_room"
 
@@ -159,9 +161,9 @@ target_scene = "res://maps/snowy_backyard/snowy_backyard.tscn"
 target_spawn = "from_kitchen"
 enter_direction = "right"
 trigger_size = Vector2(16, 32)
-closed_texture = ExtResource("13_door_e_closed")
-open_texture = ExtResource("14_door_e_open")
-half_texture = ExtResource("15_door_e_half")
+closed_texture = ExtResource("14_door_e_closed")
+open_texture = ExtResource("15_door_e_open")
+half_texture = ExtResource("16_door_e_half")
 metadata/door_id = "D3"
 metadata/leads_to = "snowy_backyard"
 
@@ -174,7 +176,7 @@ metadata/display_name = "Pantry cabinet"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K7"]
 position = Vector2(0, -32)
-texture = ExtResource("16_pantry_cabinet")
+texture = ExtResource("17_pantry_cabinet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K7"]
@@ -189,7 +191,7 @@ metadata/display_name = "Counter / cabinet"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K1"]
 position = Vector2(0, -32)
-texture = ExtResource("17_kitchen_counter")
+texture = ExtResource("18_kitchen_counter")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K1"]
@@ -204,7 +206,7 @@ metadata/display_name = "Sink"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K2"]
 position = Vector2(0, -32)
-texture = ExtResource("18_kitchen_sink")
+texture = ExtResource("19_kitchen_sink")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K2"]
@@ -219,7 +221,7 @@ metadata/display_name = "Stove"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K4"]
 position = Vector2(0, -32)
-texture = ExtResource("19_stove_victorian")
+texture = ExtResource("20_stove_victorian")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K4"]
@@ -234,7 +236,7 @@ metadata/display_name = "Prep counter"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K3"]
 position = Vector2(0, -32)
-texture = ExtResource("17_kitchen_counter")
+texture = ExtResource("18_kitchen_counter")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K3"]
@@ -249,7 +251,7 @@ metadata/display_name = "Provisions shelf"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K5"]
 position = Vector2(0, -32)
-texture = ExtResource("20_pots_shelf")
+texture = ExtResource("21_pots_shelf")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K5"]
@@ -264,7 +266,7 @@ metadata/display_name = "Icebox"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K6"]
 position = Vector2(0, -32)
-texture = ExtResource("21_icebox")
+texture = ExtResource("22_icebox")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K6"]
@@ -279,7 +281,7 @@ metadata/display_name = "Kitchen island"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/IS"]
 position = Vector2(0, -48)
-texture = ExtResource("22_prep_island")
+texture = ExtResource("23_prep_island")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/IS"]
@@ -294,7 +296,7 @@ metadata/display_name = "Staff table"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/ST"]
 position = Vector2(0, -32)
-texture = ExtResource("23_staff_table")
+texture = ExtResource("24_staff_table")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/ST"]
@@ -309,7 +311,7 @@ metadata/display_name = "Crate"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K8"]
 position = Vector2(0, -16)
-texture = ExtResource("24_crate")
+texture = ExtResource("25_crate")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K8"]
@@ -324,7 +326,7 @@ metadata/display_name = "Crates"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K9"]
 position = Vector2(0, -32)
-texture = ExtResource("25_crate_stack")
+texture = ExtResource("26_crate_stack")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K9"]
@@ -339,7 +341,7 @@ metadata/display_name = "Sack"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K11"]
 position = Vector2(0, -16)
-texture = ExtResource("26_sack")
+texture = ExtResource("27_sack")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K11"]
@@ -354,7 +356,7 @@ metadata/display_name = "Barrel"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K12"]
 position = Vector2(0, -16)
-texture = ExtResource("27_barrel")
+texture = ExtResource("28_barrel")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K12"]
@@ -369,7 +371,7 @@ metadata/display_name = "Wash tub"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/K10"]
 position = Vector2(0, -16)
-texture = ExtResource("28_wash_tub")
+texture = ExtResource("29_wash_tub")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/K10"]
@@ -387,7 +389,7 @@ z_index = 20
 
 [node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(96, 34)
-texture = ExtResource("29_chandelier_small")
+texture = ExtResource("30_chandelier_small")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
