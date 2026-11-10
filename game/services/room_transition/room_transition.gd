@@ -43,21 +43,32 @@ func go_to(scene_path: String, spawn_name: String) -> void:
 	transition_started.emit(scene_path, spawn_name)
 	# Swallow taps while the screen is dark so the joystick can't be grabbed mid-fade
 	_fade.mouse_filter = Control.MOUSE_FILTER_STOP
-	for player in get_tree().get_nodes_in_group("player"):
-		player.set_controls_enabled(false)
+	# The old room's joystick must stop pressing the movement actions. Hiding it also stops it
+	# taking input, and the fade above covers the rest of the screen
+	for controls in get_tree().get_nodes_in_group("touch_controls"):
+		controls.set_enabled(false)
+	_set_players_enabled(false)
 
 	await _fade_to(1.0)
 
 	_pending_spawn = spawn_name
 	var error := get_tree().change_scene_to_file(scene_path)
 	if error != OK:
+		# Stay in the old room and hand control back instead of waiting for a scene that never comes
 		push_error("RoomTransition: couldn't load %s (error %d)" % [scene_path, error])
 		_pending_spawn = ""
+		for controls in get_tree().get_nodes_in_group("touch_controls"):
+			controls.set_enabled(true)
+		await _finish()
+		return
 	await get_tree().scene_changed
 
-	await _fade_to(0.0)
-	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_busy = false
+	# A joystick release swallowed by the fade must not carry on walking the new player.
+	# The new player stays frozen until the fade-in is done
+	# Freeze first: freezing the player releases the actions too, which would undo a held key
+	_set_players_enabled(false)
+	_release_movement_actions()
+	await _finish()
 	transition_finished.emit(scene_path, spawn_name)
 
 # Returns the spawn name the next room should use and clears it. Empty on a cold start
@@ -65,6 +76,31 @@ func take_pending_spawn() -> String:
 	var spawn := _pending_spawn
 	_pending_spawn = ""
 	return spawn
+
+# Fades back in and hands control back to the player
+func _finish() -> void:
+	await _fade_to(0.0)
+	_set_players_enabled(true)
+	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_busy = false
+
+func _set_players_enabled(enabled: bool) -> void:
+	for player in get_tree().get_nodes_in_group("player"):
+		player.set_controls_enabled(enabled)
+
+# Releases the movement actions, then presses again any whose keyboard key is really still
+# down, so holding a key through a door keeps walking but a joystick that is gone can't
+func _release_movement_actions() -> void:
+	for action in ["left", "right", "up", "down"]:
+		Input.action_release(action)
+		for event in InputMap.action_get_events(action):
+			var key := event as InputEventKey
+			if key == null:
+				continue
+			if (key.physical_keycode != KEY_NONE and Input.is_physical_key_pressed(key.physical_keycode)) \
+					or (key.keycode != KEY_NONE and Input.is_key_pressed(key.keycode)):
+				Input.action_press(action)
+				break
 
 func _fade_to(alpha: float) -> void:
 	var tween := create_tween()

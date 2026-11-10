@@ -15,6 +15,8 @@ class_name TouchControls
 @onready var _joystick: VirtualJoystick = $VirtualJoystick
 
 func _ready() -> void:
+	# RoomTransition looks the controls up by group to stop them driving input mid-fade
+	add_to_group("touch_controls")
 	_joystick.visibility_mode = joystick_visibility_mode
 	visible = force_show_joystick or DisplayServer.is_touchscreen_available()
 
