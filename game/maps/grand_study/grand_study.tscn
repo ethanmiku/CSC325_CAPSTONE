@@ -15,31 +15,32 @@
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_small_frosted.png" id="13_window_small_frosted"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_closed.png" id="14_door_s_closed"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_open.png" id="15_door_s_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/library_shelf_mahogany.png" id="16_library_shelf_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/library_shelf_mahogany_b.png" id="17_library_shelf_mahogany_b"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplaces/fireplace_mahogany.png" id="18_fireplace_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/floor_lamp.png" id="19_floor_lamp"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/desks/desk_executive.png" id="20_desk_executive"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_executive_s.png" id="21_chair_executive_s"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_leather_n.png" id="22_chair_leather_n"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chesterfield_e.png" id="23_chesterfield_e"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chesterfield_w.png" id="24_chesterfield_w"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/misc/globe_grand.png" id="25_globe_grand"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_leather_e.png" id="26_armchair_leather_e"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side_mahogany.png" id="27_table_side_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_leather_w.png" id="28_armchair_leather_w"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/bookshelf_mahogany.png" id="29_bookshelf_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/cabinet_decanters.png" id="30_cabinet_decanters"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/sideboard_mahogany.png" id="31_sideboard_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/architecture/columns/column_decor.png" id="32_column_decor"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="33_plant_potted"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candelabra_floor.png" id="34_candelabra_floor"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/desk_lamp.png" id="35_desk_lamp"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/papers_pile.png" id="36_papers_pile"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/open_book.png" id="37_open_book"]
-[ext_resource type="Texture2D" path="res://maps/library_study/furniture/inkwell_quill.png" id="38_inkwell_quill"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="39_candlestick"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="40_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_half.png" id="16_door_s_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/library_shelf_mahogany.png" id="17_library_shelf_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/library_shelf_mahogany_b.png" id="18_library_shelf_mahogany_b"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplaces/fireplace_mahogany.png" id="19_fireplace_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/floor_lamp.png" id="20_floor_lamp"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/desks/desk_executive.png" id="21_desk_executive"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_executive_s.png" id="22_chair_executive_s"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_leather_n.png" id="23_chair_leather_n"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chesterfield_e.png" id="24_chesterfield_e"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chesterfield_w.png" id="25_chesterfield_w"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/misc/globe_grand.png" id="26_globe_grand"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_leather_e.png" id="27_armchair_leather_e"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side_mahogany.png" id="28_table_side_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_leather_w.png" id="29_armchair_leather_w"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/bookshelf_mahogany.png" id="30_bookshelf_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/cabinet_decanters.png" id="31_cabinet_decanters"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/sideboard_mahogany.png" id="32_sideboard_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/columns/column_decor.png" id="33_column_decor"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="34_plant_potted"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candelabra_floor.png" id="35_candelabra_floor"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/desk_lamp.png" id="36_desk_lamp"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/papers_pile.png" id="37_papers_pile"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/open_book.png" id="38_open_book"]
+[ext_resource type="Texture2D" path="res://maps/library_study/furniture/inkwell_quill.png" id="39_inkwell_quill"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="40_candlestick"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="41_chandelier_large"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_grand_study_tileset")
@@ -175,6 +176,7 @@ enter_direction = "down"
 trigger_size = Vector2(32, 16)
 closed_texture = ExtResource("14_door_s_closed")
 open_texture = ExtResource("15_door_s_open")
+half_texture = ExtResource("16_door_s_half")
 metadata/door_id = "D1"
 metadata/leads_to = "upstairs_hallway"
 
@@ -187,7 +189,7 @@ metadata/display_name = "Bookshelf (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B1"]
 position = Vector2(0, -48)
-texture = ExtResource("16_library_shelf_mahogany")
+texture = ExtResource("17_library_shelf_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B1"]
@@ -202,7 +204,7 @@ metadata/display_name = "Bookshelf (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/B2"]
 position = Vector2(0, -48)
-texture = ExtResource("17_library_shelf_mahogany_b")
+texture = ExtResource("18_library_shelf_mahogany_b")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/B2"]
@@ -217,7 +219,7 @@ metadata/display_name = "Fireplace"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/FP"]
 position = Vector2(0, -32)
-texture = ExtResource("18_fireplace_mahogany")
+texture = ExtResource("19_fireplace_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/FP"]
@@ -232,7 +234,7 @@ metadata/display_name = "Floor lamp"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LP0"]
 position = Vector2(0, -32)
-texture = ExtResource("19_floor_lamp")
+texture = ExtResource("20_floor_lamp")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LP0"]
@@ -247,7 +249,7 @@ metadata/display_name = "Large executive writing desk"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(0, -48)
-texture = ExtResource("20_desk_executive")
+texture = ExtResource("21_desk_executive")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DK"]
@@ -262,7 +264,7 @@ metadata/display_name = "Executive chair"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CH1"]
 position = Vector2(0, -32)
-texture = ExtResource("21_chair_executive_s")
+texture = ExtResource("22_chair_executive_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CH1"]
@@ -277,7 +279,7 @@ metadata/display_name = "Visitor chair"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CH2"]
 position = Vector2(0, -32)
-texture = ExtResource("22_chair_leather_n")
+texture = ExtResource("23_chair_leather_n")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CH2"]
@@ -292,7 +294,7 @@ metadata/display_name = "Visitor chair"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CH3"]
 position = Vector2(0, -32)
-texture = ExtResource("22_chair_leather_n")
+texture = ExtResource("23_chair_leather_n")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CH3"]
@@ -307,7 +309,7 @@ metadata/display_name = "Chesterfield (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SA"]
 position = Vector2(0, -48)
-texture = ExtResource("23_chesterfield_e")
+texture = ExtResource("24_chesterfield_e")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SA"]
@@ -322,7 +324,7 @@ metadata/display_name = "Chesterfield (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SB"]
 position = Vector2(0, -48)
-texture = ExtResource("24_chesterfield_w")
+texture = ExtResource("25_chesterfield_w")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SB"]
@@ -337,7 +339,7 @@ metadata/display_name = "Antique globe"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/GL"]
 position = Vector2(0, -32)
-texture = ExtResource("25_globe_grand")
+texture = ExtResource("26_globe_grand")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/GL"]
@@ -352,7 +354,7 @@ metadata/display_name = "Reading chair (west)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/RA1"]
 position = Vector2(0, -32)
-texture = ExtResource("26_armchair_leather_e")
+texture = ExtResource("27_armchair_leather_e")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/RA1"]
@@ -367,7 +369,7 @@ metadata/display_name = "Reading table"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/RT"]
 position = Vector2(0, -32)
-texture = ExtResource("27_table_side_mahogany")
+texture = ExtResource("28_table_side_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/RT"]
@@ -382,7 +384,7 @@ metadata/display_name = "Reading chair (east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/RA2"]
 position = Vector2(0, -32)
-texture = ExtResource("28_armchair_leather_w")
+texture = ExtResource("29_armchair_leather_w")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/RA2"]
@@ -397,7 +399,7 @@ metadata/display_name = "Floor lamp"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LP1"]
 position = Vector2(0, -32)
-texture = ExtResource("19_floor_lamp")
+texture = ExtResource("20_floor_lamp")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LP1"]
@@ -412,7 +414,7 @@ metadata/display_name = "Floor lamp"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LP2"]
 position = Vector2(0, -32)
-texture = ExtResource("19_floor_lamp")
+texture = ExtResource("20_floor_lamp")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LP2"]
@@ -427,7 +429,7 @@ metadata/display_name = "Bookshelf (south-east)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/BS"]
 position = Vector2(0, -32)
-texture = ExtResource("29_bookshelf_mahogany")
+texture = ExtResource("30_bookshelf_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/BS"]
@@ -442,7 +444,7 @@ metadata/display_name = "Decorative cabinet (decanters)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/DC"]
 position = Vector2(0, -48)
-texture = ExtResource("30_cabinet_decanters")
+texture = ExtResource("31_cabinet_decanters")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/DC"]
@@ -457,7 +459,7 @@ metadata/display_name = "Mahogany sideboard"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SBD"]
 position = Vector2(0, -32)
-texture = ExtResource("31_sideboard_mahogany")
+texture = ExtResource("32_sideboard_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SBD"]
@@ -472,7 +474,7 @@ metadata/display_name = "Column"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CO1"]
 position = Vector2(0, -48)
-texture = ExtResource("32_column_decor")
+texture = ExtResource("33_column_decor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CO1"]
@@ -487,7 +489,7 @@ metadata/display_name = "Column"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CO2"]
 position = Vector2(0, -48)
-texture = ExtResource("32_column_decor")
+texture = ExtResource("33_column_decor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CO2"]
@@ -502,7 +504,7 @@ metadata/display_name = "Potted plant"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/PL1"]
 position = Vector2(0, -32)
-texture = ExtResource("33_plant_potted")
+texture = ExtResource("34_plant_potted")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/PL1"]
@@ -517,7 +519,7 @@ metadata/display_name = "Candelabra"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CF"]
 position = Vector2(0, -32)
-texture = ExtResource("34_candelabra_floor")
+texture = ExtResource("35_candelabra_floor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CF"]
@@ -528,27 +530,27 @@ shape = SubResource("Rect_16x16")
 
 [node name="Top_T0" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(6, -52)
-texture = ExtResource("35_desk_lamp")
+texture = ExtResource("36_desk_lamp")
 centered = false
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(30, -42)
-texture = ExtResource("36_papers_pile")
+texture = ExtResource("37_papers_pile")
 centered = false
 
 [node name="Top_T2" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(50, -38)
-texture = ExtResource("37_open_book")
+texture = ExtResource("38_open_book")
 centered = false
 
 [node name="Top_T3" type="Sprite2D" parent="Entities/DK"]
 position = Vector2(70, -44)
-texture = ExtResource("38_inkwell_quill")
+texture = ExtResource("39_inkwell_quill")
 centered = false
 
 [node name="Top_T4" type="Sprite2D" parent="Entities/RT"]
 position = Vector2(0, -22)
-texture = ExtResource("39_candlestick")
+texture = ExtResource("40_candlestick")
 centered = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_player")]
@@ -560,7 +562,7 @@ z_index = 20
 
 [node name="C1" type="Sprite2D" parent="Overhead"]
 position = Vector2(168, 52)
-texture = ExtResource("40_chandelier_large")
+texture = ExtResource("41_chandelier_large")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]

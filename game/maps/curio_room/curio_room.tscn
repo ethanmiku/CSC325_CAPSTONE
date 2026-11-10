@@ -12,18 +12,19 @@
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_small_frosted.png" id="10_window_small_frosted"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_closed.png" id="11_door_s_closed"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_open.png" id="12_door_s_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/curio_cabinet_artifacts.png" id="13_curio_cabinet_artifacts"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/statues/statue_bust.png" id="14_statue_bust"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/statues/statue_figure.png" id="15_statue_figure"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/curio_cabinet_masks.png" id="16_curio_cabinet_masks"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/display_table_glass.png" id="17_display_table_glass"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/statues/pedestal_urn.png" id="18_pedestal_urn"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/misc/lectern_manuscript.png" id="19_lectern_manuscript"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side_mahogany.png" id="20_table_side_mahogany"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/curio_cabinet_manuscripts.png" id="21_curio_cabinet_manuscripts"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candelabra_floor.png" id="22_candelabra_floor"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/glass_dome_bird.png" id="23_glass_dome_bird"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="24_chandelier_small"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_half.png" id="13_door_s_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/curio_cabinet_artifacts.png" id="14_curio_cabinet_artifacts"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/statues/statue_bust.png" id="15_statue_bust"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/statues/statue_figure.png" id="16_statue_figure"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/curio_cabinet_masks.png" id="17_curio_cabinet_masks"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/display_table_glass.png" id="18_display_table_glass"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/statues/pedestal_urn.png" id="19_pedestal_urn"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/misc/lectern_manuscript.png" id="20_lectern_manuscript"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_side_mahogany.png" id="21_table_side_mahogany"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/curio_cabinet_manuscripts.png" id="22_curio_cabinet_manuscripts"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candelabra_floor.png" id="23_candelabra_floor"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/glass_dome_bird.png" id="24_glass_dome_bird"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="25_chandelier_small"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_curio_room_tileset")
@@ -117,6 +118,7 @@ enter_direction = "down"
 trigger_size = Vector2(32, 16)
 closed_texture = ExtResource("11_door_s_closed")
 open_texture = ExtResource("12_door_s_open")
+half_texture = ExtResource("13_door_s_half")
 metadata/door_id = "D1"
 metadata/leads_to = "upstairs_hallway"
 
@@ -129,7 +131,7 @@ metadata/display_name = "Glass display cabinet (artifacts)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CA1"]
 position = Vector2(0, -48)
-texture = ExtResource("13_curio_cabinet_artifacts")
+texture = ExtResource("14_curio_cabinet_artifacts")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CA1"]
@@ -144,7 +146,7 @@ metadata/display_name = "Marble bust on pedestal"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/BU"]
 position = Vector2(0, -32)
-texture = ExtResource("14_statue_bust")
+texture = ExtResource("15_statue_bust")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/BU"]
@@ -159,7 +161,7 @@ metadata/display_name = "Bronze figure on pedestal"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/SF"]
 position = Vector2(0, -32)
-texture = ExtResource("15_statue_figure")
+texture = ExtResource("16_statue_figure")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/SF"]
@@ -174,7 +176,7 @@ metadata/display_name = "Glass display cabinet (antique masks)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CA2"]
 position = Vector2(0, -48)
-texture = ExtResource("16_curio_cabinet_masks")
+texture = ExtResource("17_curio_cabinet_masks")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CA2"]
@@ -189,7 +191,7 @@ metadata/display_name = "Glass-topped display table"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TB"]
 position = Vector2(0, -32)
-texture = ExtResource("17_display_table_glass")
+texture = ExtResource("18_display_table_glass")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TB"]
@@ -204,7 +206,7 @@ metadata/display_name = "Urn on pedestal"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/UR1"]
 position = Vector2(0, -32)
-texture = ExtResource("18_pedestal_urn")
+texture = ExtResource("19_pedestal_urn")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/UR1"]
@@ -219,7 +221,7 @@ metadata/display_name = "Urn on pedestal"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/UR2"]
 position = Vector2(0, -32)
-texture = ExtResource("18_pedestal_urn")
+texture = ExtResource("19_pedestal_urn")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/UR2"]
@@ -234,7 +236,7 @@ metadata/display_name = "Lectern with an open manuscript"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/LC"]
 position = Vector2(0, -32)
-texture = ExtResource("19_lectern_manuscript")
+texture = ExtResource("20_lectern_manuscript")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/LC"]
@@ -249,7 +251,7 @@ metadata/display_name = "Side table with a glass dome"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TS1"]
 position = Vector2(0, -32)
-texture = ExtResource("20_table_side_mahogany")
+texture = ExtResource("21_table_side_mahogany")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TS1"]
@@ -264,7 +266,7 @@ metadata/display_name = "Glass display cabinet (books and manuscripts)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CA3"]
 position = Vector2(0, -48)
-texture = ExtResource("21_curio_cabinet_manuscripts")
+texture = ExtResource("22_curio_cabinet_manuscripts")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CA3"]
@@ -279,7 +281,7 @@ metadata/display_name = "Glass display cabinet (heirlooms)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CA4"]
 position = Vector2(0, -48)
-texture = ExtResource("13_curio_cabinet_artifacts")
+texture = ExtResource("14_curio_cabinet_artifacts")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CA4"]
@@ -294,7 +296,7 @@ metadata/display_name = "Candelabra"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CF1"]
 position = Vector2(0, -32)
-texture = ExtResource("22_candelabra_floor")
+texture = ExtResource("23_candelabra_floor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CF1"]
@@ -309,7 +311,7 @@ metadata/display_name = "Candelabra"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/CF2"]
 position = Vector2(0, -32)
-texture = ExtResource("22_candelabra_floor")
+texture = ExtResource("23_candelabra_floor")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/CF2"]
@@ -320,7 +322,7 @@ shape = SubResource("Rect_16x16")
 
 [node name="Top_T1" type="Sprite2D" parent="Entities/TS1"]
 position = Vector2(0, -22)
-texture = ExtResource("23_glass_dome_bird")
+texture = ExtResource("24_glass_dome_bird")
 centered = false
 
 [node name="Player" parent="Entities" instance=ExtResource("3_player")]
@@ -332,7 +334,7 @@ z_index = 20
 
 [node name="C1" type="Sprite2D" parent="Overhead"]
 position = Vector2(96, 36)
-texture = ExtResource("24_chandelier_small")
+texture = ExtResource("25_chandelier_small")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]

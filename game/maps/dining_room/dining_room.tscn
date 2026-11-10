@@ -15,13 +15,14 @@
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_w_half.png" id="13_door_w_half"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_closed.png" id="14_door_s_closed"]
 [ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_open.png" id="15_door_s_open"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="16_fireplace_lit"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="17_display_cabinet"]
-[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/dining_table_set.png" id="18_dining_table_set"]
-[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_s.png" id="19_chair_dining_s"]
-[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/sideboard.png" id="20_sideboard"]
-[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/serving_cart.png" id="21_serving_cart"]
-[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="22_chandelier_large"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_s_half.png" id="16_door_s_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/fireplace_lit.png" id="17_fireplace_lit"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/display_cabinet.png" id="18_display_cabinet"]
+[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/dining_table_set.png" id="19_dining_table_set"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_dining_s.png" id="20_chair_dining_s"]
+[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/sideboard.png" id="21_sideboard"]
+[ext_resource type="Texture2D" path="res://maps/dining_room/furniture/serving_cart.png" id="22_serving_cart"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_large.png" id="23_chandelier_large"]
 
 [sub_resource type="TileSetAtlasSource" id="Atlas_room"]
 texture = ExtResource("2_dining_room_tileset")
@@ -160,6 +161,7 @@ enter_direction = "down"
 trigger_size = Vector2(32, 16)
 closed_texture = ExtResource("14_door_s_closed")
 open_texture = ExtResource("15_door_s_open")
+half_texture = ExtResource("16_door_s_half")
 metadata/door_id = "D2"
 metadata/leads_to = "kitchen"
 
@@ -181,7 +183,7 @@ metadata/display_name = "Fireplace"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F1"]
 position = Vector2(0, -32)
-texture = ExtResource("16_fireplace_lit")
+texture = ExtResource("17_fireplace_lit")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F1"]
@@ -196,7 +198,7 @@ metadata/display_name = "China cabinet"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F2"]
 position = Vector2(0, -32)
-texture = ExtResource("17_display_cabinet")
+texture = ExtResource("18_display_cabinet")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F2"]
@@ -211,7 +213,7 @@ metadata/display_name = "Dining table (burgundy runner)"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/TB"]
 position = Vector2(0, -48)
-texture = ExtResource("18_dining_table_set")
+texture = ExtResource("19_dining_table_set")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/TB"]
@@ -234,7 +236,7 @@ metadata/display_name = "C1a"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1a"]
 position = Vector2(0, -32)
-texture = ExtResource("19_chair_dining_s")
+texture = ExtResource("20_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/C1a"]
@@ -249,7 +251,7 @@ metadata/display_name = "C1b"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1b"]
 position = Vector2(0, -32)
-texture = ExtResource("19_chair_dining_s")
+texture = ExtResource("20_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/C1b"]
@@ -264,7 +266,7 @@ metadata/display_name = "C1c"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/C1c"]
 position = Vector2(0, -32)
-texture = ExtResource("19_chair_dining_s")
+texture = ExtResource("20_chair_dining_s")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/C1c"]
@@ -291,7 +293,7 @@ metadata/display_name = "Sideboard"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F3"]
 position = Vector2(0, -32)
-texture = ExtResource("20_sideboard")
+texture = ExtResource("21_sideboard")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F3"]
@@ -306,7 +308,7 @@ metadata/display_name = "Serving cart"
 
 [node name="Sprite" type="Sprite2D" parent="Entities/F4"]
 position = Vector2(0, -32)
-texture = ExtResource("21_serving_cart")
+texture = ExtResource("22_serving_cart")
 centered = false
 
 [node name="Body" type="StaticBody2D" parent="Entities/F4"]
@@ -324,7 +326,7 @@ z_index = 20
 
 [node name="CH" type="Sprite2D" parent="Overhead"]
 position = Vector2(120, 78)
-texture = ExtResource("22_chandelier_large")
+texture = ExtResource("23_chandelier_large")
 centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
