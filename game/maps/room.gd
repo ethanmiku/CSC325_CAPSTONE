@@ -59,22 +59,20 @@ func _place_player() -> void:
 	_player.global_position = marker.global_position
 	_player.face(str(marker.get_meta("facing", "down")).to_lower())
 
-# Follow rooms: zooms so the view is VIEW_HEIGHT_PX world pixels tall, with no limits, so the
-# camera stays on the player. Static rooms: zooms out just enough to show the whole room and
-# pins the camera to the room's centre with its limits
+# Follow rooms: zooms so the view is VIEW_HEIGHT_PX world pixels tall and leaves the camera on
+# the player. Static rooms: zooms out just enough to show the whole room and holds the camera
+# on the room's centre
 func _fit_camera() -> void:
 	var view_size := get_viewport().get_visible_rect().size
+	# A top-level camera ignores the player it is a child of, so it stays where it is put
+	_camera.top_level = static_camera
 	if not static_camera:
 		var zoom := maxf(1.0, view_size.y / VIEW_HEIGHT_PX)
 		_camera.zoom = Vector2(zoom, zoom)
+		_camera.position = Vector2.ZERO
 		return
 
 	var room := get_room_size()
 	var fit := minf(view_size.y / maxf(VIEW_HEIGHT_PX, room.y), view_size.x / room.x)
 	_camera.zoom = Vector2(fit, fit)
-	# Limits as wide as the view leave the camera nowhere to go, whatever the player does
-	var view_world := view_size / fit
-	_camera.limit_left = floori((room.x - view_world.x) / 2.0)
-	_camera.limit_right = _camera.limit_left + ceili(view_world.x)
-	_camera.limit_top = floori((room.y - view_world.y) / 2.0)
-	_camera.limit_bottom = _camera.limit_top + ceili(view_world.y)
+	_camera.global_position = to_global(room / 2.0)

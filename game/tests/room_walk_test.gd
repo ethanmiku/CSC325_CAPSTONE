@@ -207,10 +207,12 @@ func _check_camera(room: String) -> void:
 	var centers := []
 	for marker in scene.get_node("SpawnPoints").get_children():
 		player.global_position = marker.global_position
-		camera.reset_smoothing()
+		await get_tree().physics_frame
 		await get_tree().process_frame
 		await get_tree().process_frame
-		centers.append(camera.get_screen_center_position())
+		# What is really on screen: the world point drawn at the middle of the viewport
+		var view := get_viewport()
+		centers.append(view.get_canvas_transform().affine_inverse() * (view.get_visible_rect().size / 2.0))
 
 	if not scene.static_camera:
 		if centers[-1].distance_to(player.global_position) > 1.0:
@@ -221,7 +223,7 @@ func _check_camera(room: String) -> void:
 	var room_size := scene.get_room_size()
 	var view_world := get_viewport().get_visible_rect().size / camera.zoom
 	for center: Vector2 in centers:
-		if center.distance_to(room_size / 2.0) > 1.0:
+		if center.distance_to(room_size / 2.0) > 0.01:
 			_fail("%s: the fixed camera is at %s, the room's centre is %s" % [room, center, room_size / 2.0])
 			return
 	if view_world.x < room_size.x or view_world.y < room_size.y:
