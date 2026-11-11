@@ -97,6 +97,7 @@ size = Vector2(16, 112)
 
 [node name="MasterBedroom" type="Node2D"]
 script = ExtResource("1_room")
+static_camera = true
 metadata/room_key = "master_bedroom"
 metadata/size_tiles = Vector2i(18, 14)
 

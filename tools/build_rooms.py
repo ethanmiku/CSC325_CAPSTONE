@@ -94,6 +94,13 @@ EXTRA_DOORS = {
     }],
 }
 
+# Rooms small enough to show whole: the camera stays centred on the room instead of following
+# the player, zooming out a little where the room is taller than the view
+STATIC_CAMERA_ROOMS = {
+    "guest_room", "attached_bathroom", "curio_room", "dining_room", "kitchen",
+    "clara_bedroom", "edmund_bedroom", "master_bedroom",
+}
+
 # Furniture whose collision differs from its layout footprint: (room, id) -> [rects px]
 COLLISION_OVERRIDES = {
     # Main Hall grand staircase: only the railings are solid, so the player can climb the steps
@@ -598,11 +605,12 @@ def build_room(room, root_name, assets, links):
     tile_data = "PackedByteArray(" + ", ".join(str(b) for b in data) + ")"
 
     # ---- root and floor
-    scene.node(root_name, "Node2D", props={
-        "script": f'ExtResource("{script}")',
-        "metadata/room_key": gd_string(room),
-        "metadata/size_tiles": f"Vector2i({w}, {h})",
-    })
+    root_props = {"script": f'ExtResource("{script}")'}
+    if room in STATIC_CAMERA_ROOMS:
+        root_props["static_camera"] = "true"
+    root_props["metadata/room_key"] = gd_string(room)
+    root_props["metadata/size_tiles"] = f"Vector2i({w}, {h})"
+    scene.node(root_name, "Node2D", props=root_props)
     scene.node("Floor", "TileMapLayer", ".", props={"tile_map_data": tile_data, "tile_set": 'SubResource("TileSet_room")'})
 
     # ---- rugs and floor decals

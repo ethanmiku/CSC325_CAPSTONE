@@ -36,6 +36,7 @@ func _ready() -> void:
 		rooms = _all_rooms()
 	for room in rooms:
 		await _check_room_art(room)
+		await _check_camera(room)
 		await _walk_room(room)
 	if rooms.has("kitchen") or rooms.size() > 1:
 		await _check_no_drift("kitchen" if rooms.has("kitchen") else rooms[0])
@@ -193,6 +194,42 @@ func _check_room_art(room: String) -> void:
 		_pass("%s: every furniture collider has a sprite" % room)
 	else:
 		_fail("%s: furniture without a Sprite: %s" % [room, ", ".join(missing)])
+
+# A static_camera room shows the whole room, centred, and the view doesn't move with the
+# player. Every other room keeps the player in the middle of the view
+func _check_camera(room: String) -> void:
+	if not await _load_room(room, "start"):
+		_fail("%s: couldn't load for the camera check" % room)
+		return
+	var scene: Room = get_tree().current_scene
+	var player: Node2D = get_tree().get_first_node_in_group("player")
+	var camera: Camera2D = player.get_node("Camera2D")
+	var centers := []
+	for marker in scene.get_node("SpawnPoints").get_children():
+		player.global_position = marker.global_position
+		await get_tree().physics_frame
+		await get_tree().process_frame
+		await get_tree().process_frame
+		# What is really on screen: the world point drawn at the middle of the viewport
+		var view := get_viewport()
+		centers.append(view.get_canvas_transform().affine_inverse() * (view.get_visible_rect().size / 2.0))
+
+	if not scene.static_camera:
+		if centers[-1].distance_to(player.global_position) > 1.0:
+			_fail("%s: the camera isn't on the player (%s, player %s)" % [room, centers[-1], player.global_position])
+		else:
+			_pass("%s: the camera follows the player" % room)
+		return
+	var room_size := scene.get_room_size()
+	var view_world := get_viewport().get_visible_rect().size / camera.zoom
+	for center: Vector2 in centers:
+		if center.distance_to(room_size / 2.0) > 0.01:
+			_fail("%s: the fixed camera is at %s, the room's centre is %s" % [room, center, room_size / 2.0])
+			return
+	if view_world.x < room_size.x or view_world.y < room_size.y:
+		_fail("%s: the fixed camera shows %s of a %s room" % [room, view_world, room_size])
+	else:
+		_pass("%s: the camera stays centred and shows the whole room" % room)
 
 # A movement action that is still held (or pressed again) while a transition runs must not
 # leave the player in the new room walking by itself
