@@ -11,11 +11,11 @@
 
 ## Description:
 
-Murder Mystery Game (title subject to change)
+Blackwood Manor
 
 Project Overview:
 
-MMG is an interactive mystery-solving application developed for our CSC325 Software Engineering course at Farmingdale State College.
+Blackwood Manor is an interactive mystery-solving application developed for our CSC325 Software Engineering course at Farmingdale State College.
 
 Players will investigate a murder case by exploring locations, collecting evidence, interviewing suspects, and using clues to determine who committed the crime.
 
