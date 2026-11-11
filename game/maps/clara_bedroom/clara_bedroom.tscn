@@ -1,0 +1,416 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://maps/room.gd" id="1_room"]
+[ext_resource type="Texture2D" path="res://maps/clara_bedroom/clara_bedroom_tileset.png" id="2_clara_bedroom_tileset"]
+[ext_resource type="PackedScene" path="res://entities/player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://maps/door/door.tscn" id="4_door"]
+[ext_resource type="PackedScene" path="res://ui/touch_controls/touch_controls.tscn" id="5_touch_controls"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/rugs/rug_o_lilac_8x6.png" id="6_rug_o_lilac_8x6"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/wall_art/painting_landscape.png" id="7_painting_landscape"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/windows/window_small_frosted.png" id="8_window_small_frosted"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_closed.png" id="9_door_n_closed"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_open.png" id="10_door_n_open"]
+[ext_resource type="Texture2D" path="res://shared_assets/architecture/doors/door_n_half.png" id="11_door_n_half"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/wardrobe_clara.png" id="12_wardrobe_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/vanity_clara.png" id="13_vanity_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/nightstand_clara.png" id="14_nightstand_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/beds/bed_canopy_clara.png" id="15_bed_canopy_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/plant_potted.png" id="16_plant_potted"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/misc/dressing_screen.png" id="17_dressing_screen"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/desks/desk_clara.png" id="18_desk_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/chair_clara_s.png" id="19_chair_clara_s"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/storage/bookshelf_tall.png" id="20_bookshelf_tall"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/floor_lamp.png" id="21_floor_lamp"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/armchair_clara_s.png" id="22_armchair_clara_s"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/tables/table_round_clara.png" id="23_table_round_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/furniture/seating/loveseat_w_clara.png" id="24_loveseat_w_clara"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/candlestick.png" id="25_candlestick"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/objects/vase_flowers.png" id="26_vase_flowers"]
+[ext_resource type="Texture2D" path="res://shared_assets/decorations/lighting/chandelier_small.png" id="27_chandelier_small"]
+
+[sub_resource type="TileSetAtlasSource" id="Atlas_room"]
+texture = ExtResource("2_clara_bedroom_tileset")
+texture_region_size = Vector2i(16, 16)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_room"]
+sources/0 = SubResource("Atlas_room")
+
+[sub_resource type="RectangleShape2D" id="Rect_32x16"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x16"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_48x48"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="Rect_48x16"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_32x32"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="Rect_112x32"]
+size = Vector2(112, 32)
+
+[sub_resource type="RectangleShape2D" id="Rect_256x16"]
+size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="Rect_16x176"]
+size = Vector2(16, 176)
+
+[node name="ClaraBedroom" type="Node2D"]
+script = ExtResource("1_room")
+metadata/room_key = "clara_bedroom"
+metadata/size_tiles = Vector2i(16, 14)
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7, 0, 1, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 9, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 6, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 7, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 8, 0, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 9, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 10, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 11, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 12, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 13, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 14, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 15, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 7, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 8, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 11, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 13, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 14, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 3, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 7, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 9, 0, 4, 0, 0, 0, 3, 0, 0, 0, 0, 0, 10, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 4, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 5, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 5, 0, 0, 0, 1, 0, 0, 0, 0, 0, 13, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 5, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 6, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 6, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 6, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 7, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 7, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 8, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 8, 0, 0, 0, 2, 0, 0, 0, 0, 0, 12, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 8, 0, 0, 0, 2, 0, 0, 0, 0, 0, 15, 0, 8, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 9, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 9, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 0, 15, 0, 9, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 10, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 10, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 13, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 10, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 11, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 9, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 11, 0, 0, 0, 3, 0, 0, 0, 0, 0, 12, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 13, 0, 11, 0, 0, 0, 1, 0, 0, 0, 0, 0, 14, 0, 11, 0, 0, 0, 3, 0, 0, 0, 0, 0, 15, 0, 11, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 12, 0, 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 7, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 12, 0, 0, 0, 1, 0, 0, 0, 0, 0, 13, 0, 12, 0, 0, 0, 2, 0, 0, 0, 0, 0, 14, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 12, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 13, 0, 0, 0, 5, 0, 1, 0, 0, 0, 1, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 2, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 3, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 4, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 6, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 7, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 8, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 9, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 10, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 11, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 12, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 13, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 14, 0, 13, 0, 0, 0, 4, 0, 1, 0, 0, 0, 15, 0, 13, 0, 0, 0, 6, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_room")
+
+[node name="Rugs" type="Node2D" parent="."]
+
+[node name="Rug_1" type="Sprite2D" parent="Rugs"]
+position = Vector2(48, 80)
+texture = ExtResource("6_rug_o_lilac_8x6")
+centered = false
+
+[node name="WallDecor" type="Node2D" parent="."]
+
+[node name="P1" type="Sprite2D" parent="WallDecor"]
+position = Vector2(168, 0)
+texture = ExtResource("7_painting_landscape")
+centered = false
+
+[node name="WN2" type="Sprite2D" parent="WallDecor"]
+position = Vector2(240, 80)
+texture = ExtResource("8_window_small_frosted")
+centered = false
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door_D1" parent="Doors" instance=ExtResource("4_door")]
+position = Vector2(112, 0)
+target_scene = "res://maps/upstairs_hallway/upstairs_hallway.tscn"
+target_spawn = "from_clara_bedroom"
+enter_direction = "up"
+trigger_size = Vector2(32, 32)
+closed_texture = ExtResource("9_door_n_closed")
+open_texture = ExtResource("10_door_n_open")
+half_texture = ExtResource("11_door_n_half")
+metadata/door_id = "D1"
+metadata/leads_to = "upstairs_hallway"
+
+[node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="WD" type="Node2D" parent="Entities"]
+position = Vector2(16, 48)
+metadata/display_name = "Wardrobe"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/WD"]
+position = Vector2(0, -48)
+texture = ExtResource("12_wardrobe_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/WD"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/WD/Body"]
+position = Vector2(16, -8)
+shape = SubResource("Rect_32x16")
+
+[node name="VN" type="Node2D" parent="Entities"]
+position = Vector2(80, 48)
+metadata/display_name = "Vanity with mirror"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/VN"]
+position = Vector2(0, -48)
+texture = ExtResource("13_vanity_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/VN"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/VN/Body"]
+position = Vector2(16, -8)
+shape = SubResource("Rect_32x16")
+
+[node name="NS1" type="Node2D" parent="Entities"]
+position = Vector2(144, 48)
+metadata/display_name = "Nightstand (lamp)"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/NS1"]
+position = Vector2(0, -32)
+texture = ExtResource("14_nightstand_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/NS1"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/NS1/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
+[node name="BD" type="Node2D" parent="Entities"]
+position = Vector2(160, 80)
+metadata/display_name = "Canopy bed"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/BD"]
+position = Vector2(0, -64)
+texture = ExtResource("15_bed_canopy_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/BD"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/BD/Body"]
+position = Vector2(24, -24)
+shape = SubResource("Rect_48x48")
+
+[node name="NS2" type="Node2D" parent="Entities"]
+position = Vector2(208, 48)
+metadata/display_name = "Nightstand (lamp)"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/NS2"]
+position = Vector2(0, -32)
+texture = ExtResource("14_nightstand_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/NS2"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/NS2/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
+[node name="PL1" type="Node2D" parent="Entities"]
+position = Vector2(224, 80)
+metadata/display_name = "Potted plant"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/PL1"]
+position = Vector2(0, -32)
+texture = ExtResource("16_plant_potted")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/PL1"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/PL1/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
+[node name="SC" type="Node2D" parent="Entities"]
+position = Vector2(16, 176)
+metadata/display_name = "Dressing screen"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/SC"]
+position = Vector2(0, -32)
+texture = ExtResource("17_dressing_screen")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/SC"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/SC/Body"]
+position = Vector2(24, -8)
+shape = SubResource("Rect_48x16")
+
+[node name="DK" type="Node2D" parent="Entities"]
+position = Vector2(80, 208)
+metadata/display_name = "Writing desk"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/DK"]
+position = Vector2(0, -32)
+texture = ExtResource("18_desk_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/DK"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/DK/Body"]
+position = Vector2(24, -8)
+shape = SubResource("Rect_48x16")
+
+[node name="CH" type="Node2D" parent="Entities"]
+position = Vector2(96, 192)
+metadata/display_name = "Desk chair"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/CH"]
+position = Vector2(0, -32)
+texture = ExtResource("19_chair_clara_s")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/CH"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/CH/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
+[node name="BK" type="Node2D" parent="Entities"]
+position = Vector2(160, 208)
+metadata/display_name = "Bookshelf"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/BK"]
+position = Vector2(0, -32)
+texture = ExtResource("20_bookshelf_tall")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/BK"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/BK/Body"]
+position = Vector2(16, -8)
+shape = SubResource("Rect_32x16")
+
+[node name="LP" type="Node2D" parent="Entities"]
+position = Vector2(208, 208)
+metadata/display_name = "Floor lamp"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/LP"]
+position = Vector2(0, -32)
+texture = ExtResource("21_floor_lamp")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/LP"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/LP/Body"]
+position = Vector2(8, -8)
+shape = SubResource("Rect_16x16")
+
+[node name="AC" type="Node2D" parent="Entities"]
+position = Vector2(144, 112)
+metadata/display_name = "Armchair"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/AC"]
+position = Vector2(0, -32)
+texture = ExtResource("22_armchair_clara_s")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/AC"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/AC/Body"]
+position = Vector2(16, -8)
+shape = SubResource("Rect_32x16")
+
+[node name="TT" type="Node2D" parent="Entities"]
+position = Vector2(160, 144)
+metadata/display_name = "Tea table"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/TT"]
+position = Vector2(0, -32)
+texture = ExtResource("23_table_round_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/TT"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/TT/Body"]
+position = Vector2(16, -8)
+shape = SubResource("Rect_32x16")
+
+[node name="LV" type="Node2D" parent="Entities"]
+position = Vector2(208, 176)
+metadata/display_name = "Loveseat"
+
+[node name="Sprite" type="Sprite2D" parent="Entities/LV"]
+position = Vector2(0, -32)
+texture = ExtResource("24_loveseat_w_clara")
+centered = false
+
+[node name="Body" type="StaticBody2D" parent="Entities/LV"]
+
+[node name="Shape" type="CollisionShape2D" parent="Entities/LV/Body"]
+position = Vector2(16, -16)
+shape = SubResource("Rect_32x32")
+
+[node name="Top_T2" type="Sprite2D" parent="Entities/DK"]
+position = Vector2(2, -28)
+texture = ExtResource("25_candlestick")
+centered = false
+
+[node name="Top_T1" type="Sprite2D" parent="Entities/TT"]
+position = Vector2(8, -28)
+texture = ExtResource("26_vase_flowers")
+centered = false
+
+[node name="Player" parent="Entities" instance=ExtResource("3_player")]
+position = Vector2(120, 79)
+speed = 80
+
+[node name="Overhead" type="Node2D" parent="."]
+z_index = 20
+
+[node name="C1" type="Sprite2D" parent="Overhead"]
+position = Vector2(112, 92)
+texture = ExtResource("27_chandelier_small")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Wall_0" type="CollisionShape2D" parent="Walls"]
+position = Vector2(56, 16)
+shape = SubResource("Rect_112x32")
+
+[node name="Wall_1" type="CollisionShape2D" parent="Walls"]
+position = Vector2(200, 16)
+shape = SubResource("Rect_112x32")
+
+[node name="Wall_2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(128, 216)
+shape = SubResource("Rect_256x16")
+
+[node name="Wall_3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(8, 120)
+shape = SubResource("Rect_16x176")
+
+[node name="Wall_4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(248, 120)
+shape = SubResource("Rect_16x176")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="start" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(120, 79)
+metadata/facing = "down"
+metadata/note = "default spawn when this room is the first scene"
+
+[node name="from_upstairs_hallway" type="Marker2D" parent="SpawnPoints" groups=["spawn_points"]]
+position = Vector2(128, 46)
+metadata/facing = "down"
+metadata/note = "arrive from upstairs_hallway through D1"
+
+[node name="NpcSlots" type="Node2D" parent="."]
+
+[node name="ClueSpots" type="Node2D" parent="."]
+
+[node name="Clue_C1" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(184, 56)
+metadata/description = "Canopy bed - placeholder clue spot"
+metadata/placeholder = true
+
+[node name="Clue_C2" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(96, 40)
+metadata/description = "Vanity - placeholder clue spot"
+metadata/placeholder = true
+
+[node name="Clue_C3" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(104, 200)
+metadata/description = "Writing desk - placeholder clue spot"
+metadata/placeholder = true
+
+[node name="Clue_C4" type="Marker2D" parent="ClueSpots" groups=["clue_spots"]]
+position = Vector2(32, 40)
+metadata/description = "Wardrobe - placeholder clue spot"
+metadata/placeholder = true
+
+[node name="TouchControls" parent="." instance=ExtResource("5_touch_controls")]

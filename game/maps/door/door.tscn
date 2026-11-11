@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://maps/door/door.gd" id="1_door"]
+
+[node name="Door" type="Area2D"]
+monitorable = false
+script = ExtResource("1_door")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+
+[node name="Trigger" type="CollisionShape2D" parent="."]
+
+[node name="Approach" type="Area2D" parent="."]
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="Approach"]
+
+[node name="Blocker" type="StaticBody2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Blocker"]

@@ -1,0 +1,1128 @@
+{
+ "room": "Grand Study",
+ "key": "grand_study",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 24,
+  "h": 18
+ },
+ "size_px": {
+  "w": 384,
+  "h": 288
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "study",
+  "floor": "parquet"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 22,
+  "y1": 16,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "grand_study_tileset.png",
+ "tileset_index": "grand_study_tileset.json",
+ "preview": "grand_study_preview.png",
+ "player_spawn": {
+  "tile": [
+   11,
+   14
+  ],
+  "godot_position_if_sprite_centered_px": [
+   184,
+   225
+  ],
+  "frame_top_left_px": [
+   168,
+   209
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "S",
+   "target": "Upstairs Hallway",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     11,
+     17
+    ],
+    [
+     12,
+     17
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 176,
+    "y": 272,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    11,
+    16
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "upstairs_hallway",
+   "go_to_spawn": "from_grand_study",
+   "interaction_zone_px": {
+    "x": 176,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "solid_door_block_px": {
+    "x": 176,
+    "y": 272,
+    "w": 32,
+    "h": 16
+   },
+   "player_must_face": "down",
+   "door_sprite_closed": "../../assets/architecture/doors/door_s_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_s_open.png"
+  }
+ ],
+ "furniture": [
+  {
+   "id": "B1",
+   "name": "Bookshelf (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/library_shelf_mahogany.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    16,
+    0
+   ]
+  },
+  {
+   "id": "B2",
+   "name": "Bookshelf (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 19,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 304,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/library_shelf_mahogany_b.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    304,
+    0
+   ]
+  },
+  {
+   "id": "FP",
+   "name": "Fireplace",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 32,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/fireplaces/fireplace_mahogany.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    16
+   ]
+  },
+  {
+   "id": "LP0",
+   "name": "Floor lamp",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 22,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 352,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/decorations/lighting/floor_lamp.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    352,
+    16
+   ]
+  },
+  {
+   "id": "DK",
+   "name": "Large executive writing desk",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 9,
+    "w": 5,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 144,
+    "w": 80,
+    "h": 32
+   },
+   "y_sort_px": 176,
+   "sprite": "../../assets/furniture/desks/desk_executive.png",
+   "sprite_size_px": [
+    80,
+    48
+   ],
+   "sprite_top_left_px": [
+    160,
+    128
+   ]
+  },
+  {
+   "id": "CH1",
+   "name": "Executive chair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/furniture/seating/chair_executive_s.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    112
+   ]
+  },
+  {
+   "id": "CH2",
+   "name": "Visitor chair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 11,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 176,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 192,
+   "sprite": "../../assets/furniture/seating/chair_leather_n.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    160
+   ]
+  },
+  {
+   "id": "CH3",
+   "name": "Visitor chair",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 13,
+    "y": 11,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 208,
+    "y": 176,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 192,
+   "sprite": "../../assets/furniture/seating/chair_leather_n.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    160
+   ]
+  },
+  {
+   "id": "SA",
+   "name": "Chesterfield (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 8,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 128,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 176,
+   "sprite": "../../assets/furniture/seating/chesterfield_e.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    32,
+    128
+   ]
+  },
+  {
+   "id": "SB",
+   "name": "Chesterfield (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 8,
+    "w": 2,
+    "h": 3
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 128,
+    "w": 32,
+    "h": 48
+   },
+   "y_sort_px": 176,
+   "sprite": "../../assets/furniture/seating/chesterfield_w.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    320,
+    128
+   ]
+  },
+  {
+   "id": "GL",
+   "name": "Antique globe",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 80,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/furniture/misc/globe_grand.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    320,
+    64
+   ]
+  },
+  {
+   "id": "RA1",
+   "name": "Reading chair (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 13,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 208,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 224,
+   "sprite": "../../assets/furniture/seating/armchair_leather_e.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    192
+   ]
+  },
+  {
+   "id": "RT",
+   "name": "Reading table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 13,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 208,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 224,
+   "sprite": "../../assets/furniture/tables/table_side_mahogany.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    192
+   ]
+  },
+  {
+   "id": "RA2",
+   "name": "Reading chair (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 4,
+    "y": 13,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 64,
+    "y": 208,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 224,
+   "sprite": "../../assets/furniture/seating/armchair_leather_w.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    192
+   ]
+  },
+  {
+   "id": "LP1",
+   "name": "Floor lamp",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 13,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 208,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 224,
+   "sprite": "../../assets/decorations/lighting/floor_lamp.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    192
+   ]
+  },
+  {
+   "id": "LP2",
+   "name": "Floor lamp",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 17,
+    "y": 13,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 272,
+    "y": 208,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 224,
+   "sprite": "../../assets/decorations/lighting/floor_lamp.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    192
+   ]
+  },
+  {
+   "id": "BS",
+   "name": "Bookshelf (south-east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 18,
+    "y": 14,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 288,
+    "y": 224,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 240,
+   "sprite": "../../assets/furniture/storage/bookshelf_mahogany.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    288,
+    208
+   ]
+  },
+  {
+   "id": "DC",
+   "name": "Decorative cabinet (decanters)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 16,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 256,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "../../assets/furniture/storage/cabinet_decanters.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    32,
+    224
+   ]
+  },
+  {
+   "id": "SBD",
+   "name": "Mahogany sideboard",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 19,
+    "y": 16,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 304,
+    "y": 256,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "../../assets/furniture/storage/sideboard_mahogany.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    304,
+    240
+   ]
+  },
+  {
+   "id": "CO1",
+   "name": "Column",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 16,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 256,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "../../assets/architecture/columns/column_decor.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    144,
+    224
+   ]
+  },
+  {
+   "id": "CO2",
+   "name": "Column",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 16,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 256,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "../../assets/architecture/columns/column_decor.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    224,
+    224
+   ]
+  },
+  {
+   "id": "PL1",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 16,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 256,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "../../assets/decorations/objects/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    240
+   ]
+  },
+  {
+   "id": "CF",
+   "name": "Candelabra",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 22,
+    "y": 16,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 352,
+    "y": 256,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 272,
+   "sprite": "../../assets/decorations/lighting/candelabra_floor.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    352,
+    240
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "DS1",
+   "name": "Door to the hallway",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_s_closed.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    176,
+    272
+   ]
+  },
+  {
+   "id": "WG1",
+   "name": "WG1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_grand_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    0
+   ]
+  },
+  {
+   "id": "WG2",
+   "name": "WG2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_grand_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    224,
+    0
+   ]
+  },
+  {
+   "id": "MP",
+   "name": "Antique map",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/wall_map_antique.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    0
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_landscape.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    168,
+    0
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "P2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_gentleman.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    0
+   ]
+  },
+  {
+   "id": "P3",
+   "name": "P3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_lady.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    0
+   ]
+  },
+  {
+   "id": "P4",
+   "name": "P4",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_elder.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    0
+   ]
+  },
+  {
+   "id": "P5",
+   "name": "P5",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_gentleman.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    288,
+    0
+   ]
+  },
+  {
+   "id": "WN1",
+   "name": "WN1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    80
+   ]
+  },
+  {
+   "id": "WN2",
+   "name": "WN2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    176
+   ]
+  },
+  {
+   "id": "WN3",
+   "name": "WN3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    368,
+    80
+   ]
+  },
+  {
+   "id": "WN4",
+   "name": "WN4",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    368,
+    208
+   ]
+  },
+  {
+   "id": "T0",
+   "name": "T0",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/desk_lamp.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    166,
+    124
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "T1",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/papers_pile.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    190,
+    134
+   ]
+  },
+  {
+   "id": "T2",
+   "name": "T2",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/open_book.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    210,
+    138
+   ]
+  },
+  {
+   "id": "T3",
+   "name": "T3",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/inkwell_quill.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    230,
+    132
+   ]
+  },
+  {
+   "id": "T4",
+   "name": "T4",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    48,
+    202
+   ]
+  },
+  {
+   "id": "C1",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../assets/decorations/lighting/chandelier_large.png",
+   "sprite_size_px": [
+    48,
+    48
+   ],
+   "sprite_top_left_px": [
+    168,
+    52
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 5,
+    "y": 5,
+    "w": 14,
+    "h": 9
+   },
+   "palette": "o_crimson",
+   "sprite": "../../assets/decorations/rugs/rug_o_crimson_14x9.png",
+   "walkable": true,
+   "medallion": true,
+   "sprite_res": "res://blackwood_second_floor_v2/assets/decorations/rugs/rug_o_crimson_14x9.png"
+  }
+ ],
+ "npc_slots": [
+  {
+   "id": "N1",
+   "who": "(open slot)",
+   "tile": [
+    8,
+    12
+   ]
+  },
+  {
+   "id": "N2",
+   "who": "(open slot)",
+   "tile": [
+    16,
+    12
+   ]
+  }
+ ],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Large executive desk - placeholder clue spot",
+   "type": "obj",
+   "object": "DK",
+   "footprint_tiles": {
+    "x": 10,
+    "y": 9,
+    "w": 5,
+    "h": 2
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C2",
+   "description": "Fireplace - placeholder clue spot",
+   "type": "obj",
+   "object": "FP",
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C3",
+   "description": "Decorative cabinet - placeholder clue spot",
+   "type": "obj",
+   "object": "DC",
+   "footprint_tiles": {
+    "x": 2,
+    "y": 16,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C4",
+   "description": "Antique globe - placeholder clue spot",
+   "type": "obj",
+   "object": "GL",
+   "footprint_tiles": {
+    "x": 20,
+    "y": 5,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C5",
+   "description": "Bookshelf - placeholder clue spot",
+   "type": "obj",
+   "object": "B1",
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 3,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Bookshelf (west) (3x1); Bookshelf (east) (3x1); Fireplace (3x1); Floor lamp (1x1); Large executive writing desk (5x2); Executive chair (1x1); Visitor chair (1x1); Visitor chair (1x1); Chesterfield (west) (2x3); Chesterfield (east) (2x3); Antique globe (2x1); Reading chair (west) (2x1); Reading table (1x1); Reading chair (east) (2x1); Floor lamp (1x1); Floor lamp (1x1); Bookshelf (south-east) (2x1); Decorative cabinet (decanters) (2x1); Mahogany sideboard (3x1); Column (1x1); Column (1x1); Potted plant (1x1); Candelabra (1x1)."
+ ],
+ "stats": {
+  "interior_tiles": 330,
+  "blocking_tiles": 55,
+  "walkable_tiles": 275,
+  "walkable_percent": 83
+ },
+ "dimensions_source": "specified in the second-floor brief (V1 and V2)",
+ "named_spawns": [
+  {
+   "name": "from_hallway",
+   "door": "D1",
+   "tile_y": 14,
+   "godot_position_px": [
+    192,
+    225
+   ],
+   "facing": "UP",
+   "note": "arrive from the hallway"
+  }
+ ]
+}

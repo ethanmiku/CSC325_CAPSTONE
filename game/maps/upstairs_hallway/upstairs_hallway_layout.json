@@ -1,0 +1,1465 @@
+{
+ "room": "Upstairs Hallway",
+ "key": "upstairs_hallway",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 36,
+  "h": 10
+ },
+ "size_px": {
+  "w": 576,
+  "h": 160
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "burgundy",
+  "floor": "wood_dark"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 34,
+  "y1": 8,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "upstairs_hallway_tileset.png",
+ "tileset_index": "upstairs_hallway_tileset.json",
+ "preview": "upstairs_hallway_preview.png",
+ "player_spawn": {
+  "tile": [
+   17,
+   6
+  ],
+  "godot_position_if_sprite_centered_px": [
+   280,
+   97
+  ],
+  "frame_top_left_px": [
+   264,
+   81
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "N",
+   "target": "Curio Room",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     5,
+     0
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     6,
+     1
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 80,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    5,
+    2
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "curio_room",
+   "go_to_spawn": "from_hallway",
+   "interaction_zone_px": {
+    "x": 80,
+    "y": 0,
+    "w": 32,
+    "h": 48
+   },
+   "solid_door_block_px": {
+    "x": 80,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "player_must_face": "up",
+   "door_sprite_closed": "../../assets/architecture/doors/door_n_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_n_open.png"
+  },
+  {
+   "id": "D2",
+   "wall": "N",
+   "target": "Guest Room B",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     17,
+     0
+    ],
+    [
+     17,
+     1
+    ],
+    [
+     18,
+     0
+    ],
+    [
+     18,
+     1
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 272,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    17,
+    2
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "guest_room_b",
+   "go_to_spawn": "from_hallway",
+   "interaction_zone_px": {
+    "x": 272,
+    "y": 0,
+    "w": 32,
+    "h": 48
+   },
+   "solid_door_block_px": {
+    "x": 272,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "player_must_face": "up",
+   "door_sprite_closed": "../../assets/architecture/doors/door_n_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_n_open.png"
+  },
+  {
+   "id": "D3",
+   "wall": "N",
+   "target": "Grand Study / Library",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     29,
+     0
+    ],
+    [
+     29,
+     1
+    ],
+    [
+     30,
+     0
+    ],
+    [
+     30,
+     1
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 464,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "arrive_here_tile": [
+    29,
+    2
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "grand_study",
+   "go_to_spawn": "from_hallway",
+   "interaction_zone_px": {
+    "x": 464,
+    "y": 0,
+    "w": 32,
+    "h": 48
+   },
+   "solid_door_block_px": {
+    "x": 464,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "player_must_face": "up",
+   "door_sprite_closed": "../../assets/architecture/doors/door_n_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_n_open.png"
+  },
+  {
+   "id": "D4",
+   "wall": "S",
+   "target": "Edmund Blackwood's Bedroom",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     5,
+     9
+    ],
+    [
+     6,
+     9
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 80,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    5,
+    8
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "edmund_bedroom",
+   "go_to_spawn": "from_hallway",
+   "interaction_zone_px": {
+    "x": 80,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "solid_door_block_px": {
+    "x": 80,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "player_must_face": "down",
+   "door_sprite_closed": "../../assets/architecture/doors/door_s_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_s_open.png"
+  },
+  {
+   "id": "D5",
+   "wall": "S",
+   "target": "Stairs down to the Main Hall",
+   "status": "open",
+   "variant": "stairs",
+   "door_tiles": [
+    [
+     16,
+     9
+    ],
+    [
+     17,
+     9
+    ],
+    [
+     18,
+     9
+    ],
+    [
+     19,
+     9
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 256,
+    "y": 144,
+    "w": 64,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    16,
+    8
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "main_hall",
+   "go_to_spawn": "from_upstairs",
+   "interaction_zone_px": {
+    "x": 256,
+    "y": 112,
+    "w": 64,
+    "h": 48
+   },
+   "solid_door_block_px": {
+    "x": 256,
+    "y": 144,
+    "w": 64,
+    "h": 16
+   },
+   "player_must_face": "down",
+   "note": "Staircase down. Interaction zone covers the 4-tile opening (x 16-19). Rails RL/RR (invisible blocks) frame it. Same 6-tile width and centred like the Main Hall staircase (x 7-12 there)."
+  },
+  {
+   "id": "D6",
+   "wall": "S",
+   "target": "Clara Blackwood's Bedroom",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     29,
+     9
+    ],
+    [
+     30,
+     9
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 464,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    29,
+    8
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "clara_bedroom",
+   "go_to_spawn": "from_hallway",
+   "interaction_zone_px": {
+    "x": 464,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "solid_door_block_px": {
+    "x": 464,
+    "y": 144,
+    "w": 32,
+    "h": 16
+   },
+   "player_must_face": "down",
+   "door_sprite_closed": "../../assets/architecture/doors/door_s_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_s_open.png"
+  }
+ ],
+ "furniture": [
+  {
+   "id": "CK",
+   "name": "Grandfather clock",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 15,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 240,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/misc/grandfather_clock.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    240,
+    16
+   ]
+  },
+  {
+   "id": "PL1",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/decorations/objects/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    16
+   ]
+  },
+  {
+   "id": "PL2",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/decorations/objects/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    320,
+    16
+   ]
+  },
+  {
+   "id": "PL3",
+   "name": "Potted plant",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 34,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 544,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/decorations/objects/plant_potted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    544,
+    16
+   ]
+  },
+  {
+   "id": "TB1",
+   "name": "Console table (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 8,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 128,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/furniture/tables/table_console.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    112
+   ]
+  },
+  {
+   "id": "TB2",
+   "name": "Console table (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 23,
+    "y": 8,
+    "w": 3,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 368,
+    "y": 128,
+    "w": 48,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/furniture/tables/table_console.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    368,
+    112
+   ]
+  },
+  {
+   "id": "LP1",
+   "name": "Floor lamp",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../assets/decorations/lighting/floor_lamp.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    96
+   ]
+  },
+  {
+   "id": "LP2",
+   "name": "Floor lamp",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 33,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 528,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../assets/decorations/lighting/floor_lamp.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    528,
+    96
+   ]
+  },
+  {
+   "id": "CD1",
+   "name": "Candelabra",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 8,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 128,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/decorations/lighting/candelabra_floor.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    128,
+    112
+   ]
+  },
+  {
+   "id": "CD2",
+   "name": "Candelabra",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 27,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 432,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/decorations/lighting/candelabra_floor.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    432,
+    112
+   ]
+  },
+  {
+   "id": "CO1",
+   "name": "Column",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 14,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 224,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../assets/architecture/columns/column_decor.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    224,
+    80
+   ]
+  },
+  {
+   "id": "CO2",
+   "name": "Column",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 21,
+    "y": 7,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 336,
+    "y": 112,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 128,
+   "sprite": "../../assets/architecture/columns/column_decor.png",
+   "sprite_size_px": [
+    16,
+    48
+   ],
+   "sprite_top_left_px": [
+    336,
+    80
+   ]
+  },
+  {
+   "id": "RL",
+   "name": "Stair rail (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 15,
+    "y": 7,
+    "w": 1,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 240,
+    "y": 112,
+    "w": 16,
+    "h": 32
+   },
+   "y_sort_px": 144,
+   "sprite": null,
+   "note": "invisible collision block (the snow drawn by the door sprite)"
+  },
+  {
+   "id": "RR",
+   "name": "Stair rail (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 20,
+    "y": 7,
+    "w": 1,
+    "h": 2
+   },
+   "collision_rect_px": {
+    "x": 320,
+    "y": 112,
+    "w": 16,
+    "h": 32
+   },
+   "y_sort_px": 144,
+   "sprite": null,
+   "note": "invisible collision block (the snow drawn by the door sprite)"
+  },
+  {
+   "id": "SE1",
+   "name": "Green velvet settee (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/seating/settee_green_s.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    16
+   ]
+  },
+  {
+   "id": "SE2",
+   "name": "Green velvet settee (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 24,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 384,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/seating/settee_green_s.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    384,
+    16
+   ]
+  },
+  {
+   "id": "DC1",
+   "name": "Small display cabinet (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/display_cabinet.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    16
+   ]
+  },
+  {
+   "id": "DC2",
+   "name": "Small display cabinet (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 22,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 352,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/display_cabinet.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    352,
+    16
+   ]
+  },
+  {
+   "id": "ST1",
+   "name": "Side table (west)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/tables/table_side_mahogany.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    16
+   ]
+  },
+  {
+   "id": "ST2",
+   "name": "Side table (east)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 26,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 416,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/tables/table_side_mahogany.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    416,
+    16
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "RN",
+   "name": "Burgundy carpet runner",
+   "collides": false,
+   "layer": "floor",
+   "sprite": "../../assets/decorations/rugs/runner_burgundy_32x3.png",
+   "sprite_size_px": [
+    512,
+    48
+   ],
+   "sprite_top_left_px": [
+    32,
+    64
+   ]
+  },
+  {
+   "id": "ST",
+   "name": "Staircase down to the Main Hall",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/stairs/stairwell_down.png",
+   "sprite_size_px": [
+    96,
+    48
+   ],
+   "sprite_top_left_px": [
+    240,
+    112
+   ]
+  },
+  {
+   "id": "DN1",
+   "name": "Guest Room A door",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_n_closed.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    80,
+    0
+   ]
+  },
+  {
+   "id": "DN2",
+   "name": "Guest Room B door",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_n_closed.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    0
+   ]
+  },
+  {
+   "id": "DN3",
+   "name": "Grand Study door",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_n_closed.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    464,
+    0
+   ]
+  },
+  {
+   "id": "DS1",
+   "name": "Edmund's Bedroom door",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_s_closed.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    80,
+    144
+   ]
+  },
+  {
+   "id": "DS2",
+   "name": "Clara's Bedroom door",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_s_closed.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    464,
+    144
+   ]
+  },
+  {
+   "id": "W1",
+   "name": "W1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    0
+   ]
+  },
+  {
+   "id": "W2",
+   "name": "W2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_snow_curtains_burgundy.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    384,
+    0
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_lady.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    0
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "P2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_gentleman.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    128,
+    0
+   ]
+  },
+  {
+   "id": "P5",
+   "name": "P5",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_lady.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    432,
+    0
+   ]
+  },
+  {
+   "id": "P6",
+   "name": "P6",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_gentleman.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    528,
+    0
+   ]
+  },
+  {
+   "id": "S1",
+   "name": "S1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    64,
+    2
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "S2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    112,
+    2
+   ]
+  },
+  {
+   "id": "S3",
+   "name": "S3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    256,
+    2
+   ]
+  },
+  {
+   "id": "S4",
+   "name": "S4",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    304,
+    2
+   ]
+  },
+  {
+   "id": "S5",
+   "name": "S5",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    448,
+    2
+   ]
+  },
+  {
+   "id": "S6",
+   "name": "S6",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/lighting/wall_sconce.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    496,
+    2
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "T1",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    164,
+    106
+   ]
+  },
+  {
+   "id": "T2",
+   "name": "T2",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/vase_flowers.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    190,
+    108
+   ]
+  },
+  {
+   "id": "T3",
+   "name": "T3",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    372,
+    106
+   ]
+  },
+  {
+   "id": "T4",
+   "name": "T4",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/vase_flowers.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    398,
+    108
+   ]
+  },
+  {
+   "id": "C1",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../assets/decorations/lighting/chandelier_small.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    56
+   ]
+  },
+  {
+   "id": "C2",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../assets/decorations/lighting/chandelier_small.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    272,
+    56
+   ]
+  },
+  {
+   "id": "C3",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../assets/decorations/lighting/chandelier_small.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    448,
+    56
+   ]
+  },
+  {
+   "id": "P3",
+   "name": "P3",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_small.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    200,
+    0
+   ]
+  },
+  {
+   "id": "P4",
+   "name": "P4",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_small.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    360,
+    0
+   ]
+  },
+  {
+   "id": "T5",
+   "name": "T5",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/lighting/candlestick.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    144,
+    17
+   ]
+  },
+  {
+   "id": "T6",
+   "name": "T6",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/vase_flowers.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    416,
+    17
+   ]
+  }
+ ],
+ "rugs": [],
+ "npc_slots": [],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Grandfather clock - placeholder clue spot",
+   "type": "obj",
+   "object": "CK",
+   "footprint_tiles": {
+    "x": 15,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C2",
+   "description": "West console table - placeholder clue spot",
+   "type": "obj",
+   "object": "TB1",
+   "footprint_tiles": {
+    "x": 10,
+    "y": 8,
+    "w": 3,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C3",
+   "description": "East console table - placeholder clue spot",
+   "type": "obj",
+   "object": "TB2",
+   "footprint_tiles": {
+    "x": 23,
+    "y": 8,
+    "w": 3,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C4",
+   "description": "West display cabinet - placeholder clue spot",
+   "type": "obj",
+   "object": "DC1",
+   "footprint_tiles": {
+    "x": 12,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Grandfather clock (1x1); Potted plant (1x1); Potted plant (1x1); Potted plant (1x1); Console table (west) (3x1); Console table (east) (3x1); Floor lamp (1x1); Floor lamp (1x1); Candelabra (1x1); Candelabra (1x1); Column (1x1); Column (1x1); Stair rail (west) (1x2); Stair rail (east) (1x2); Green velvet settee (west) (2x1); Green velvet settee (east) (2x1); Small display cabinet (west) (2x1); Small display cabinet (east) (2x1); Side table (west) (1x1); Side table (east) (1x1)."
+ ],
+ "stats": {
+  "interior_tiles": 238,
+  "blocking_tiles": 30,
+  "walkable_tiles": 208,
+  "walkable_percent": 87
+ },
+ "dimensions_source": "specified in the second-floor brief (V1 and V2)",
+ "named_spawns": [
+  {
+   "name": "from_main_hall",
+   "door": "D5",
+   "tile_y": 5,
+   "godot_position_px": [
+    288,
+    81
+   ],
+   "facing": "UP",
+   "note": "arrive from the Main Hall staircase (centre of the 4-wide stair opening)"
+  },
+  {
+   "name": "from_curio_room",
+   "door": "D1",
+   "tile_y": 4,
+   "godot_position_px": [
+    96,
+    65
+   ],
+   "facing": "DOWN",
+   "note": "arrive from the Curio Room"
+  },
+  {
+   "name": "from_guest_room_b",
+   "door": "D2",
+   "tile_y": 4,
+   "godot_position_px": [
+    288,
+    65
+   ],
+   "facing": "DOWN",
+   "note": "arrive from Guest Room B"
+  },
+  {
+   "name": "from_grand_study",
+   "door": "D3",
+   "tile_y": 4,
+   "godot_position_px": [
+    480,
+    65
+   ],
+   "facing": "DOWN",
+   "note": "arrive from the Grand Study"
+  },
+  {
+   "name": "from_edmund_bedroom",
+   "door": "D4",
+   "tile_y": 6,
+   "godot_position_px": [
+    96,
+    97
+   ],
+   "facing": "UP",
+   "note": "arrive from Edmund's Bedroom"
+  },
+  {
+   "name": "from_clara_bedroom",
+   "door": "D6",
+   "tile_y": 6,
+   "godot_position_px": [
+    480,
+    97
+   ],
+   "facing": "UP",
+   "note": "arrive from Clara's Bedroom"
+  }
+ ]
+}

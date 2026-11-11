@@ -1,0 +1,650 @@
+{
+ "room": "Curio Room",
+ "key": "curio_room",
+ "proposed_dimensions": false,
+ "indoor": true,
+ "size_tiles": {
+  "w": 14,
+  "h": 12
+ },
+ "size_px": {
+  "w": 224,
+  "h": 192
+ },
+ "tile_px": 16,
+ "style": {
+  "wall_style": "curio",
+  "floor": "wood_dark"
+ },
+ "walkable_interior_tiles": {
+  "x0": 1,
+  "y0": 2,
+  "x1": 12,
+  "y1": 10,
+  "note": "walls: row 0-1 (north), column 0 / W-1 (sides), row H-1 (south) are solid except door tiles"
+ },
+ "tileset": "curio_room_tileset.png",
+ "tileset_index": "curio_room_tileset.json",
+ "preview": "curio_room_preview.png",
+ "player_spawn": {
+  "tile": [
+   6,
+   8
+  ],
+  "godot_position_if_sprite_centered_px": [
+   104,
+   129
+  ],
+  "frame_top_left_px": [
+   88,
+   113
+  ],
+  "note": "feet land on the bottom edge of the spawn tile"
+ },
+ "doors": [
+  {
+   "id": "D1",
+   "wall": "S",
+   "target": "Upstairs Hallway",
+   "status": "open",
+   "variant": "door_closed",
+   "door_tiles": [
+    [
+     6,
+     11
+    ],
+    [
+     7,
+     11
+    ]
+   ],
+   "transition_rect_px": {
+    "x": 96,
+    "y": 176,
+    "w": 32,
+    "h": 16
+   },
+   "arrive_here_tile": [
+    6,
+    10
+   ],
+   "clear_2x2_window_verified": true,
+   "go_to_scene": "upstairs_hallway",
+   "go_to_spawn": "from_curio_room",
+   "interaction_zone_px": {
+    "x": 96,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "solid_door_block_px": {
+    "x": 96,
+    "y": 176,
+    "w": 32,
+    "h": 16
+   },
+   "player_must_face": "down",
+   "door_sprite_closed": "../../assets/architecture/doors/door_s_closed.png",
+   "door_sprite_open": "../../assets/architecture/doors/door_s_open.png"
+  }
+ ],
+ "furniture": [
+  {
+   "id": "CA1",
+   "name": "Glass display cabinet (artifacts)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/curio_cabinet_artifacts.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    16,
+    0
+   ]
+  },
+  {
+   "id": "BU",
+   "name": "Marble bust on pedestal",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/decorations/statues/statue_bust.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    16
+   ]
+  },
+  {
+   "id": "SF",
+   "name": "Bronze figure on pedestal",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 10,
+    "y": 2,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 160,
+    "y": 32,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/decorations/statues/statue_figure.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    160,
+    16
+   ]
+  },
+  {
+   "id": "CA2",
+   "name": "Glass display cabinet (antique masks)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 32,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 48,
+   "sprite": "../../assets/furniture/storage/curio_cabinet_masks.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    176,
+    0
+   ]
+  },
+  {
+   "id": "TB",
+   "name": "Glass-topped display table",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 6,
+    "y": 6,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 96,
+    "y": 96,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "../../assets/furniture/tables/display_table_glass.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    80
+   ]
+  },
+  {
+   "id": "UR1",
+   "name": "Urn on pedestal",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 2,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 32,
+    "y": 96,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "../../assets/decorations/statues/pedestal_urn.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    32,
+    80
+   ]
+  },
+  {
+   "id": "UR2",
+   "name": "Urn on pedestal",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 6,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 96,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 112,
+   "sprite": "../../assets/decorations/statues/pedestal_urn.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    176,
+    80
+   ]
+  },
+  {
+   "id": "LC",
+   "name": "Lectern with an open manuscript",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 3,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 48,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/furniture/misc/lectern_manuscript.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    48,
+    112
+   ]
+  },
+  {
+   "id": "TS1",
+   "name": "Side table with a glass dome",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 9,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 144,
+    "y": 128,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 144,
+   "sprite": "../../assets/furniture/tables/table_side_mahogany.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    112
+   ]
+  },
+  {
+   "id": "CA3",
+   "name": "Glass display cabinet (books and manuscripts)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 10,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 160,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "../../assets/furniture/storage/curio_cabinet_manuscripts.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    16,
+    128
+   ]
+  },
+  {
+   "id": "CA4",
+   "name": "Glass display cabinet (heirlooms)",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 11,
+    "y": 10,
+    "w": 2,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 176,
+    "y": 160,
+    "w": 32,
+    "h": 16
+   },
+   "y_sort_px": 176,
+   "sprite": "../../assets/furniture/storage/curio_cabinet_artifacts.png",
+   "sprite_size_px": [
+    32,
+    48
+   ],
+   "sprite_top_left_px": [
+    176,
+    128
+   ]
+  },
+  {
+   "id": "CF1",
+   "name": "Candelabra",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 1,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 16,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/decorations/lighting/candelabra_floor.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    16,
+    64
+   ]
+  },
+  {
+   "id": "CF2",
+   "name": "Candelabra",
+   "collides": true,
+   "footprint_tiles": {
+    "x": 12,
+    "y": 5,
+    "w": 1,
+    "h": 1
+   },
+   "collision_rect_px": {
+    "x": 192,
+    "y": 80,
+    "w": 16,
+    "h": 16
+   },
+   "y_sort_px": 96,
+   "sprite": "../../assets/decorations/lighting/candelabra_floor.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    192,
+    64
+   ]
+  }
+ ],
+ "decor": [
+  {
+   "id": "DS1",
+   "name": "Door to the hallway",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/doors/door_s_closed.png",
+   "sprite_size_px": [
+    32,
+    16
+   ],
+   "sprite_top_left_px": [
+    96,
+    176
+   ]
+  },
+  {
+   "id": "MB",
+   "name": "Wall board of antique masks",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/wall_mask_board.png",
+   "sprite_size_px": [
+    48,
+    32
+   ],
+   "sprite_top_left_px": [
+    88,
+    0
+   ]
+  },
+  {
+   "id": "P1",
+   "name": "P1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_elder.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    64,
+    0
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "P2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/decorations/wall_art/painting_portrait_lady.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    144,
+    0
+   ]
+  },
+  {
+   "id": "WN1",
+   "name": "WN1",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    0,
+    96
+   ]
+  },
+  {
+   "id": "WN2",
+   "name": "WN2",
+   "collides": false,
+   "layer": "wall",
+   "sprite": "../../assets/architecture/windows/window_small_frosted.png",
+   "sprite_size_px": [
+    16,
+    32
+   ],
+   "sprite_top_left_px": [
+    208,
+    96
+   ]
+  },
+  {
+   "id": "T1",
+   "name": "T1",
+   "collides": false,
+   "layer": "top",
+   "sprite": "../../assets/decorations/objects/glass_dome_bird.png",
+   "sprite_size_px": [
+    16,
+    16
+   ],
+   "sprite_top_left_px": [
+    144,
+    122
+   ]
+  },
+  {
+   "id": "C1",
+   "name": "Chandelier",
+   "collides": false,
+   "layer": "over",
+   "sprite": "../../assets/decorations/lighting/chandelier_small.png",
+   "sprite_size_px": [
+    32,
+    32
+   ],
+   "sprite_top_left_px": [
+    96,
+    36
+   ]
+  }
+ ],
+ "rugs": [
+  {
+   "tile_rect": {
+    "x": 3,
+    "y": 4,
+    "w": 8,
+    "h": 5
+   },
+   "palette": "o_plum",
+   "sprite": "../../assets/decorations/rugs/rug_o_plum_8x5.png",
+   "walkable": true,
+   "medallion": true,
+   "sprite_res": "res://blackwood_second_floor_v2/assets/decorations/rugs/rug_o_plum_8x5.png"
+  }
+ ],
+ "npc_slots": [],
+ "clue_areas": [
+  {
+   "id": "C1",
+   "description": "Glass display table - placeholder clue spot",
+   "type": "obj",
+   "object": "TB",
+   "footprint_tiles": {
+    "x": 6,
+    "y": 6,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C2",
+   "description": "Cabinet of antique masks - placeholder clue spot",
+   "type": "obj",
+   "object": "CA2",
+   "footprint_tiles": {
+    "x": 11,
+    "y": 2,
+    "w": 2,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  },
+  {
+   "id": "C3",
+   "description": "Lectern with the open manuscript - placeholder clue spot",
+   "type": "obj",
+   "object": "LC",
+   "footprint_tiles": {
+    "x": 3,
+    "y": 8,
+    "w": 1,
+    "h": 1
+   },
+   "status": "PLACEHOLDER - the team decides the real clue"
+  }
+ ],
+ "collision_notes": [
+  "Solid: the whole wall ring (north 2 rows, side columns, south row) except the door tiles listed under \"doors\".",
+  "Furniture collides on its FOOTPRINT only (the bottom row(s) of each sprite). The part of a sprite above the footprint is drawn OVER the player when the player stands behind it, so walk-behind works without extra code.",
+  "Decor in \"decor\" (paintings, windows, sconces, items lying on tables, floor stains, glass, rugs) has NO collision.",
+  "Ceiling lights (layer \"over\") are drawn above everything and never collide.",
+  "Solid furniture here: Glass display cabinet (artifacts) (2x1); Marble bust on pedestal (1x1); Bronze figure on pedestal (1x1); Glass display cabinet (antique masks) (2x1); Glass-topped display table (2x1); Urn on pedestal (1x1); Urn on pedestal (1x1); Lectern with an open manuscript (1x1); Side table with a glass dome (1x1); Glass display cabinet (books and manuscripts) (2x1); Glass display cabinet (heirlooms) (2x1); Candelabra (1x1); Candelabra (1x1)."
+ ],
+ "stats": {
+  "interior_tiles": 108,
+  "blocking_tiles": 18,
+  "walkable_tiles": 90,
+  "walkable_percent": 83
+ },
+ "dimensions_source": "specified in the second-floor brief (V1 and V2)",
+ "named_spawns": [
+  {
+   "name": "from_hallway",
+   "door": "D1",
+   "tile_y": 8,
+   "godot_position_px": [
+    112,
+    129
+   ],
+   "facing": "UP",
+   "note": "arrive from the hallway"
+  }
+ ]
+}

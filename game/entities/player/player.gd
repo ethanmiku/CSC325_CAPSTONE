@@ -19,6 +19,10 @@ var _facing := "down"
 var _controls_enabled := true
 
 ### Functions ###
+# Lets doors and rooms find the player without knowing where it sits in the scene tree
+func _enter_tree() -> void:
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
 	process_movement()
 	move_and_slide()
@@ -60,3 +64,19 @@ func get_interact_target() -> Node:
 	if collider is Node and collider.is_in_group("interactable"):
 		return collider
 	return null
+
+# Turns the player to face "up", "down", "left" or "right", e.g. when arriving in a room
+func face(direction: String) -> void:
+	if not FACING_VECTORS.has(direction):
+		return
+	_facing = direction
+	_interact_ray.target_position = FACING_VECTORS[_facing] * INTERACT_REACH
+	_sprite.play("idle_" + _facing)
+
+# The direction the player last moved or was turned: "up", "down", "left" or "right"
+func get_facing() -> String:
+	return _facing
+
+# The current movement input, zero while standing still or while controls are disabled
+func get_move_direction() -> Vector2:
+	return _direction
