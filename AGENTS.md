@@ -14,7 +14,7 @@ The client talks to the backend over HTTP. The API contract is in `backend/docs/
 
 ## Layout
 
-- `game/entities/`: player and NPCs. `game/maps/`: rooms. `game/ui/`: dialogue box, touch controls, settings. `game/services/`: autoloads such as `ClaudeDialogue`.
+- `game/entities/`: player and NPCs. `game/maps/`: rooms and scenes. `game/ui/`: dialogue box, touch controls, settings, and all game UI elements. `game/services/`: autoloads such as `ClaudeDialogue`.
 - `game/tests/`: headless test scenes.
 - `backend/dialogue/`, `backend/evidence/`: Django apps. `backend/config/`: settings; `settings_ci.py` is what CI uses.
 
@@ -45,7 +45,8 @@ CI runs every scene named `game/tests/<name>_test.tscn`. A test scene must call 
 
 ## Conventions
 
-- Commit messages: `feat:`, `fix:`, `test:`, `docs:` or `ci:`, then a short summary in plain words.
+- Commit messages: `feat:`, `fix:`, `test:`, `docs:` or `ci:`, then a short summary in plain words. One commit per addition, feature, fix or change. Don't bundle unrelated changes into one large commit.
+- Documentation: `backend/docs` and `game/docs` exist to document work done by agents. Write one Markdown file per feature or topic (`backend/docs/<topic>.md` or `game/docs/<topic>.md`), and update the existing file when the topic already has one. Each file explains what was done, why it was done, and the author(s) of the change.
 - Work on a feature branch and open a pull request to `main`. Don't push to `main`.
 - Never commit `.env` files, API keys, `game/.godot/` or `game/android/`.
 - Commit the `.import` and `.uid` files Godot writes next to assets and scripts.
