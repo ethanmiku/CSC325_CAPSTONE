@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="murder-mystery-game"
-run/main_scene="uid://ddm6hhcwvihhn"
+run/main_scene="res://maps/dialogue_test/dialogue_test.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
