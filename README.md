@@ -211,13 +211,13 @@ so the assignment's requirement to see a running deployment is not yet satisfied
 
 ## AI-use statement
 
-We used OpenAI Codex to inspect the Django backend, draft the GitHub Actions
-workflow, add isolated CI settings, run checks, and document the PR process.
-During local validation, an initial test invocation from the repository root
-discovered zero tests. Running from `backend` discovered and passed all 34 tests;
-the workflow and instructions explicitly use that directory to avoid a misleading
-successful run with no tests. No failure in a live GitHub Actions run has been
-observed yet; this statement should be updated if further issues are found there.
-The team chose a placeholder Deploy step, and AI documented that it performs no
-actual deployment. Branch rules and real deployment must not be represented as
-completed until verified.
+We used both OpenAI Codex and Claude Code to inspect Godot and Django backend, 
+draft the GitHub Actions workflow, add isolated CI settings, run checks, and 
+document the PR process.During local validation, an initial test invocation from 
+the repository root discovered zero tests. Running from `backend` discovered and 
+passed all 34 tests; the workflow and instructions explicitly use that directory 
+to avoid a misleading successful run with no tests. No failure in a live GitHub 
+Actions run has been observed yet; this statement should be updated if further 
+issues are found there. The team chose a placeholder Deploy step, and AI 
+documented that it performs no actual deployment. Branch rules and real deployment
+must not be represented as completed until verified.
