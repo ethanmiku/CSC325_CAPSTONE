@@ -145,27 +145,34 @@ godot --headless --path game res://tests/<name>_test.tscn
 Run the import first on a fresh clone. Run the second command once for each test
 scene in `game/tests`; it exits with a non-zero code if a check fails.
 
-## Main branch protection
+## Main Branch Protection
 
-**Pending GitHub configuration:** the workflow file does not activate branch
-protection. A repository administrator must create an active branch ruleset in
-**Settings > Rules > Rulesets** targeting `main`:
+**Status: Active — GitHub branch protection ruleset created.**
 
-1. Require a pull request before merging, with **1 required approval** from a
-   teammate with write access.
-2. Dismiss stale approvals when new commits are pushed.
-3. Require status checks to pass; select **Build-Test-Deploy** and **Game-Test**
-   from GitHub Actions after the workflow has run once. Require the branch to be up to date before merging.
-4. Block force pushes and restrict branch deletion.
-5. Leave the bypass list empty so direct pushes cannot bypass the PR requirement.
+The `main` branch is protected using a GitHub ruleset configured under **Settings > Rules > Rulesets**.
 
-Use the PR requirement to block direct pushes. Do not enable **Restrict updates**,
-which would also prevent normal merges by users without bypass permission.
-See [GitHub's ruleset setup guide](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
+### Branch Protection Configuration
 
-After activation, verify that an unapproved PR cannot merge, a failing check
-blocks merging, and a passing, approved PR can merge. Live enforcement remains
-unverified until these GitHub checks are completed.
+The ruleset includes the following protections:
+
+1. **Require pull requests:** All changes to `main` must go through a pull request rather than a direct push.
+2. **Required approvals:** At least **1 approval** from an eligible teammate is required before merging.
+3. **Dismiss stale approvals:** New commits pushed to a pull request dismiss previous approvals.
+4. **Required status checks:** GitHub Actions checks must pass before merging. The intended required checks are `Build-Test-Deploy` and `Game-Test`.
+5. **Branch synchronization:** Pull requests should be up to date with `main` before merging.
+6. **Block force pushes:** Force pushes to `main` are prohibited.
+7. **Restrict deletions:** The protected branch cannot be deleted by users without bypass permission.
+8. **Bypass permissions:** No bypass exceptions should be configured.
+
+The **Restrict updates** option remains disabled to allow normal pull request merges after all requirements are satisfied.
+
+### Verification
+- Pull requests trigger the GitHub Actions CI/CD workflow.
+- A successful `Build-Test-Deploy` workflow run was observed on Pull Request #57.
+
+**Ruleset:** [Main Branch Protection](https://github.com/ethanmiku/CSC325_CAPSTONE/rules/27001007)
+
+**Reference:** [GitHub Ruleset Documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)
 
 ## Secrets
 
