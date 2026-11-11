@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'evidence',
     'dialogue.apps.DialogueConfig',
+    'progression.apps.ProgressionConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://butuxqrdp2n8m"]
+
+[ext_resource type="Script" uid="uid://ce5b5t1njrf4m" path="res://day_progression.gd" id="1_6cvtp"]
+
+[node name="DayProgression" type="Control" unique_id=693853981]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cvtp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1883501805]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DayLabel" type="Label" parent="VBoxContainer" unique_id=1868633695]
+layout_mode = 2
+text = "Day 1
+"
+
+[node name="EndDayButton" type="Button" parent="VBoxContainer" unique_id=729944154]
+layout_mode = 2
+text = "End Day"
+
+[node name="ObjectiveCheckBox" type="CheckBox" parent="VBoxContainer" unique_id=1517077119]
+layout_mode = 2
+text = "Found the clue
+"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer" unique_id=611965402]
+layout_mode = 2
+
+[node name="CluesLabel" type="Label" parent="VBoxContainer" unique_id=702629531]
+layout_mode = 2
+text = "Discovered clues: None"
+
+[node name="EventsLabel" type="Label" parent="VBoxContainer" unique_id=888909245]
+layout_mode = 2
