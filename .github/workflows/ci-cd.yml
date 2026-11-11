@@ -1,4 +1,4 @@
-name: Backend CI/CD
+name: Backend & Godot CI/CD
 
 on:
   push:
@@ -42,3 +42,72 @@ jobs:
       - name: Deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: echo "Deploying... (placeholder; no deployment configured)"
+
+  game-test:
+    name: Game-Test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GODOT_VERSION: 4.7.2
+    steps:
+      - name: Setup - check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup - restore Godot from cache
+        id: godot-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/godot
+          key: godot-${{ env.GODOT_VERSION }}-linux-x86_64
+
+      - name: Setup - download Godot
+        if: steps.godot-cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/godot
+          curl -fsSL -o /tmp/godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q /tmp/godot.zip -d ~/godot
+          mv ~/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64 ~/godot/godot
+
+      - name: Import
+        # game/.godot is not committed, so build the import cache and the class_name
+        # registry first. A script that fails to parse shows up here as SCRIPT ERROR.
+        run: |
+          set -o pipefail
+          timeout 300 ~/godot/godot --headless --path game --import 2>&1 | tee import.log
+          if grep -q 'SCRIPT ERROR' import.log; then
+            echo "::error::Godot reported script errors during import"
+            exit 1
+          fi
+
+      - name: Test
+        # Runs every scene named game/tests/<name>_test.tscn. A test scene must quit
+        # with a non-zero exit code when a check fails.
+        run: |
+          set -o pipefail
+          shopt -s nullglob
+          tests=(game/tests/*_test.tscn)
+          if [ ${#tests[@]} -eq 0 ]; then
+            echo "::notice::No game tests found in game/tests"
+            exit 0
+          fi
+          for test in "${tests[@]}"; do
+            echo "::group::$test"
+            timeout 120 ~/godot/godot --headless --path game "res://tests/$(basename "$test")" 2>&1 | tee test.log
+            echo "::endgroup::"
+            if grep -q 'SCRIPT ERROR' test.log; then
+              echo "::error::$test reported script errors"
+              exit 1
+            fi
+          done
+
+      - name: Setup - configure Python for the room data check
+        if: hashFiles('tools/build_rooms.py') != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Room data check
+        if: hashFiles('tools/build_rooms.py') != ''
+        run: |
+          python -m pip install Pillow==12.3.0
+          python tools/build_rooms.py --check

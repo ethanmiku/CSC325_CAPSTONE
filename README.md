@@ -87,8 +87,10 @@ We plan to use three categories of testing:
 ## CI/CD pipeline
 
 The workflow in [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml) runs on
-every branch push and every pull request targeting `main`. Its job is named
-**Build-Test-Deploy**, with four named stages implemented as workflow steps:
+every branch push and every pull request targeting `main`. It has two jobs:
+**Build-Test-Deploy** for the backend and **Game-Test** for the Godot client.
+
+Build-Test-Deploy has four named stages implemented as workflow steps:
 
 | Stage | Behavior |
 | --- | --- |
@@ -101,6 +103,15 @@ Deploy is skipped for feature branches and pull requests. A failed setup,
 dependency installation, or test prevents the Deploy step from running.
 **The Deploy step is a placeholder: no backend is hosted or deployed yet.**
 The job has read-only repository permissions and a ten-minute timeout.
+
+Game-Test runs alongside it, with the same permissions and timeout:
+
+| Stage | Behavior |
+| --- | --- |
+| Setup | Checks out the repository and downloads Godot 4.7.2, cached between runs. |
+| Import | Runs `godot --headless --import` to build the import cache, which is not committed. Fails if any script has an error. |
+| Test | Runs every scene named `game/tests/<name>_test.tscn` headless. A test scene exits with a non-zero code when a check fails. |
+| Room data check | Runs `python tools/build_rooms.py --check` when that script is present. |
 
 ### Run CI checks locally
 
@@ -124,6 +135,16 @@ test, start a local MongoDB instance on port 27017, set `RUN_MONGODB_TESTS=1`,
 and run `python manage.py test dialogue.test_profiles --settings=config.settings_ci`.
 Django uses a disposable test database on that instance.
 
+For the game, install Godot 4.7.2 and run from the repository root:
+
+```sh
+godot --headless --path game --import
+godot --headless --path game res://tests/<name>_test.tscn
+```
+
+Run the import first on a fresh clone. Run the second command once for each test
+scene in `game/tests`; it exits with a non-zero code if a check fails.
+
 ## Main branch protection
 
 **Pending GitHub configuration:** the workflow file does not activate branch
@@ -133,8 +154,8 @@ protection. A repository administrator must create an active branch ruleset in
 1. Require a pull request before merging, with **1 required approval** from a
    teammate with write access.
 2. Dismiss stale approvals when new commits are pushed.
-3. Require status checks to pass; select **Test** from GitHub Actions after the
-   workflow has run once. Require the branch to be up to date before merging.
+3. Require status checks to pass; select **Build-Test-Deploy** and **Game-Test**
+   from GitHub Actions after the workflow has run once. Require the branch to be up to date before merging.
 4. Block force pushes and restrict branch deletion.
 5. Leave the bypass list empty so direct pushes cannot bypass the PR requirement.
 
@@ -142,7 +163,7 @@ Use the PR requirement to block direct pushes. Do not enable **Restrict updates*
 which would also prevent normal merges by users without bypass permission.
 See [GitHub's ruleset setup guide](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
-After activation, verify that an unapproved PR cannot merge, a failing Test check
+After activation, verify that an unapproved PR cannot merge, a failing check
 blocks merging, and a passing, approved PR can merge. Live enforcement remains
 unverified until these GitHub checks are completed.
 
@@ -178,10 +199,10 @@ After obtaining repository write access, a teammate can:
 2. Create a feature branch with `git switch -c your-feature-name`.
 3. Make changes, run checks, commit, and push with
    `git push -u origin your-feature-name`.
-4. Open a PR targeting `main` and inspect the **Test** check in the PR's Checks tab.
+4. Open a PR targeting `main` and inspect the **Build-Test-Deploy** and **Game-Test** checks in the PR's Checks tab.
 5. Address failures and request a teammate's review. Once the ruleset is active,
    passing tests and approval are required before merging.
-6. After merging, open **Actions > Backend CI/CD** and inspect the run for `main`.
+6. After merging, open **Actions > Backend & Godot CI/CD** and inspect the run for `main`.
    It repeats the tests and executes the placeholder Deploy step.
 
 **Sanity-check status:** local tests pass. GitHub workflow execution and ruleset
