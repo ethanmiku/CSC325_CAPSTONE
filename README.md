@@ -28,8 +28,8 @@ The goal is to create an engaging detective experience where players use logical
 - [NPC dialogue API contract and Godot handoff](backend/docs/dialogue-api.md)
 
 The local dialogue MVP supports Claude-generated replies from MongoDB-backed NPC profiles.
-The backend owns NPC data, validation, prompts, and Claude access. The Godot client
-owns the conversation UI and supplies recent history with each message.
+The backend owns NPC data, conversation history, validation, prompts, and Claude access.
+The dialogue API uses a playthrough ID and NPC ID to load recent exchanges.
 
 ## Architecture
 
@@ -130,9 +130,9 @@ python manage.py test --settings=config.settings_ci --verbosity 2
 Run these commands from `backend` so Django discovers the tests. CI settings
 generate an ephemeral Django key, disable debug mode, and use a local MongoDB
 address without credentials. The default suite mocks Claude and skips the MongoDB
-integration test, so it runs without either service. To run the profile integration
-test, start a local MongoDB instance on port 27017, set `RUN_MONGODB_TESTS=1`,
-and run `python manage.py test dialogue.test_profiles --settings=config.settings_ci`.
+integration tests, so it runs without either service. To run the MongoDB integration
+tests, start a local MongoDB instance on port 27017, set `RUN_MONGODB_TESTS=1`,
+and run `python manage.py test dialogue --settings=config.settings_ci`.
 Django uses a disposable test database on that instance.
 
 For the game, install Godot 4.7.2 and run from the repository root:

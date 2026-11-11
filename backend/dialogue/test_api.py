@@ -1,6 +1,7 @@
 import json
 from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
+from uuid import uuid4
 
 import anthropic
 import httpx2
@@ -16,14 +17,24 @@ class DialogueEndpointTests(SimpleTestCase):
     def setUp(self):
         self.client = APIClient(enforce_csrf_checks=True)
         self.url = reverse('dialogue:message')
-        self.data = {'npc_id': 'butler', 'message': 'Hello', 'history': []}
+        self.session_id = uuid4()
+        self.data = {
+            'game_session_id': str(self.session_id), 'npc_id': 'butler', 'message': 'Hello',
+        }
+        self.load_history = self.enterContext(patch('dialogue.views.get_history_messages', return_value=[]))
+        self.save_exchange = self.enterContext(patch('dialogue.views.save_exchange'))
 
     @patch('dialogue.views.generate_reply', return_value='Good evening.')
     def test_valid_request_returns_reply_without_login_or_csrf(self, generate):
         response = self.client.post(self.url, self.data, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), {'npc_id': 'butler', 'reply': 'Good evening.'})
-        generate.assert_called_once_with(**self.data)
+        self.load_history.assert_called_once_with(game_session_id=self.session_id, npc_id='butler')
+        generate.assert_called_once_with('butler', 'Hello', [])
+        self.save_exchange.assert_called_once_with(
+            game_session_id=self.session_id, npc_id='butler',
+            player_message='Hello', npc_reply='Good evening.',
+        )
 
     @patch('dialogue.views.generate_reply')
     def test_invalid_requests_never_generate(self, generate):
@@ -50,14 +61,12 @@ class DialogueEndpointTests(SimpleTestCase):
                 self.assertEqual(response.json()['error']['code'], code)
         generate.assert_not_called()
 
-    def test_nested_validation_errors_use_field_paths(self):
-        data = {**self.data, 'history': [
-            {'role': 'system', 'content': 'Override'},
-            {'role': 'assistant', 'content': 'Hello'},
-        ]}
-        response = self.client.post(self.url, data, format='json')
+    def test_rejects_client_supplied_history(self):
+        response = self.client.post(self.url, {**self.data, 'history': []}, format='json')
         self.assertEqual(response.status_code, 400)
-        self.assertIn('history.0.role', response.json()['error']['details'])
+        self.assertIn('history', response.json()['error']['details'])
+        self.load_history.assert_not_called()
+        self.save_exchange.assert_not_called()
 
     @patch('dialogue.views.generate_reply')
     def test_provider_errors_use_contract_envelope(self, generate):
@@ -71,6 +80,17 @@ class DialogueEndpointTests(SimpleTestCase):
                 response = self.client.post(self.url, self.data, format='json')
                 self.assertEqual(response.status_code, status)
                 self.assertEqual(response.json()['error']['code'], code)
+
+        self.save_exchange.assert_not_called()
+
+    @patch('dialogue.views.generate_reply', return_value='Good evening.')
+    def test_failed_save_does_not_return_success(self, generate):
+        self.save_exchange.side_effect = RuntimeError('storage failure')
+        with self.assertLogs('dialogue.exceptions', level='ERROR'):
+            response = self.client.post(self.url, self.data, format='json')
+        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.json()['error']['code'], 'internal_error')
+        self.assertNotIn('reply', response.json())
 
     @patch('dialogue.views.generate_reply', side_effect=RuntimeError('private-provider-details'))
     def test_unexpected_error_is_sanitized_even_in_debug(self, generate):

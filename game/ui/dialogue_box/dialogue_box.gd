@@ -1,9 +1,9 @@
-# Bottom-of-screen dialogue box. Text types out a page at a time; the player
-# cycles through by clicking/touching the box (or the interact key, handled by the map).
+# Bottom-of-screen question input and paginated NPC replies.
 extends CanvasLayer
 class_name DialogueBox
 
 signal closed
+signal question_submitted(question: String)
 
 ### Variables ###
 const LOADING_DOT_INTERVAL = 0.4
@@ -13,7 +13,11 @@ const LOADING_DOT_INTERVAL = 0.4
 @onready var _panel: PanelContainer = $Panel
 @onready var _speaker: Label = $Panel/Margin/VBox/Speaker
 @onready var _body: Label = $Panel/Margin/VBox/Body
-@onready var _continue: Label = $Panel/Margin/VBox/Continue
+@onready var _question_row: HBoxContainer = $Panel/Margin/VBox/QuestionRow
+@onready var _question: LineEdit = $Panel/Margin/VBox/QuestionRow/Question
+@onready var _send: Button = $Panel/Margin/VBox/QuestionRow/Send
+@onready var _continue: Button = $Panel/Margin/VBox/Actions/Continue
+@onready var _close: Button = $Panel/Margin/VBox/Actions/Close
 
 var _loading := false
 var _loading_time := 0.0
@@ -28,6 +32,10 @@ var _typed := 0.0
 func _ready() -> void:
 	visible = false
 	_panel.gui_input.connect(_on_panel_gui_input)
+	_question.text_submitted.connect(_submit_question)
+	_send.pressed.connect(func() -> void: _submit_question(_question.text))
+	_continue.pressed.connect(advance)
+	_close.pressed.connect(close)
 
 func _process(delta: float) -> void:
 	# Cycles the dots on "<speaker> is responding..." while waiting
@@ -48,29 +56,52 @@ func is_open() -> bool:
 
 func open(speaker: String) -> void:
 	_speaker.text = speaker
-	_body.text = ""
+	_question.clear()
 	visible = true
+	_show_question("Ask %s a question." % speaker)
 
-# Shows "<speaker> is responding..." and ignores clicks until show_text() is called
+func _submit_question(text: String) -> void:
+	if not visible or not _question_row.visible:
+		return
+	var question := text.strip_edges()
+	if not question.is_empty():
+		question_submitted.emit(question)
+
 func show_loading() -> void:
 	_loading = true
+	_question_row.hide()
+	_close.disabled = true
 	_loading_time = 0.0
 	_loading_base = "%s is responding" % _speaker.text
 	_body.text = _loading_base + "."
 	_body.visible_characters = -1
 	_continue.visible = false
 
-func show_text(text: String) -> void:
-	# Ignore clicks until the box has finished laying out, so pages wrap at the right width
-	_loading = true
+func show_reply(text: String) -> void:
+	_question.clear()
+	# Wait for layout so pages wrap at the right width.
 	await get_tree().process_frame
 	_loading = false
+	_close.disabled = false
 	_pages = _paginate(text)
 	_show_page(0)
 
-# Finishes typing the current page, then moves to the next one, then closes the box
+func show_error(message: String) -> void:
+	_show_question(message)
+
+func _show_question(message: String) -> void:
+	_loading = false
+	_typing = false
+	_body.text = message
+	_body.visible_characters = -1
+	_continue.hide()
+	_close.disabled = false
+	_question_row.show()
+	_question.grab_focus()
+
+# Finish typing, show the next page, or return to question input.
 func advance() -> void:
-	if not visible or _loading:
+	if not visible or not _continue.visible:
 		return
 
 	if _typing:
@@ -78,9 +109,11 @@ func advance() -> void:
 	elif _page + 1 < _pages.size():
 		_show_page(_page + 1)
 	else:
-		close()
+		_show_question(_body.text)
 
 func close() -> void:
+	if not visible or _loading:
+		return
 	visible = false
 	_loading = false
 	_typing = false
@@ -92,12 +125,12 @@ func _show_page(index: int) -> void:
 	_body.visible_characters = 0
 	_typed = 0.0
 	_typing = true
-	_continue.visible = false
+	_continue.show()
+	_continue.grab_focus()
 
 func _finish_page() -> void:
 	_body.visible_characters = -1
 	_typing = false
-	_continue.visible = true
 
 # Splits text into pages of max_lines_visible lines, wrapped the same way the body label wraps
 func _paginate(text: String) -> PackedStringArray:
