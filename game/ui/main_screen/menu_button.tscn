@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3]
+[ext_resource type="FontFile" path="res://ui/main_screen/fonts/pixelifysans.ttf" id="pixel"]
+
+[sub_resource type="StyleBoxFlat" id="normal"]
+bg_color = Color(0.118, 0.09, 0.102, 0.82)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 0.65)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 28.0
+content_margin_right = 28.0
+
+[sub_resource type="StyleBoxFlat" id="hover"]
+bg_color = Color(0.941, 0.78, 0.369, 0.15)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 28.0
+content_margin_right = 28.0
+
+[sub_resource type="StyleBoxFlat" id="pressed"]
+bg_color = Color(0.941, 0.78, 0.369, 0.3)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 28.0
+content_margin_right = 28.0
+
+[sub_resource type="StyleBoxFlat" id="focus"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.941, 0.78, 0.369, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+corner_radius_bottom_right = 3
+content_margin_left = 0.0
+content_margin_right = 0.0
+
+[node name="MenuButton" type="Button"]
+custom_minimum_size = Vector2(200, 38)
+offset_right = 200.0
+offset_bottom = 38.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_colors/font_disabled_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_colors/font_hover_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_colors/font_pressed_color = Color(0.949, 0.89, 0.812, 1)
+theme_override_fonts/font = ExtResource("pixel")
+theme_override_font_sizes/font_size = 15
+theme_override_constants/h_separation = 28
+theme_override_styles/normal = SubResource("normal")
+theme_override_styles/disabled = SubResource("normal")
+theme_override_styles/hover = SubResource("hover")
+theme_override_styles/pressed = SubResource("pressed")
+theme_override_styles/focus = SubResource("focus")
+text = "New Game"
+alignment = 0
+
+
+[node name="Accent" type="ColorRect" parent="."]
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 18.0
+offset_bottom = 26.0
+mouse_filter = 2
+color = Color(0.941, 0.78, 0.369, 1)
